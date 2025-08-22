@@ -1,0 +1,5 @@
+"Type","Plate","MeanReads","MedianReads","SDReads","n","PercentOfSample"
+"MOCK","102",386488,386488,NA,1,199.67
+"PCRBLANK","102",0,0,0,1,0
+"SAMPLE","102",193564.06,141453,174110.87,34,100
+"EXTBLANK","102",0,0,0,2,0

@@ -1,0 +1,3559 @@
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLANK-102-1_S392_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLANK-102-1_S392_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLANK-102-1_S392_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLANK-102-1_S392_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 0.009 s (438.713 µs/read; 0.14 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:                 21
+  Read 1 with adapter:                       3 (14.3%)
+  Read 2 with adapter:                      21 (100.0%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):            21 (100.0%)
+
+Total basepairs processed:         6,203 bp
+  Read 1:           932 bp
+  Read 2:         5,271 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):          5,576 bp (89.9%)
+  Read 1:           869 bp
+  Read 2:         4,707 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 3 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+21	3	0.0	2	3
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 21 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	3	0.0	2	0 0 3
+27	18	0.0	2	2 15 1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLANK-102-2_S410_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLANK-102-2_S410_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLANK-102-2_S410_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLANK-102-2_S410_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 0.009 s (1777.792 µs/read; 0.03 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:                  5
+  Read 1 with adapter:                       0 (0.0%)
+  Read 2 with adapter:                       5 (100.0%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):             5 (100.0%)
+
+Total basepairs processed:         1,343 bp
+  Read 1:            88 bp
+  Read 2:         1,255 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):          1,208 bp (89.9%)
+  Read 1:            88 bp
+  Read 2:         1,120 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 0 times
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 5 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+27	5	0.0	2	2 3
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-290_S417_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-290_S417_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-290_S417_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-290_S417_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 0.024 s (19.591 µs/read; 3.06 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:              1,228
+  Read 1 with adapter:                   1,218 (99.2%)
+  Read 2 with adapter:                   1,214 (98.9%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):         1,228 (100.0%)
+
+Total basepairs processed:       473,902 bp
+  Read 1:       232,142 bp
+  Read 2:       241,760 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):        415,550 bp (87.7%)
+  Read 1:       206,569 bp
+  Read 2:       208,981 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 1218 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+19	1	0.0	1	0 0 1
+20	5	0.0	2	0 5
+21	1210	0.0	2	1126 81 3
+22	2	0.0	2	0 2
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 1214 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+25	1	0.0	2	0 0 1
+26	3	0.0	2	1 1 1
+27	1204	0.0	2	1142 58 4
+28	6	0.0	2	0 6
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-88_S385_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-88_S385_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-88_S385_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-88_S385_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 4.607 s (12.888 µs/read; 4.66 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            357,467
+  Read 1 with adapter:                 354,795 (99.3%)
+  Read 2 with adapter:                 355,076 (99.3%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       357,467 (100.0%)
+
+Total basepairs processed:   144,132,260 bp
+  Read 1:    70,797,294 bp
+  Read 2:    73,334,966 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):    127,112,427 bp (88.2%)
+  Read 1:    63,348,476 bp
+  Read 2:    63,763,951 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 354795 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+12	2	0.0	1	2
+14	1	0.0	1	1
+15	5	0.0	1	3 2
+16	2	0.0	1	0 2
+17	2	0.0	1	2
+18	11	0.0	1	4 7
+19	87	0.0	1	10 7 70
+20	3480	0.0	2	97 3269 114
+21	350216	0.0	2	333886 15974 356
+22	901	0.0	2	119 725 57
+23	10	0.0	2	2 4 4
+24	1	0.0	2	0 1
+25	8	0.0	2	4 3 1
+26	6	0.0	2	2 3 1
+27	3	0.0	2	0 0 3
+28	1	0.0	2	1
+29	4	0.0	2	4
+30	3	0.0	2	1 0 2
+31	3	0.0	2	2 0 1
+32	9	0.0	2	0 0 9
+33	9	0.0	2	5 4
+34	4	0.0	2	3 1
+35	2	0.0	2	1 1
+36	2	0.0	2	2
+37	1	0.0	2	1
+38	3	0.0	2	3
+39	5	0.0	2	5
+40	2	0.0	2	2
+41	3	0.0	2	2 1
+42	1	0.0	2	1
+43	2	0.0	2	1 1
+44	2	0.0	2	2
+45	2	0.0	2	2
+47	2	0.0	2	2
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 355076 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+5	1	349.1	0	1
+11	1	0.1	1	1
+12	4	0.0	1	4
+17	3	0.0	1	0 3
+18	1	0.0	1	0 1
+19	1	0.0	1	1
+20	3	0.0	2	2 1
+21	2	0.0	2	1 1
+22	3	0.0	2	1 2
+23	4	0.0	2	4
+24	3	0.0	2	1 1 1
+25	64	0.0	2	3 11 50
+26	18131	0.0	2	81 1526 16524
+27	334925	0.0	2	324737 9342 846
+28	1884	0.0	2	87 1535 262
+29	16	0.0	2	0 0 16
+30	1	0.0	2	1
+33	1	0.0	2	1
+35	3	0.0	2	2 0 1
+36	1	0.0	2	1
+38	1	0.0	2	0 0 1
+39	1	0.0	2	1
+41	1	0.0	2	1
+42	2	0.0	2	1 1
+43	2	0.0	2	2
+44	2	0.0	2	2
+45	4	0.0	2	4
+46	3	0.0	2	3
+48	1	0.0	2	1
+51	2	0.0	2	0 2
+55	2	0.0	2	1 1
+56	1	0.0	2	1
+60	2	0.0	2	2
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-89_S386_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-89_S386_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-89_S386_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-89_S386_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 1.278 s (12.488 µs/read; 4.80 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            102,328
+  Read 1 with adapter:                 102,271 (99.9%)
+  Read 2 with adapter:                 101,624 (99.3%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       102,328 (100.0%)
+
+Total basepairs processed:    40,257,529 bp
+  Read 1:    19,816,229 bp
+  Read 2:    20,441,300 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):     35,366,481 bp (87.9%)
+  Read 1:    17,668,951 bp
+  Read 2:    17,697,530 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 102271 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+16	1	0.0	1	0 1
+17	2	0.0	1	2
+18	1	0.0	1	0 1
+19	28	0.0	1	1 7 20
+20	889	0.0	2	22 843 24
+21	101070	0.0	2	97046 3933 91
+22	261	0.0	2	31 221 9
+25	1	0.0	2	1
+28	2	0.0	2	0 0 2
+31	2	0.0	2	1 1
+34	3	0.0	2	1 1 1
+36	3	0.0	2	3
+38	4	0.0	2	4
+43	1	0.0	2	1
+44	2	0.0	2	2
+50	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 101624 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+23	1	0.0	2	0 1
+24	2	0.0	2	1 0 1
+25	12	0.0	2	2 2 8
+26	686	0.0	2	17 380 289
+27	100375	0.0	2	97279 2713 383
+28	539	0.0	2	26 414 99
+29	2	0.0	2	0 0 2
+35	1	0.0	2	0 0 1
+39	2	0.0	2	2
+41	1	0.0	2	0 1
+42	1	0.0	2	0 0 1
+44	1	0.0	2	1
+48	1	0.0	2	1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-90_S387_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-90_S387_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-90_S387_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-90_S387_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 0.892 s (12.595 µs/read; 4.76 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:             70,828
+  Read 1 with adapter:                  69,548 (98.2%)
+  Read 2 with adapter:                  70,328 (99.3%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):        70,828 (100.0%)
+
+Total basepairs processed:    27,287,467 bp
+  Read 1:    13,283,576 bp
+  Read 2:    14,003,891 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):     23,928,703 bp (87.7%)
+  Read 1:    11,823,361 bp
+  Read 2:    12,105,342 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 69548 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+19	11	0.0	1	1 2 8
+20	561	0.0	2	30 508 23
+21	68812	0.0	2	66341 2400 71
+22	155	0.0	2	16 135 4
+26	1	0.0	2	1
+28	1	0.0	2	1
+32	1	0.0	2	1
+34	1	0.0	2	1
+39	2	0.0	2	2
+42	3	0.0	2	3
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 70328 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+12	1	0.0	1	1
+25	8	0.0	2	0 2 6
+26	663	0.0	2	8 328 327
+27	69297	0.0	2	65986 2984 327
+28	351	0.0	2	29 294 28
+29	7	0.0	2	0 0 7
+49	1	0.0	2	1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-91_S388_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-91_S388_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-91_S388_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-91_S388_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 0.234 s (13.929 µs/read; 4.31 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:             16,781
+  Read 1 with adapter:                  16,748 (99.8%)
+  Read 2 with adapter:                  16,549 (98.6%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):        16,781 (100.0%)
+
+Total basepairs processed:     6,469,556 bp
+  Read 1:     3,186,899 bp
+  Read 2:     3,282,657 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):      5,671,068 bp (87.7%)
+  Read 1:     2,835,232 bp
+  Read 2:     2,835,836 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 16748 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+19	1	0.0	1	0 1
+20	54	0.0	2	1 51 2
+21	16678	0.0	2	15830 831 17
+22	15	0.0	2	0 15
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 16549 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+21	1	0.0	2	1
+22	2	0.0	2	0 1 1
+25	2	0.0	2	0 1 1
+26	47	0.0	2	1 43 3
+27	16432	0.0	2	15627 660 145
+28	65	0.0	2	4 54 7
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-92_S389_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-92_S389_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-92_S389_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-92_S389_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 0.103 s (13.257 µs/read; 4.53 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:              7,788
+  Read 1 with adapter:                   7,769 (99.8%)
+  Read 2 with adapter:                   7,748 (99.5%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):         7,788 (100.0%)
+
+Total basepairs processed:     3,000,580 bp
+  Read 1:     1,475,076 bp
+  Read 2:     1,525,504 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):      2,628,257 bp (87.6%)
+  Read 1:     1,311,962 bp
+  Read 2:     1,316,295 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 7769 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+20	64	0.0	2	1 61 2
+21	7691	0.0	2	7331 353 7
+22	12	0.0	2	1 11
+23	1	0.0	2	0 1
+36	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 7748 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+25	1	0.0	2	0 0 1
+26	38	0.0	2	2 30 6
+27	7656	0.0	2	7380 246 30
+28	53	0.0	2	3 45 5
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-93_S390_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-93_S390_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-93_S390_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-93_S390_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 6.482 s (12.406 µs/read; 4.84 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            522,456
+  Read 1 with adapter:                 521,874 (99.9%)
+  Read 2 with adapter:                 520,270 (99.6%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       522,456 (100.0%)
+
+Total basepairs processed:   203,225,038 bp
+  Read 1:   100,003,818 bp
+  Read 2:   103,221,220 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):    178,220,370 bp (87.7%)
+  Read 1:    89,046,494 bp
+  Read 2:    89,173,876 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 521874 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+13	2	0.0	1	2
+16	5	0.0	1	0 5
+17	7	0.0	1	6 1
+18	4	0.0	1	1 3
+19	75	0.0	1	6 8 61
+20	3666	0.0	2	129 3403 134
+21	516921	0.0	2	495908 20634 379
+22	1133	0.0	2	153 955 25
+23	12	0.0	2	0 3 9
+24	2	0.0	2	2
+25	2	0.0	2	1 1
+27	2	0.0	2	1 1
+28	2	0.0	2	0 0 2
+29	2	0.0	2	2
+30	5	0.0	2	4 1
+31	3	0.0	2	3
+32	1	0.0	2	1
+33	1	0.0	2	1
+34	3	0.0	2	3
+35	3	0.0	2	2 1
+36	5	0.0	2	5
+37	2	0.0	2	2
+38	4	0.0	2	4
+39	1	0.0	2	1
+41	2	0.0	2	2
+43	1	0.0	2	1
+45	4	0.0	2	4
+46	2	0.0	2	2
+58	2	0.0	2	0 0 2
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 520270 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+9	1	2.0	0	1
+12	5	0.0	1	3 2
+15	3	0.0	1	1 2
+16	2	0.0	1	1 1
+17	1	0.0	1	0 1
+20	1	0.0	2	0 0 1
+21	1	0.0	2	1
+22	7	0.0	2	2 2 3
+23	3	0.0	2	1 0 2
+24	16	0.0	2	5 6 5
+25	95	0.0	2	5 12 78
+26	2472	0.0	2	107 2271 94
+27	515009	0.0	2	503162 10783 1064
+28	2607	0.0	2	129 2148 330
+29	22	0.0	2	2 0 20
+30	4	0.0	2	0 0 4
+35	1	0.0	2	1
+37	4	0.0	2	0 1 3
+38	4	0.0	2	4
+39	2	0.0	2	0 0 2
+42	1	0.0	2	0 0 1
+43	1	0.0	2	1
+44	2	0.0	2	2
+45	1	0.0	2	1
+48	1	0.0	2	1
+50	1	0.0	2	1
+51	1	0.0	2	1
+52	1	0.0	2	1
+57	1	0.0	2	1
+Running external command line application. This may print messages to stdout and/or stderr.
+The commands to be run are below. These commands cannot be manually re-run as they will depend on temporary files that no longer exist.
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLANK-102-1_S392_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLANK-102-1_S392_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLANK-102-1_S392_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLANK-102-1_S392_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLANK-102-2_S410_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLANK-102-2_S410_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLANK-102-2_S410_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLANK-102-2_S410_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-290_S417_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-290_S417_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-290_S417_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-290_S417_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-88_S385_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-88_S385_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-88_S385_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-88_S385_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-89_S386_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-89_S386_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-89_S386_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-89_S386_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-90_S387_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-90_S387_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-90_S387_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-90_S387_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-91_S388_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-91_S388_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-91_S388_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-91_S388_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-92_S389_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-92_S389_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-92_S389_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-92_S389_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-93_S390_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-93_S390_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-93_S390_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-93_S390_L001_R2_001.fastq.gz
+
+
+Command: This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-94_S391_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-94_S391_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-94_S391_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-94_S391_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 2.124 s (12.682 µs/read; 4.73 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            167,475
+  Read 1 with adapter:                 167,086 (99.8%)
+  Read 2 with adapter:                 166,756 (99.6%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       167,475 (100.0%)
+
+Total basepairs processed:    65,499,791 bp
+  Read 1:    32,204,456 bp
+  Read 2:    33,295,335 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):     57,489,618 bp (87.8%)
+  Read 1:    28,696,415 bp
+  Read 2:    28,793,203 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 167086 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+15	1	0.0	1	1
+17	1	0.0	1	1
+18	4	0.0	1	4
+19	29	0.0	1	4 5 20
+20	1537	0.0	2	42 1463 32
+21	165056	0.0	2	158079 6863 114
+22	425	0.0	2	35 374 16
+23	5	0.0	2	0 0 5
+24	1	0.0	2	1
+25	1	0.0	2	0 0 1
+27	1	0.0	2	0 0 1
+28	1	0.0	2	0 1
+33	4	0.0	2	0 2 2
+34	6	0.0	2	2 2 2
+37	1	0.0	2	1
+40	11	0.0	2	11
+44	2	0.0	2	2
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 166756 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+12	1	0.0	1	1
+14	1	0.0	1	1
+22	2	0.0	2	0 2
+23	3	0.0	2	2 0 1
+24	6	0.0	2	1 0 5
+25	27	0.0	2	6 2 19
+26	1110	0.0	2	33 711 366
+27	164721	0.0	2	160695 3666 360
+28	871	0.0	2	39 679 153
+29	10	0.0	2	0 0 10
+33	1	0.0	2	1
+38	1	0.0	2	1
+44	1	0.0	2	0 1
+54	1	0.0	2	1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-95_S393_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-95_S393_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-95_S393_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-95_S393_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 5.632 s (14.034 µs/read; 4.28 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            401,324
+  Read 1 with adapter:                 400,013 (99.7%)
+  Read 2 with adapter:                 394,005 (98.2%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       401,324 (100.0%)
+
+Total basepairs processed:   171,443,820 bp
+  Read 1:    84,677,696 bp
+  Read 2:    86,766,124 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):    152,473,105 bp (88.9%)
+  Read 1:    76,279,939 bp
+  Read 2:    76,193,166 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 400013 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+13	1	0.0	1	1
+15	5	0.0	1	5
+16	4	0.0	1	0 4
+17	7	0.0	1	6 1
+18	11	0.0	1	3 8
+19	117	0.0	1	4 15 98
+20	3802	0.0	2	104 3537 161
+21	395086	0.0	2	378393 16356 337
+22	912	0.0	2	100 782 30
+23	9	0.0	2	3 1 5
+24	1	0.0	2	0 1
+25	2	0.0	2	2
+26	5	0.0	2	4 1
+27	3	0.0	2	3
+28	5	0.0	2	1 1 3
+29	2	0.0	2	2
+31	5	0.0	2	2 3
+33	13	0.0	2	6 7
+34	4	0.0	2	2 0 2
+35	3	0.0	2	2 1
+36	2	0.0	2	2
+38	5	0.0	2	5
+39	3	0.0	2	3
+41	1	0.0	2	1
+42	2	0.0	2	2
+43	1	0.0	2	1
+44	1	0.0	2	1
+49	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 394005 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+12	2	0.0	1	1 1
+15	1	0.0	1	0 1
+16	2	0.0	1	2
+17	5	0.0	1	1 4
+19	1	0.0	1	1
+20	4	0.0	2	3 1
+21	2	0.0	2	1 0 1
+22	1	0.0	2	1
+23	5	0.0	2	0 0 5
+24	6	0.0	2	3 0 3
+25	120	0.0	2	5 11 104
+26	67084	0.0	2	81 1995 65008
+27	324964	0.0	2	316032 8095 837
+28	1742	0.0	2	94 1416 232
+29	32	0.0	2	1 0 31
+33	1	0.0	2	0 0 1
+35	1	0.0	2	0 0 1
+36	2	0.0	2	2
+37	2	0.0	2	1 1
+38	5	0.0	2	2 0 3
+41	2	0.0	2	1 1
+42	5	0.0	2	0 1 4
+43	2	0.0	2	2
+44	1	0.0	2	1
+45	4	0.0	2	0 4
+48	1	0.0	2	1
+49	1	0.0	2	1
+50	3	0.0	2	3
+51	1	0.0	2	0 1
+52	1	0.0	2	1
+54	2	0.0	2	2
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-96_S394_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-96_S394_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-96_S394_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-96_S394_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 3.432 s (12.291 µs/read; 4.88 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            279,251
+  Read 1 with adapter:                 274,828 (98.4%)
+  Read 2 with adapter:                 278,116 (99.6%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       279,251 (100.0%)
+
+Total basepairs processed:   107,784,719 bp
+  Read 1:    52,563,915 bp
+  Read 2:    55,220,804 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):     94,504,615 bp (87.7%)
+  Read 1:    46,793,368 bp
+  Read 2:    47,711,247 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 274828 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+15	2	0.0	1	2
+17	4	0.0	1	2 2
+18	4	0.0	1	0 4
+19	60	0.0	1	5 6 49
+20	2548	0.0	2	71 2387 90
+21	271459	0.0	2	260237 11021 201
+22	654	0.0	2	59 555 40
+23	9	0.0	2	5 1 3
+24	6	0.0	2	1 5
+25	1	0.0	2	1
+27	1	0.0	2	1
+28	3	0.0	2	3
+29	8	0.0	2	6 0 2
+30	5	0.0	2	4 0 1
+31	2	0.0	2	1 1
+33	2	0.0	2	1 1
+34	6	0.0	2	5 0 1
+35	5	0.0	2	5
+36	25	0.0	2	25
+37	1	0.0	2	1
+38	6	0.0	2	6
+39	3	0.0	2	3
+40	7	0.0	2	7
+41	1	0.0	2	1
+43	2	0.0	2	2
+45	2	0.0	2	2
+46	1	0.0	2	1
+49	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 278116 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+12	3	0.0	1	3
+14	1	0.0	1	0 1
+15	3	0.0	1	2 1
+16	1	0.0	1	1
+17	4	0.0	1	0 4
+18	2	0.0	1	1 1
+21	3	0.0	2	0 3
+22	6	0.0	2	0 2 4
+23	7	0.0	2	3 0 4
+24	6	0.0	2	5 1
+25	39	0.0	2	3 7 29
+26	1201	0.0	2	61 971 169
+27	275237	0.0	2	265420 9269 548
+28	1576	0.0	2	60 1349 167
+29	6	0.0	2	0 0 6
+32	1	0.0	2	1
+33	4	0.0	2	0 0 4
+34	1	0.0	2	0 1
+39	1	0.0	2	0 0 1
+41	2	0.0	2	2
+42	3	0.0	2	3
+44	1	0.0	2	1
+45	1	0.0	2	1
+50	1	0.0	2	1
+52	1	0.0	2	1
+59	2	0.0	2	1 1
+62	3	0.0	2	2 1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-97_S395_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-97_S395_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-97_S395_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-97_S395_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 6.005 s (12.281 µs/read; 4.89 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            488,970
+  Read 1 with adapter:                 485,872 (99.4%)
+  Read 2 with adapter:                 484,740 (99.1%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       488,970 (100.0%)
+
+Total basepairs processed:   192,263,872 bp
+  Read 1:    94,339,237 bp
+  Read 2:    97,924,635 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):    168,976,721 bp (87.9%)
+  Read 1:    84,137,139 bp
+  Read 2:    84,839,582 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 485872 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+9	1	1.9	0	1
+13	1	0.0	1	1
+15	3	0.0	1	2 1
+17	11	0.0	1	11
+18	12	0.0	1	4 8
+19	93	0.0	1	5 11 77
+20	4128	0.0	2	108 3800 220
+21	480115	0.0	2	466784 13040 291
+22	1367	0.0	2	126 1201 40
+23	12	0.0	2	2 1 9
+24	15	0.0	2	10 4 1
+26	3	0.0	2	1 2
+27	3	0.0	2	1 2
+28	13	0.0	2	4 7 2
+29	7	0.0	2	4 1 2
+30	1	0.0	2	1
+31	14	0.0	2	5 7 2
+32	8	0.0	2	8
+33	9	0.0	2	8 1
+34	4	0.0	2	4
+35	4	0.0	2	4
+36	4	0.0	2	4
+37	1	0.0	2	1
+38	2	0.0	2	2
+39	1	0.0	2	1
+40	4	0.0	2	3 1
+41	5	0.0	2	5
+43	4	0.0	2	4
+45	7	0.0	2	7
+46	2	0.0	2	2
+47	2	0.0	2	2
+48	5	0.0	2	5
+50	2	0.0	2	0 2
+51	1	0.0	2	1
+53	4	0.0	2	4
+54	2	0.0	2	2
+56	2	0.0	2	2
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 484740 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+9	1	1.9	0	1
+11	1	0.1	1	1
+12	4	0.0	1	3 1
+13	2	0.0	1	0 2
+14	2	0.0	1	0 2
+15	5	0.0	1	1 4
+16	1	0.0	1	1
+19	1	0.0	1	0 1
+20	1	0.0	2	0 1
+21	4	0.0	2	0 2 2
+22	5	0.0	2	2 2 1
+24	10	0.0	2	2 3 5
+25	120	0.0	2	4 15 101
+26	5618	0.0	2	118 4872 628
+27	476330	0.0	2	461490 13370 1470
+28	2572	0.0	2	126 2154 292
+29	23	0.0	2	4 4 15
+32	1	0.0	2	0 0 1
+33	1	0.0	2	0 0 1
+34	4	0.0	2	2 1 1
+35	2	0.0	2	2
+36	1	0.0	2	0 0 1
+38	4	0.0	2	4
+39	3	0.0	2	2 1
+40	1	0.0	2	0 0 1
+41	3	0.0	2	3
+42	1	0.0	2	0 0 1
+43	1	0.0	2	1
+44	1	0.0	2	1
+45	3	0.0	2	3
+46	4	0.0	2	4
+47	3	0.0	2	3
+50	1	0.0	2	1
+51	1	0.0	2	0 0 1
+52	1	0.0	2	1
+53	2	0.0	2	2
+56	1	0.0	2	1
+63	1	0.0	2	0 1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-98_S396_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-98_S396_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-98_S396_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-98_S396_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 3.386 s (12.264 µs/read; 4.89 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            276,076
+  Read 1 with adapter:                 275,934 (99.9%)
+  Read 2 with adapter:                 274,737 (99.5%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       276,076 (100.0%)
+
+Total basepairs processed:   108,553,532 bp
+  Read 1:    53,440,040 bp
+  Read 2:    55,113,492 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):     95,343,181 bp (87.8%)
+  Read 1:    47,646,788 bp
+  Read 2:    47,696,393 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 275934 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+14	3	0.0	1	2 1
+15	2	0.0	1	2
+16	3	0.0	1	0 3
+17	5	0.0	1	5
+18	7	0.0	1	2 5
+19	63	0.0	1	5 13 45
+20	2464	0.0	2	58 2321 85
+21	272641	0.0	2	264243 8209 189
+22	687	0.0	2	80 592 15
+23	10	0.0	2	1 4 5
+24	3	0.0	2	1 1 1
+25	3	0.0	2	3
+26	2	0.0	2	0 1 1
+27	1	0.0	2	1
+28	7	0.0	2	7
+29	1	0.0	2	0 0 1
+30	3	0.0	2	3
+31	2	0.0	2	2
+32	2	0.0	2	0 2
+33	4	0.0	2	1 3
+35	4	0.0	2	2 1 1
+36	5	0.0	2	5
+38	3	0.0	2	3
+41	3	0.0	2	3
+42	1	0.0	2	1
+44	2	0.0	2	2
+50	2	0.0	2	2
+53	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 274737 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+12	4	0.0	1	1 3
+13	1	0.0	1	0 1
+14	1	0.0	1	1
+16	2	0.0	1	2
+17	3	0.0	1	0 3
+18	2	0.0	1	0 2
+19	1	0.0	1	1
+20	1	0.0	2	0 0 1
+21	2	0.0	2	0 1 1
+22	5	0.0	2	4 1
+23	3	0.0	2	3
+24	13	0.0	2	2 2 9
+25	35	0.0	2	1 9 25
+26	2142	0.0	2	66 2010 66
+27	271077	0.0	2	265309 5242 526
+28	1416	0.0	2	64 1170 182
+29	9	0.0	2	0 1 8
+31	2	0.0	2	0 2
+33	3	0.0	2	3
+34	1	0.0	2	1
+35	2	0.0	2	2
+36	2	0.0	2	0 0 2
+38	1	0.0	2	1
+39	2	0.0	2	2
+40	1	0.0	2	1
+41	1	0.0	2	1
+44	1	0.0	2	0 0 1
+45	1	0.0	2	1
+46	1	0.0	2	1
+54	1	0.0	2	1
+55	1	0.0	2	1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/MOCK-102_S383_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/MOCK-102_S383_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/MOCK-102_S383_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/MOCK-102_S383_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 5.192 s (12.659 µs/read; 4.74 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            410,179
+  Read 1 with adapter:                 409,632 (99.9%)
+  Read 2 with adapter:                 407,840 (99.4%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       410,179 (100.0%)
+
+Total basepairs processed:   159,651,654 bp
+  Read 1:    78,578,920 bp
+  Read 2:    81,072,734 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):    140,038,114 bp (87.7%)
+  Read 1:    69,977,843 bp
+  Read 2:    70,060,271 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 409632 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+12	1	0.0	1	0 1
+14	1	0.0	1	0 1
+15	5	0.0	1	4 1
+16	1	0.0	1	0 1
+17	16	0.0	1	12 4
+18	6	0.0	1	3 3
+19	125	0.0	1	11 22 92
+20	3849	0.0	2	90 3639 120
+21	404362	0.0	2	388957 15015 390
+22	1124	0.0	2	144 953 27
+23	10	0.0	2	2 0 8
+24	6	0.0	2	4 0 2
+25	7	0.0	2	5 2
+26	2	0.0	2	0 1 1
+27	1	0.0	2	1
+28	8	0.0	2	8
+29	10	0.0	2	8 0 2
+30	6	0.0	2	4 0 2
+31	8	0.0	2	3 5
+32	4	0.0	2	2 0 2
+33	7	0.0	2	6 0 1
+34	10	0.0	2	9 1
+35	5	0.0	2	3 2
+36	5	0.0	2	5
+37	10	0.0	2	10
+38	6	0.0	2	6
+39	6	0.0	2	6
+40	7	0.0	2	7
+41	1	0.0	2	1
+42	3	0.0	2	3
+43	3	0.0	2	3
+45	1	0.0	2	1
+47	1	0.0	2	1
+48	3	0.0	2	3
+49	5	0.0	2	5
+50	2	0.0	2	2
+52	1	0.0	2	1
+55	2	0.0	2	1 1
+60	2	0.0	2	2
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 407840 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+12	8	0.0	1	8
+14	6	0.0	1	0 6
+15	4	0.0	1	0 4
+16	2	0.0	1	2
+17	2	0.0	1	0 2
+18	1	0.0	1	0 1
+19	1	0.0	1	1
+20	3	0.0	2	1 2
+21	3	0.0	2	1 1 1
+22	1	0.0	2	0 1
+23	9	0.0	2	8 0 1
+24	17	0.0	2	7 5 5
+25	103	0.0	2	4 11 88
+26	1665	0.0	2	117 1495 53
+27	403781	0.0	2	393843 8858 1080
+28	2147	0.0	2	82 1770 295
+29	28	0.0	2	0 2 26
+30	4	0.0	2	3 0 1
+31	3	0.0	2	2 1
+32	1	0.0	2	1
+33	1	0.0	2	0 0 1
+35	6	0.0	2	1 0 5
+37	5	0.0	2	1 4
+38	1	0.0	2	1
+39	5	0.0	2	1 3 1
+40	4	0.0	2	4
+41	4	0.0	2	0 1 3
+42	1	0.0	2	1
+43	4	0.0	2	2 0 2
+44	1	0.0	2	1
+45	1	0.0	2	1
+47	1	0.0	2	1
+49	1	0.0	2	1
+50	5	0.0	2	4 1
+52	3	0.0	2	1 2
+54	3	0.0	2	3
+55	1	0.0	2	0 0 1
+56	3	0.0	2	3
+60	1	0.0	2	1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/PCR-BLANK-102-1_S384_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/PCR-BLANK-102-1_S384_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/PCR-BLANK-102-1_S384_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/PCR-BLANK-102-1_S384_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 0.011 s (45.864 µs/read; 1.31 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:                235
+  Read 1 with adapter:                      81 (34.5%)
+  Read 2 with adapter:                     235 (100.0%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):           235 (100.0%)
+
+Total basepairs processed:        70,921 bp
+  Read 1:        17,794 bp
+  Read 2:        53,127 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):         62,885 bp (88.7%)
+  Read 1:        16,104 bp
+  Read 2:        46,781 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 81 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+19	3	0.0	1	0 0 3
+20	5	0.0	2	0 5
+21	73	0.0	2	65 8
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 235 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+27	234	0.0	2	97 127 10
+28	1	0.0	2	0 0 1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-271_S397_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-271_S397_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-271_S397_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-271_S397_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 2.286 s (13.102 µs/read; 4.58 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            174,510
+  Read 1 with adapter:                 174,279 (99.9%)
+  Read 2 with adapter:                 172,156 (98.7%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       174,510 (100.0%)
+
+Total basepairs processed:    69,246,530 bp
+  Read 1:    34,097,006 bp
+  Read 2:    35,149,524 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):     60,941,836 bp (88.0%)
+  Read 1:    30,437,783 bp
+  Read 2:    30,504,053 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 174279 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+13	1	0.0	1	1
+15	2	0.0	1	2
+17	6	0.0	1	3 3
+18	2	0.0	1	0 2
+19	54	0.0	1	6 5 43
+20	1555	0.0	2	31 1458 66
+21	172129	0.0	2	164684 7265 180
+22	481	0.0	2	48 428 5
+23	6	0.0	2	2 0 4
+25	2	0.0	2	0 2
+26	1	0.0	2	1
+29	1	0.0	2	1
+30	1	0.0	2	0 0 1
+31	5	0.0	2	4 0 1
+32	6	0.0	2	1 0 5
+33	5	0.0	2	2 1 2
+34	6	0.0	2	6
+35	2	0.0	2	2
+36	4	0.0	2	4
+37	1	0.0	2	1
+38	2	0.0	2	2
+40	1	0.0	2	1
+41	3	0.0	2	3
+45	1	0.0	2	1
+46	1	0.0	2	1
+55	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 172156 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+11	1	0.0	1	1
+16	1	0.0	1	1
+18	1	0.0	1	1
+20	3	0.0	2	0 0 3
+23	6	0.0	2	1 0 5
+24	1	0.0	2	0 0 1
+25	55	0.0	2	4 12 39
+26	3782	0.0	2	43 2835 904
+27	167390	0.0	2	161860 4991 539
+28	885	0.0	2	45 750 90
+29	7	0.0	2	2 0 5
+30	2	0.0	2	2
+33	2	0.0	2	2
+35	1	0.0	2	1
+36	4	0.0	2	1 0 3
+37	1	0.0	2	0 1
+38	1	0.0	2	0 1
+40	2	0.0	2	0 0 2
+41	2	0.0	2	1 0 1
+42	2	0.0	2	0 1 1
+44	1	0.0	2	1
+45	1	0.0	2	1
+48	1	0.0	2	1
+51	2	0.0	2	2
+57	1	0.0	2	1
+62	1	0.0	2	0 1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-272_S398_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-272_S398_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-272_S398_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-272_S398_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 3.254 s (13.646 µs/read; 4.40 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            238,445
+  Read 1 with adapter:                 238,265 (99.9%)
+  Read 2 with adapter:                 234,800 (98.5%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       238,445 (100.0%)
+
+Total basepairs processed:    96,597,295 bp
+  Read 1:    47,673,166 bp
+  Read 2:    48,924,129 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):     85,281,694 bp (88.3%)
+  Read 1:    42,670,695 bp
+  Read 2:    42,610,999 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 238265 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+14	1	0.0	1	0 1
+17	6	0.0	1	6
+18	9	0.0	1	5 4
+19	47	0.0	1	9 6 32
+20	2113	0.0	2	69 1979 65
+21	235418	0.0	2	224747 10453 218
+22	618	0.0	2	77 529 12
+23	9	0.0	2	2 2 5
+24	1	0.0	2	0 0 1
+25	3	0.0	2	3
+26	3	0.0	2	2 1
+27	2	0.0	2	2
+29	3	0.0	2	3
+30	1	0.0	2	1
+32	11	0.0	2	3 0 8
+34	2	0.0	2	2
+35	6	0.0	2	3 3
+38	4	0.0	2	4
+39	2	0.0	2	2
+40	1	0.0	2	1
+41	2	0.0	2	2
+42	1	0.0	2	1
+43	1	0.0	2	1
+44	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 234800 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+12	3	0.0	1	2 1
+16	3	0.0	1	2 1
+17	2	0.0	1	0 2
+21	2	0.0	2	0 2
+22	6	0.0	2	3 0 3
+23	2	0.0	2	1 1
+24	4	0.0	2	1 0 3
+25	160	0.0	2	2 17 141
+26	27397	0.0	2	56 25965 1376
+27	206061	0.0	2	199379 5865 817
+28	1137	0.0	2	65 913 159
+29	6	0.0	2	0 0 6
+33	4	0.0	2	3 0 1
+39	2	0.0	2	1 1
+41	2	0.0	2	2
+44	1	0.0	2	1
+45	1	0.0	2	1
+46	3	0.0	2	0 3
+47	2	0.0	2	2
+51	1	0.0	2	1
+53	1	0.0	2	1
+cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-94_S391_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-94_S391_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-94_S391_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-94_S391_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-95_S393_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-95_S393_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-95_S393_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-95_S393_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-96_S394_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-96_S394_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-96_S394_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-96_S394_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-97_S395_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-97_S395_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-97_S395_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-97_S395_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-98_S396_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/BLKI-MID-AD-2024-98_S396_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-98_S396_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/BLKI-MID-AD-2024-98_S396_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/MOCK-102_S383_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/MOCK-102_S383_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/MOCK-102_S383_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/MOCK-102_S383_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/PCR-BLANK-102-1_S384_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/PCR-BLANK-102-1_S384_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/PCR-BLANK-102-1_S384_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/PCR-BLANK-102-1_S384_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-271_S397_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-271_S397_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-271_S397_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-271_S397_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-272_S398_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-272_S398_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-272_S398_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-272_S398_L001_R2_001.fastq.gz
+
+
+Command: This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-273_S399_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-273_S399_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-273_S399_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-273_S399_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 4.764 s (12.426 µs/read; 4.83 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            383,395
+  Read 1 with adapter:                 382,975 (99.9%)
+  Read 2 with adapter:                 380,924 (99.4%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       383,395 (100.0%)
+
+Total basepairs processed:   150,136,611 bp
+  Read 1:    73,916,178 bp
+  Read 2:    76,220,433 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):    131,812,587 bp (87.8%)
+  Read 1:    65,875,289 bp
+  Read 2:    65,937,298 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 382975 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+15	1	0.0	1	1
+16	8	0.0	1	0 8
+17	14	0.0	1	10 4
+18	10	0.0	1	2 5 3
+19	109	0.0	1	5 12 92
+20	3709	0.0	2	104 3472 133
+21	377988	0.0	2	360087 17480 421
+22	1040	0.0	2	116 857 67
+23	14	0.0	2	0 1 13
+24	1	0.0	2	1
+25	3	0.0	2	3
+26	2	0.0	2	2
+27	1	0.0	2	1
+29	5	0.0	2	5
+30	2	0.0	2	0 0 2
+31	9	0.0	2	6 3
+32	1	0.0	2	0 0 1
+33	2	0.0	2	1 1
+34	3	0.0	2	3
+35	6	0.0	2	3 3
+36	3	0.0	2	3
+37	4	0.0	2	0 4
+38	1	0.0	2	1
+39	7	0.0	2	7
+40	5	0.0	2	5
+41	1	0.0	2	1
+42	3	0.0	2	3
+43	1	0.0	2	1
+44	1	0.0	2	1
+45	2	0.0	2	2
+46	5	0.0	2	5
+47	3	0.0	2	3
+49	2	0.0	2	2
+50	4	0.0	2	4
+55	5	0.0	2	5
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 380924 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+15	2	0.0	1	2
+16	1	0.0	1	1
+17	5	0.0	1	4 1
+20	4	0.0	2	0 3 1
+21	2	0.0	2	0 1 1
+22	8	0.0	2	5 3
+23	7	0.0	2	7
+24	16	0.0	2	11 1 4
+25	113	0.0	2	6 21 86
+26	4134	0.0	2	84 3755 295
+27	374405	0.0	2	364300 9061 1044
+28	2168	0.0	2	103 1803 262
+29	20	0.0	2	1 0 19
+30	1	0.0	2	0 0 1
+32	3	0.0	2	3
+34	1	0.0	2	1
+35	1	0.0	2	1
+36	5	0.0	2	3 0 2
+38	4	0.0	2	0 1 3
+40	2	0.0	2	0 1 1
+42	2	0.0	2	1 1
+43	4	0.0	2	3 0 1
+44	2	0.0	2	2
+45	4	0.0	2	4
+47	2	0.0	2	2
+49	6	0.0	2	5 1
+57	2	0.0	2	2
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-275_S401_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-275_S401_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-275_S401_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-275_S401_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 1.150 s (12.748 µs/read; 4.71 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:             90,215
+  Read 1 with adapter:                  89,599 (99.3%)
+  Read 2 with adapter:                  89,472 (99.2%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):        90,215 (100.0%)
+
+Total basepairs processed:    35,223,896 bp
+  Read 1:    17,281,590 bp
+  Read 2:    17,942,306 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):     30,927,499 bp (87.8%)
+  Read 1:    15,400,390 bp
+  Read 2:    15,527,109 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 89599 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+18	2	0.0	1	2
+19	9	0.0	1	3 2 4
+20	746	0.0	2	9 713 24
+21	88627	0.0	2	84735 3824 68
+22	200	0.0	2	17 178 5
+23	2	0.0	2	0 2
+26	1	0.0	2	0 1
+28	1	0.0	2	1
+30	2	0.0	2	0 0 2
+31	1	0.0	2	0 1
+32	1	0.0	2	1
+34	2	0.0	2	2
+36	1	0.0	2	1
+41	1	0.0	2	1
+45	2	0.0	2	2
+48	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 89472 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+13	1	0.0	1	0 1
+23	4	0.0	2	1 0 3
+25	10	0.0	2	0 3 7
+26	1132	0.0	2	10 593 529
+27	87831	0.0	2	84693 2785 353
+28	483	0.0	2	35 377 71
+29	3	0.0	2	0 1 2
+33	1	0.0	2	0 0 1
+36	1	0.0	2	0 1
+38	1	0.0	2	1
+45	2	0.0	2	2
+55	3	0.0	2	3
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-281_S407_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-281_S407_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-281_S407_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-281_S407_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 7.019 s (12.597 µs/read; 4.76 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            557,212
+  Read 1 with adapter:                 554,040 (99.4%)
+  Read 2 with adapter:                 554,396 (99.5%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       557,212 (100.0%)
+
+Total basepairs processed:   220,073,063 bp
+  Read 1:   108,036,364 bp
+  Read 2:   112,036,699 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):    193,472,141 bp (87.9%)
+  Read 1:    96,403,757 bp
+  Read 2:    97,068,384 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 554040 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+15	6	0.0	1	5 1
+16	3	0.0	1	2 1
+17	1	0.0	1	1
+18	5	0.0	1	2 3
+19	103	0.0	1	13 11 79
+20	4661	0.0	2	117 4396 148
+21	547891	0.0	2	525440 22001 450
+22	1248	0.0	2	115 1098 35
+23	20	0.0	2	0 0 20
+24	3	0.0	2	1 2
+26	2	0.0	2	2
+27	4	0.0	2	3 0 1
+28	6	0.0	2	3 3
+29	9	0.0	2	3 3 3
+30	4	0.0	2	3 0 1
+31	6	0.0	2	1 2 3
+32	6	0.0	2	4 0 2
+33	1	0.0	2	0 1
+34	7	0.0	2	6 1
+35	11	0.0	2	5 6
+36	7	0.0	2	7
+37	3	0.0	2	3
+38	7	0.0	2	7
+39	6	0.0	2	4 2
+40	2	0.0	2	2
+42	8	0.0	2	8
+43	1	0.0	2	1
+44	1	0.0	2	0 1
+46	3	0.0	2	3
+47	3	0.0	2	2 1
+49	2	0.0	2	2
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 554396 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+5	1	544.2	0	1
+12	2	0.0	1	2
+15	4	0.0	1	0 4
+19	3	0.0	1	2 1
+20	4	0.0	2	0 0 4
+21	1	0.0	2	0 1
+22	2	0.0	2	0 2
+23	7	0.0	2	1 3 3
+24	16	0.0	2	6 4 6
+25	83	0.0	2	5 15 63
+26	3277	0.0	2	112 1728 1437
+27	548082	0.0	2	530297 16093 1692
+28	2874	0.0	2	125 2424 325
+29	11	0.0	2	1 0 10
+31	1	0.0	2	1
+33	1	0.0	2	1
+34	2	0.0	2	2
+35	1	0.0	2	1
+36	3	0.0	2	0 0 3
+39	3	0.0	2	3
+40	1	0.0	2	1
+41	2	0.0	2	2
+42	4	0.0	2	3 1
+44	1	0.0	2	1
+45	2	0.0	2	2
+46	3	0.0	2	2 1
+47	2	0.0	2	2
+48	1	0.0	2	1
+50	1	0.0	2	1
+51	1	0.0	2	1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-282_S408_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-282_S408_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-282_S408_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-282_S408_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 0.193 s (13.313 µs/read; 4.51 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:             14,496
+  Read 1 with adapter:                  14,487 (99.9%)
+  Read 2 with adapter:                  14,435 (99.6%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):        14,496 (100.0%)
+
+Total basepairs processed:     5,843,046 bp
+  Read 1:     2,877,880 bp
+  Read 2:     2,965,166 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):      5,149,109 bp (88.1%)
+  Read 1:     2,573,729 bp
+  Read 2:     2,575,380 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 14487 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+19	1	0.0	1	0 0 1
+20	99	0.0	2	0 98 1
+21	14362	0.0	2	13903 444 15
+22	25	0.0	2	2 23
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 14435 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+20	2	0.0	2	0 0 2
+25	3	0.0	2	0 0 3
+26	51	0.0	2	2 47 2
+27	14292	0.0	2	13978 296 18
+28	85	0.0	2	0 73 12
+34	1	0.0	2	1
+47	1	0.0	2	1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-283_S409_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-283_S409_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-283_S409_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-283_S409_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 0.041 s (16.540 µs/read; 3.63 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:              2,498
+  Read 1 with adapter:                   2,376 (95.1%)
+  Read 2 with adapter:                   2,482 (99.4%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):         2,498 (100.0%)
+
+Total basepairs processed:     1,033,710 bp
+  Read 1:       496,699 bp
+  Read 2:       537,011 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):        916,984 bp (88.7%)
+  Read 1:       446,818 bp
+  Read 2:       470,166 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 2376 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+20	17	0.0	2	0 17
+21	2357	0.0	2	2238 116 3
+22	2	0.0	2	0 2
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 2482 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	201	0.0	2	4 9 188
+27	2262	0.0	2	2094 167 1
+28	18	0.0	2	0 15 3
+41	1	0.0	2	1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-284_S411_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-284_S411_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-284_S411_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-284_S411_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 2.959 s (13.479 µs/read; 4.45 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            219,491
+  Read 1 with adapter:                 219,122 (99.8%)
+  Read 2 with adapter:                 209,776 (95.6%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       219,491 (100.0%)
+
+Total basepairs processed:    90,372,013 bp
+  Read 1:    44,610,795 bp
+  Read 2:    45,761,218 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):     80,134,418 bp (88.7%)
+  Read 1:    40,009,886 bp
+  Read 2:    40,124,532 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 219122 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+13	2	0.0	1	2
+17	4	0.0	1	4
+18	1	0.0	1	1
+19	48	0.0	1	1 7 40
+20	1851	0.0	2	57 1742 52
+21	216602	0.0	2	210036 6395 171
+22	555	0.0	2	64 471 20
+23	11	0.0	2	0 0 11
+26	1	0.0	2	0 1
+29	2	0.0	2	0 0 2
+30	6	0.0	2	0 2 4
+32	4	0.0	2	1 2 1
+33	7	0.0	2	4 3
+35	4	0.0	2	4
+36	4	0.0	2	4
+38	2	0.0	2	2
+39	1	0.0	2	1
+40	3	0.0	2	3
+41	2	0.0	2	2
+42	7	0.0	2	7
+47	2	0.0	2	2
+48	1	0.0	2	1
+50	2	0.0	2	2
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 209776 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+12	2	0.0	1	2
+14	2	0.0	1	2
+15	1	0.0	1	0 1
+16	1	0.0	1	1
+18	1	0.0	1	1
+20	8	0.0	2	5 3
+21	4	0.0	2	0 1 3
+22	4	0.0	2	2 2
+23	3	0.0	2	0 0 3
+24	7	0.0	2	2 2 3
+25	155	0.0	2	1 17 137
+26	28078	0.0	2	50 23731 4297
+27	180490	0.0	2	176011 3867 612
+28	987	0.0	2	49 799 139
+29	11	0.0	2	0 0 11
+31	2	0.0	2	0 0 2
+34	1	0.0	2	0 0 1
+36	1	0.0	2	1
+37	3	0.0	2	2 1
+38	2	0.0	2	0 0 2
+39	1	0.0	2	1
+40	1	0.0	2	0 1
+42	1	0.0	2	0 1
+44	1	0.0	2	1
+46	1	0.0	2	1
+47	4	0.0	2	1 0 3
+48	1	0.0	2	0 1
+51	2	0.0	2	2
+60	1	0.0	2	1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-285_S412_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-285_S412_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-285_S412_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-285_S412_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 0.239 s (13.710 µs/read; 4.38 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:             17,428
+  Read 1 with adapter:                  17,411 (99.9%)
+  Read 2 with adapter:                  17,201 (98.7%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):        17,428 (100.0%)
+
+Total basepairs processed:     6,788,277 bp
+  Read 1:     3,345,433 bp
+  Read 2:     3,442,844 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):      5,958,252 bp (87.8%)
+  Read 1:     2,979,846 bp
+  Read 2:     2,978,406 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 17411 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+19	2	0.0	1	0 0 2
+20	111	0.0	2	0 109 2
+21	17266	0.0	2	16832 416 18
+22	30	0.0	2	6 23 1
+40	1	0.0	2	1
+43	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 17201 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+25	4	0.0	2	0 0 4
+26	70	0.0	2	7 60 3
+27	17038	0.0	2	16015 827 196
+28	89	0.0	2	4 74 11
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-286_S413_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-286_S413_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-286_S413_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-286_S413_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 7.877 s (12.415 µs/read; 4.83 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            634,499
+  Read 1 with adapter:                 634,028 (99.9%)
+  Read 2 with adapter:                 630,348 (99.3%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       634,499 (100.0%)
+
+Total basepairs processed:   248,092,992 bp
+  Read 1:   122,153,088 bp
+  Read 2:   125,939,904 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):    217,763,086 bp (87.8%)
+  Read 1:   108,842,198 bp
+  Read 2:   108,920,888 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 634028 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+9	1	2.4	0	1
+12	3	0.0	1	3
+14	1	0.0	1	0 1
+15	4	0.0	1	4
+16	3	0.0	1	0 3
+17	14	0.0	1	8 6
+18	18	0.0	1	10 8
+19	257	0.0	1	19 21 217
+20	6287	0.0	2	144 5903 240
+21	625657	0.0	2	599572 25452 633
+22	1641	0.0	2	217 1374 50
+23	15	0.0	2	5 2 8
+24	9	0.0	2	8 0 1
+25	5	0.0	2	5
+26	6	0.0	2	4 1 1
+27	1	0.0	2	1
+28	7	0.0	2	6 1
+29	13	0.0	2	13
+30	8	0.0	2	4 0 4
+31	5	0.0	2	4 1
+32	4	0.0	2	1 1 2
+33	3	0.0	2	0 2 1
+34	9	0.0	2	8 1
+35	8	0.0	2	1 7
+36	9	0.0	2	9
+37	4	0.0	2	2 2
+38	7	0.0	2	6 1
+39	4	0.0	2	2 2
+40	7	0.0	2	6 1
+41	3	0.0	2	3
+42	1	0.0	2	1
+43	5	0.0	2	4 0 1
+46	1	0.0	2	1
+47	3	0.0	2	3
+48	1	0.0	2	1
+49	2	0.0	2	1 1
+50	1	0.0	2	1
+52	1	0.0	2	0 1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 630348 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+10	1	0.6	1	1
+11	3	0.2	1	1 2
+12	12	0.0	1	9 3
+14	2	0.0	1	0 2
+15	1	0.0	1	0 1
+16	5	0.0	1	5
+17	3	0.0	1	1 2
+18	2	0.0	1	0 2
+19	2	0.0	1	0 2
+20	5	0.0	2	5
+21	5	0.0	2	1 1 3
+22	6	0.0	2	2 4
+23	8	0.0	2	1 2 5
+24	33	0.0	2	15 5 13
+25	177	0.0	2	7 33 137
+26	3962	0.0	2	204 3400 358
+27	622375	0.0	2	605002 15376 1997
+28	3664	0.0	2	163 3125 376
+29	32	0.0	2	1 0 31
+30	1	0.0	2	0 0 1
+35	2	0.0	2	0 2
+36	4	0.0	2	0 2 2
+37	3	0.0	2	3
+38	6	0.0	2	5 0 1
+39	3	0.0	2	0 0 3
+40	2	0.0	2	0 0 2
+41	1	0.0	2	1
+42	3	0.0	2	1 1 1
+44	2	0.0	2	1 1
+45	1	0.0	2	1
+46	1	0.0	2	1
+47	10	0.0	2	9 1
+48	1	0.0	2	1
+50	2	0.0	2	2
+52	3	0.0	2	3
+53	2	0.0	2	1 0 1
+58	1	0.0	2	1
+60	1	0.0	2	1
+62	1	0.0	2	1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-287_S414_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-287_S414_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-287_S414_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-287_S414_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 6.054 s (12.510 µs/read; 4.80 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            483,983
+  Read 1 with adapter:                 483,690 (99.9%)
+  Read 2 with adapter:                 481,511 (99.5%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       483,983 (100.0%)
+
+Total basepairs processed:   188,428,686 bp
+  Read 1:    92,750,658 bp
+  Read 2:    95,678,028 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):    165,272,342 bp (87.7%)
+  Read 1:    82,595,525 bp
+  Read 2:    82,676,817 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 483690 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+9	1	1.8	0	1
+12	1	0.0	1	1
+14	1	0.0	1	1
+15	4	0.0	1	4
+16	7	0.0	1	1 6
+17	10	0.0	1	9 1
+18	10	0.0	1	3 7
+19	162	0.0	1	8 19 135
+20	4597	0.0	2	132 4330 135
+21	477448	0.0	2	459818 17300 330
+22	1334	0.0	2	176 1112 46
+23	10	0.0	2	1 0 9
+24	5	0.0	2	3 1 1
+25	6	0.0	2	5 1
+26	2	0.0	2	2
+27	3	0.0	2	2 0 1
+28	1	0.0	2	1
+29	15	0.0	2	15
+30	8	0.0	2	1 1 6
+31	6	0.0	2	6
+32	2	0.0	2	2
+33	5	0.0	2	2 3
+34	6	0.0	2	6
+35	4	0.0	2	4
+36	9	0.0	2	8 1
+37	2	0.0	2	2
+38	8	0.0	2	8
+39	5	0.0	2	5
+41	4	0.0	2	4
+42	3	0.0	2	3
+43	3	0.0	2	3
+44	2	0.0	2	2
+49	4	0.0	2	4
+53	1	0.0	2	1
+54	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 481511 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+5	1	472.6	0	1
+9	1	1.8	0	1
+11	1	0.1	1	1
+13	1	0.0	1	0 1
+14	3	0.0	1	3
+15	1	0.0	1	0 1
+16	2	0.0	1	2
+17	3	0.0	1	0 3
+19	1	0.0	1	1
+20	7	0.0	2	0 4 3
+21	11	0.0	2	1 6 4
+22	3	0.0	2	0 1 2
+23	8	0.0	2	6 0 2
+24	16	0.0	2	7 5 4
+25	127	0.0	2	7 20 100
+26	2253	0.0	2	98 1823 332
+27	476321	0.0	2	464415 10770 1136
+28	2694	0.0	2	117 2274 303
+29	16	0.0	2	0 0 16
+30	1	0.0	2	0 0 1
+31	3	0.0	2	0 0 3
+32	1	0.0	2	0 1
+33	2	0.0	2	1 0 1
+35	4	0.0	2	0 3 1
+38	1	0.0	2	1
+39	4	0.0	2	4
+40	2	0.0	2	1 0 1
+41	4	0.0	2	3 0 1
+42	1	0.0	2	1
+43	3	0.0	2	3
+44	1	0.0	2	1
+45	5	0.0	2	5
+46	2	0.0	2	2
+47	1	0.0	2	1
+49	1	0.0	2	1
+51	3	0.0	2	3
+54	1	0.0	2	1
+59	1	0.0	2	1
+cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-273_S399_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-273_S399_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-273_S399_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-273_S399_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-275_S401_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-275_S401_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-275_S401_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-275_S401_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-281_S407_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-281_S407_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-281_S407_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-281_S407_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-282_S408_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-282_S408_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-282_S408_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-282_S408_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-283_S409_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-283_S409_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-283_S409_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-283_S409_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-284_S411_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-284_S411_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-284_S411_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-284_S411_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-285_S412_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-285_S412_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-285_S412_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-285_S412_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-286_S413_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-286_S413_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-286_S413_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-286_S413_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-287_S414_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-287_S414_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-287_S414_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-287_S414_L001_R2_001.fastq.gz
+
+
+Command: This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-288_S415_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-288_S415_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-288_S415_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-288_S415_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 9.612 s (17.999 µs/read; 3.33 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            533,995
+  Read 1 with adapter:                 530,750 (99.4%)
+  Read 2 with adapter:                 498,812 (93.4%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       533,995 (100.0%)
+
+Total basepairs processed:   267,032,104 bp
+  Read 1:   133,141,524 bp
+  Read 2:   133,890,580 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):    242,868,667 bp (91.0%)
+  Read 1:   121,998,848 bp
+  Read 2:   120,869,819 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 530750 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+13	1	0.0	1	1
+15	3	0.0	1	3
+16	1	0.0	1	0 1
+18	7	0.0	1	2 5
+19	101	0.0	1	7 1 93
+20	4876	0.0	2	89 4609 178
+21	524509	0.0	2	500564 23438 507
+22	1171	0.0	2	137 976 58
+23	5	0.0	2	1 0 4
+24	6	0.0	2	0 6
+25	5	0.0	2	5
+26	8	0.0	2	5 3
+27	3	0.0	2	2 0 1
+28	15	0.0	2	11 1 3
+31	2	0.0	2	2
+32	2	0.0	2	1 0 1
+33	5	0.0	2	5
+34	7	0.0	2	2 5
+35	3	0.0	2	0 3
+36	1	0.0	2	1
+37	1	0.0	2	1
+38	3	0.0	2	3
+39	1	0.0	2	1
+41	3	0.0	2	3
+43	4	0.0	2	4
+46	2	0.0	2	2
+48	2	0.0	2	2
+49	2	0.0	2	2
+52	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 498812 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+20	1	0.0	2	0 0 1
+22	5	0.0	2	0 1 4
+23	7	0.0	2	0 0 7
+24	7	0.0	2	0 1 6
+25	400	0.0	2	0 12 388
+26	458514	0.0	2	1 98550 359963
+27	39103	0.0	2	26547 10998 1558
+28	200	0.0	2	5 134 61
+32	1	0.0	2	0 1
+38	2	0.0	2	0 0 2
+39	2	0.0	2	0 1 1
+42	1	0.0	2	0 0 1
+44	1	0.0	2	0 1
+46	1	0.0	2	0 0 1
+47	6	0.0	2	0 0 6
+48	554	0.0	2	0 0 554
+49	1	0.0	2	0 0 1
+50	2	0.0	2	0 0 2
+53	3	0.0	2	0 0 3
+57	1	0.0	2	0 1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-289_S416_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-289_S416_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-289_S416_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-289_S416_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 2.029 s (12.459 µs/read; 4.82 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            162,881
+  Read 1 with adapter:                 162,732 (99.9%)
+  Read 2 with adapter:                 161,938 (99.4%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       162,881 (100.0%)
+
+Total basepairs processed:    63,343,831 bp
+  Read 1:    31,170,539 bp
+  Read 2:    32,173,292 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):     55,554,845 bp (87.7%)
+  Read 1:    27,753,895 bp
+  Read 2:    27,800,950 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 162732 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+15	1	0.0	1	1
+17	1	0.0	1	1
+18	3	0.0	1	1 1 1
+19	36	0.0	1	2 2 32
+20	1444	0.0	2	32 1359 53
+21	160835	0.0	2	153469 7225 141
+22	371	0.0	2	37 320 14
+23	2	0.0	2	0 0 2
+24	3	0.0	2	2 1
+25	4	0.0	2	4
+27	6	0.0	2	6
+28	3	0.0	2	0 3
+31	2	0.0	2	2
+32	3	0.0	2	3
+33	3	0.0	2	0 3
+34	2	0.0	2	2
+35	5	0.0	2	5
+37	3	0.0	2	1 2
+38	1	0.0	2	1
+40	1	0.0	2	1
+47	1	0.0	2	1
+48	1	0.0	2	1
+49	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 161938 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+14	1	0.0	1	1
+15	2	0.0	1	2
+17	1	0.0	1	0 1
+18	1	0.0	1	0 1
+21	1	0.0	2	0 1
+22	1	0.0	2	0 0 1
+23	5	0.0	2	0 2 3
+24	2	0.0	2	0 0 2
+25	22	0.0	2	0 2 20
+26	918	0.0	2	34 709 175
+27	160080	0.0	2	155611 4074 395
+28	886	0.0	2	42 730 114
+29	6	0.0	2	0 1 5
+33	1	0.0	2	0 0 1
+35	1	0.0	2	1
+36	2	0.0	2	0 0 2
+37	2	0.0	2	0 2
+38	1	0.0	2	1
+39	2	0.0	2	1 0 1
+47	1	0.0	2	1
+60	2	0.0	2	2
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-274_S400_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-274_S400_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-274_S400_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-274_S400_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 1.408 s (12.262 µs/read; 4.89 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            114,790
+  Read 1 with adapter:                 114,027 (99.3%)
+  Read 2 with adapter:                 114,254 (99.5%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       114,790 (100.0%)
+
+Total basepairs processed:    44,444,911 bp
+  Read 1:    21,790,958 bp
+  Read 2:    22,653,953 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):     38,965,700 bp (87.7%)
+  Read 1:    19,396,807 bp
+  Read 2:    19,568,893 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 114027 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+15	2	0.0	1	2
+19	22	0.0	1	0 4 18
+20	984	0.0	2	11 925 48
+21	112733	0.0	2	108264 4400 69
+22	260	0.0	2	24 230 6
+23	1	0.0	2	0 1
+25	1	0.0	2	1
+26	1	0.0	2	1
+27	1	0.0	2	0 1
+30	1	0.0	2	0 0 1
+32	5	0.0	2	5
+34	2	0.0	2	2
+35	3	0.0	2	3
+36	2	0.0	2	2
+37	1	0.0	2	1
+38	3	0.0	2	3
+41	1	0.0	2	1
+42	1	0.0	2	1
+45	1	0.0	2	1
+47	1	0.0	2	1
+48	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 114254 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+12	1	0.0	1	0 1
+17	1	0.0	1	0 1
+22	2	0.0	2	2
+24	5	0.0	2	0 2 3
+25	26	0.0	2	1 8 17
+26	482	0.0	2	19 368 95
+27	113127	0.0	2	109355 3406 366
+28	595	0.0	2	41 503 51
+29	5	0.0	2	0 1 4
+30	1	0.0	2	0 0 1
+38	1	0.0	2	1
+44	2	0.0	2	2
+47	2	0.0	2	2
+50	3	0.0	2	3
+51	1	0.0	2	0 1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-276_S402_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-276_S402_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-276_S402_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-276_S402_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 8.335 s (12.896 µs/read; 4.65 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            646,341
+  Read 1 with adapter:                 644,800 (99.8%)
+  Read 2 with adapter:                 639,625 (99.0%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   8 (0.0%)
+Pairs written (passing filters):       646,333 (100.0%)
+
+Total basepairs processed:   255,208,965 bp
+  Read 1:   125,649,776 bp
+  Read 2:   129,559,189 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):    224,416,957 bp (87.9%)
+  Read 1:   112,111,212 bp
+  Read 2:   112,305,745 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 644800 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+14	3	0.0	1	1 2
+15	3	0.0	1	1 2
+16	6	0.0	1	1 5
+17	11	0.0	1	7 4
+18	21	0.0	1	9 12
+19	169	0.0	1	12 26 131
+20	6250	0.0	2	192 5801 257
+21	636464	0.0	2	607400 28375 689
+22	1663	0.0	2	213 1378 72
+23	20	0.0	2	3 5 12
+24	6	0.0	2	1 3 2
+25	7	0.0	2	2 0 5
+26	6	0.0	2	3 1 2
+27	5	0.0	2	4 1
+28	1	0.0	2	1
+30	9	0.0	2	2 0 7
+31	9	0.0	2	5 4
+32	19	0.0	2	10 1 8
+33	10	0.0	2	3 7
+34	15	0.0	2	12 1 2
+35	13	0.0	2	6 7
+36	6	0.0	2	6
+37	6	0.0	2	5 1
+38	19	0.0	2	19
+39	11	0.0	2	11
+40	5	0.0	2	5
+41	10	0.0	2	10
+42	5	0.0	2	5
+43	4	0.0	2	4
+44	1	0.0	2	1
+45	5	0.0	2	5
+46	6	0.0	2	6
+47	4	0.0	2	4
+48	1	0.0	2	0 1
+50	1	0.0	2	1
+51	2	0.0	2	2
+52	3	0.0	2	2 0 1
+55	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 639625 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+11	1	0.2	1	1
+12	12	0.0	1	7 5
+13	1	0.0	1	0 1
+15	4	0.0	1	2 2
+16	4	0.0	1	4
+17	7	0.0	1	5 2
+18	1	0.0	1	0 1
+20	6	0.0	2	3 1 2
+21	3	0.0	2	0 1 2
+22	8	0.0	2	1 1 6
+23	5	0.0	2	5
+24	23	0.0	2	11 3 9
+25	138	0.0	2	7 19 112
+26	20602	0.0	2	123 8253 12226
+27	615225	0.0	2	599304 14211 1710
+28	3464	0.0	2	172 2846 446
+29	26	0.0	2	1 2 23
+30	4	0.0	2	0 0 4
+33	1	0.0	2	1
+34	1	0.0	2	1
+35	4	0.0	2	3 0 1
+36	2	0.0	2	0 0 2
+37	7	0.0	2	7
+38	9	0.0	2	7 1 1
+39	9	0.0	2	0 4 5
+40	10	0.0	2	5 3 2
+41	7	0.0	2	7
+42	5	0.0	2	4 1
+43	5	0.0	2	0 0 5
+44	5	0.0	2	5
+45	2	0.0	2	2
+46	1	0.0	2	1
+47	2	0.0	2	2
+48	1	0.0	2	1
+49	7	0.0	2	7
+51	2	0.0	2	2
+52	1	0.0	2	1
+59	5	0.0	2	5
+61	1	0.0	2	1
+62	1	0.0	2	1
+63	2	0.0	2	2
+64	1	0.0	2	1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-277_S403_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-277_S403_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-277_S403_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-277_S403_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 10.153 s (13.639 µs/read; 4.40 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            744,421
+  Read 1 with adapter:                 677,384 (91.0%)
+  Read 2 with adapter:                 730,078 (98.1%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       744,421 (100.0%)
+
+Total basepairs processed:   297,089,982 bp
+  Read 1:   138,859,902 bp
+  Read 2:   158,230,080 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):    263,260,900 bp (88.6%)
+  Read 1:   124,638,576 bp
+  Read 2:   138,622,324 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 677384 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+14	2	0.0	1	2
+16	9	0.0	1	2 7
+17	18	0.0	1	14 4
+18	15	0.0	1	6 9
+19	390	0.0	1	15 35 340
+20	7532	0.0	2	142 7088 302
+21	666007	0.0	2	643039 22479 489
+22	3277	0.0	2	166 2998 113
+23	18	0.0	2	2 1 15
+24	4	0.0	2	3 0 1
+25	6	0.0	2	4 2
+26	2	0.0	2	1 1
+27	3	0.0	2	2 1
+28	2	0.0	2	1 0 1
+29	11	0.0	2	3 1 7
+30	17	0.0	2	10 0 7
+31	5	0.0	2	0 5
+32	5	0.0	2	5
+33	8	0.0	2	3 2 3
+34	13	0.0	2	13
+35	7	0.0	2	6 1
+36	3	0.0	2	3
+37	13	0.0	2	13
+38	1	0.0	2	1
+39	7	0.0	2	7
+44	1	0.0	2	1
+45	3	0.0	2	2 1
+48	1	0.0	2	1
+49	1	0.0	2	1
+55	1	0.0	2	1
+56	2	0.0	2	1 0 1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 730078 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+12	4	0.0	1	3 1
+13	5	0.0	1	0 5
+15	2	0.0	1	0 2
+16	3	0.0	1	0 3
+17	3	0.0	1	0 3
+19	2	0.0	1	0 2
+20	1	0.0	2	0 1
+21	3	0.0	2	0 2 1
+22	4	0.0	2	1 1 2
+23	10	0.0	2	5 1 4
+24	19	0.0	2	4 6 9
+25	205	0.0	2	10 20 175
+26	107845	0.0	2	93 8339 99413
+27	618826	0.0	2	537292 77559 3975
+28	3056	0.0	2	139 2281 636
+29	24	0.0	2	1 3 20
+31	1	0.0	2	0 0 1
+34	2	0.0	2	2
+35	3	0.0	2	3
+36	4	0.0	2	3 1
+37	3	0.0	2	2 0 1
+38	1	0.0	2	0 0 1
+39	3	0.0	2	0 1 2
+40	3	0.0	2	3
+41	7	0.0	2	5 0 2
+42	3	0.0	2	3
+43	2	0.0	2	1 0 1
+44	2	0.0	2	0 0 2
+45	8	0.0	2	8
+46	5	0.0	2	4 1
+48	1	0.0	2	1
+49	2	0.0	2	2
+50	2	0.0	2	2
+51	1	0.0	2	0 1
+52	1	0.0	2	0 1
+56	1	0.0	2	0 0 1
+57	3	0.0	2	2 0 1
+58	4	0.0	2	3 0 1
+59	3	0.0	2	1 2
+62	1	0.0	2	1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-278_S404_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-278_S404_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-278_S404_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-278_S404_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 2.083 s (12.230 µs/read; 4.91 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            170,313
+  Read 1 with adapter:                 170,287 (100.0%)
+  Read 2 with adapter:                 169,520 (99.5%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       170,313 (100.0%)
+
+Total basepairs processed:    66,274,277 bp
+  Read 1:    32,625,429 bp
+  Read 2:    33,648,848 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):     58,121,408 bp (87.7%)
+  Read 1:    29,049,928 bp
+  Read 2:    29,071,480 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 170287 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+16	2	0.0	1	0 2
+19	14	0.0	1	0 1 13
+20	877	0.0	2	14 830 33
+21	169090	0.0	2	165833 3184 73
+22	297	0.0	2	34 260 3
+31	3	0.0	2	3
+32	1	0.0	2	0 0 1
+34	1	0.0	2	0 1
+39	1	0.0	2	1
+41	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 169520 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+12	1	0.0	1	0 1
+17	1	0.0	1	0 1
+21	1	0.0	2	1
+24	4	0.0	2	1 0 3
+25	37	0.0	2	0 4 33
+26	580	0.0	2	34 528 18
+27	168091	0.0	2	163559 3979 553
+28	788	0.0	2	42 676 70
+29	1	0.0	2	0 0 1
+32	1	0.0	2	0 0 1
+35	1	0.0	2	0 0 1
+36	1	0.0	2	0 1
+37	1	0.0	2	1
+38	2	0.0	2	2
+39	1	0.0	2	0 1
+40	1	0.0	2	1
+42	1	0.0	2	1
+44	1	0.0	2	1
+45	1	0.0	2	1
+47	2	0.0	2	2
+48	1	0.0	2	1
+49	1	0.0	2	1
+50	1	0.0	2	1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-279_S405_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-279_S405_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-279_S405_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-279_S405_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 0.010 s (72.958 µs/read; 0.82 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:                141
+  Read 1 with adapter:                     140 (99.3%)
+  Read 2 with adapter:                     140 (99.3%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):           141 (100.0%)
+
+Total basepairs processed:        55,125 bp
+  Read 1:        27,051 bp
+  Read 2:        28,074 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):         48,405 bp (87.8%)
+  Read 1:        24,113 bp
+  Read 2:        24,292 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 140 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+20	4	0.0	2	0 4
+21	134	0.0	2	131 3
+22	2	0.0	2	0 2
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 140 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+25	1	0.0	2	0 0 1
+27	135	0.0	2	123 11 1
+28	4	0.0	2	0 4
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-280_S406_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-280_S406_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-280_S406_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-280_S406_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 1.974 s (12.693 µs/read; 4.73 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            155,482
+  Read 1 with adapter:                 155,436 (100.0%)
+  Read 2 with adapter:                 154,840 (99.6%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       155,482 (100.0%)
+
+Total basepairs processed:    61,969,779 bp
+  Read 1:    30,548,968 bp
+  Read 2:    31,420,811 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):     54,526,848 bp (88.0%)
+  Read 1:    27,285,391 bp
+  Read 2:    27,241,457 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 155436 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+14	1	0.0	1	1
+16	1	0.0	1	0 1
+17	3	0.0	1	0 3
+18	3	0.0	1	3
+19	25	0.0	1	3 4 18
+20	909	0.0	2	15 860 34
+21	154214	0.0	2	148035 6048 131
+22	264	0.0	2	22 233 9
+23	7	0.0	2	1 0 6
+26	1	0.0	2	1
+31	2	0.0	2	2
+34	1	0.0	2	1
+37	1	0.0	2	1
+38	1	0.0	2	1
+39	1	0.0	2	1
+40	1	0.0	2	1
+48	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 154840 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+17	1	0.0	1	0 1
+20	1	0.0	2	0 1
+22	1	0.0	2	0 0 1
+23	3	0.0	2	1 0 2
+24	2	0.0	2	2
+25	30	0.0	2	0 15 15
+26	2231	0.0	2	26 1158 1047
+27	151759	0.0	2	148225 3262 272
+28	796	0.0	2	32 659 105
+29	5	0.0	2	0 0 5
+39	1	0.0	2	1
+40	2	0.0	2	1 1
+42	1	0.0	2	0 1
+43	3	0.0	2	2 0 1
+50	1	0.0	2	1
+52	3	0.0	2	3
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-291_S418_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-291_S418_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-291_S418_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-291_S418_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 1.505 s (12.480 µs/read; 4.81 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            120,593
+  Read 1 with adapter:                 120,155 (99.6%)
+  Read 2 with adapter:                 119,699 (99.3%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   2 (0.0%)
+Pairs written (passing filters):       120,591 (100.0%)
+
+Total basepairs processed:    48,033,503 bp
+  Read 1:    23,641,154 bp
+  Read 2:    24,392,349 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):     42,281,364 bp (88.0%)
+  Read 1:    21,118,390 bp
+  Read 2:    21,162,974 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 120155 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+16	2	0.0	1	2
+19	27	0.0	1	2 5 20
+20	939	0.0	2	18 858 63
+21	118894	0.0	2	112128 6593 173
+22	273	0.0	2	27 235 11
+23	3	0.0	2	0 0 3
+24	3	0.0	2	0 3
+27	1	0.0	2	1
+29	2	0.0	2	1 0 1
+30	3	0.0	2	0 1 2
+33	1	0.0	2	1
+37	1	0.0	2	1
+38	1	0.0	2	1
+39	1	0.0	2	1
+40	4	0.0	2	4
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 119699 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+13	1	0.0	1	0 1
+23	1	0.0	2	1
+24	3	0.0	2	3
+25	29	0.0	2	2 3 24
+26	3219	0.0	2	31 485 2703
+27	115790	0.0	2	112082 3346 362
+28	637	0.0	2	26 518 93
+29	9	0.0	2	0 0 9
+30	1	0.0	2	1
+32	1	0.0	2	0 0 1
+39	1	0.0	2	1
+42	3	0.0	2	2 1
+45	1	0.0	2	1
+49	1	0.0	2	1
+50	2	0.0	2	1 1
+cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-288_S415_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-288_S415_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-288_S415_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-288_S415_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-289_S416_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-AD-2024-289_S416_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-289_S416_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-AD-2024-289_S416_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-274_S400_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-274_S400_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-274_S400_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-274_S400_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-276_S402_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-276_S402_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-276_S402_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-276_S402_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-277_S403_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-277_S403_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-277_S403_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-277_S403_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-278_S404_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-278_S404_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-278_S404_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-278_S404_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-279_S405_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-279_S405_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-279_S405_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-279_S405_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-280_S406_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-280_S406_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-280_S406_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-280_S406_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-291_S418_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-291_S418_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-291_S418_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-291_S418_L001_R2_001.fastq.gz
+
+
+Command: This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-292_S419_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-292_S419_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-292_S419_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-292_S419_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 7.671 s (16.023 µs/read; 3.74 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            478,726
+  Read 1 with adapter:                 472,286 (98.7%)
+  Read 2 with adapter:                 454,877 (95.0%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       478,726 (100.0%)
+
+Total basepairs processed:   224,637,629 bp
+  Read 1:   111,188,238 bp
+  Read 2:   113,449,391 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):    202,748,491 bp (90.3%)
+  Read 1:   101,272,142 bp
+  Read 2:   101,476,349 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 472286 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+15	3	0.0	1	0 3
+16	6	0.0	1	1 5
+17	9	0.0	1	8 1
+18	17	0.0	1	12 5
+19	278	0.0	1	5 3 270
+20	3727	0.0	2	85 3544 98
+21	466678	0.0	2	451319 14896 463
+22	1485	0.0	2	137 1310 38
+23	14	0.0	2	1 1 12
+24	1	0.0	2	0 1
+25	2	0.0	2	2
+26	6	0.0	2	3 3
+27	2	0.0	2	1 1
+28	1	0.0	2	0 0 1
+29	7	0.0	2	7
+30	4	0.0	2	3 0 1
+31	2	0.0	2	2
+32	9	0.0	2	8 0 1
+33	1	0.0	2	1
+34	4	0.0	2	1 2 1
+35	2	0.0	2	2
+36	4	0.0	2	2 2
+37	1	0.0	2	1
+38	4	0.0	2	4
+39	2	0.0	2	2
+40	2	0.0	2	2
+42	1	0.0	2	1
+43	3	0.0	2	3
+45	3	0.0	2	3
+50	3	0.0	2	3
+51	1	0.0	2	1
+54	1	0.0	2	1
+56	3	0.0	2	2 1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 454877 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+12	1	0.0	1	0 1
+16	1	0.0	1	1
+19	1	0.0	1	0 0 1
+20	3	0.0	2	1 2
+21	2	0.0	2	0 0 2
+22	4	0.0	2	2 0 2
+23	14	0.0	2	6 1 7
+24	13	0.0	2	1 2 10
+25	109	0.0	2	0 4 105
+26	309747	0.0	2	28 8873 300846
+27	144196	0.0	2	133476 9825 895
+28	744	0.0	2	22 562 160
+29	1	0.0	2	0 0 1
+30	1	0.0	2	0 0 1
+36	1	0.0	2	0 0 1
+37	1	0.0	2	0 1
+38	1	0.0	2	1
+40	6	0.0	2	0 0 6
+42	2	0.0	2	0 1 1
+43	5	0.0	2	0 2 3
+45	7	0.0	2	0 0 7
+46	7	0.0	2	7
+47	1	0.0	2	1
+49	2	0.0	2	0 0 2
+51	1	0.0	2	0 1
+55	1	0.0	2	0 0 1
+57	3	0.0	2	3
+63	1	0.0	2	0 0 1
+69	1	0.0	2	0 0 1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-293_S420_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-293_S420_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-293_S420_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-293_S420_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 0.161 s (13.386 µs/read; 4.48 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:             12,005
+  Read 1 with adapter:                  11,994 (99.9%)
+  Read 2 with adapter:                  11,903 (99.2%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):        12,005 (100.0%)
+
+Total basepairs processed:     4,710,763 bp
+  Read 1:     2,320,904 bp
+  Read 2:     2,389,859 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):      4,137,535 bp (87.8%)
+  Read 1:     2,069,053 bp
+  Read 2:     2,068,482 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 11994 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+16	1	0.0	1	0 1
+19	1	0.0	1	0 0 1
+20	49	0.0	2	2 45 2
+21	11915	0.0	2	11529 377 9
+22	27	0.0	2	6 20 1
+27	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 11903 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+25	3	0.0	2	0 1 2
+26	56	0.0	2	2 42 12
+27	11803	0.0	2	11234 488 81
+28	40	0.0	2	2 35 3
+45	1	0.0	2	1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-294_S421_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-294_S421_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-294_S421_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-294_S421_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 4.543 s (12.449 µs/read; 4.82 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            364,956
+  Read 1 with adapter:                 364,156 (99.8%)
+  Read 2 with adapter:                 362,557 (99.3%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):       364,956 (100.0%)
+
+Total basepairs processed:   141,849,158 bp
+  Read 1:    69,802,942 bp
+  Read 2:    72,046,216 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):    124,413,796 bp (87.7%)
+  Read 1:    62,157,187 bp
+  Read 2:    62,256,609 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 364156 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+11	3	0.1	1	0 3
+12	2	0.0	1	2
+16	3	0.0	1	2 1
+17	3	0.0	1	3
+18	2	0.0	1	2
+19	79	0.0	1	8 5 66
+20	2534	0.0	2	75 2360 99
+21	360730	0.0	2	349017 11465 248
+22	758	0.0	2	101 630 27
+23	6	0.0	2	1 0 5
+24	4	0.0	2	2 2
+25	2	0.0	2	2
+26	2	0.0	2	2
+27	1	0.0	2	1
+29	1	0.0	2	0 0 1
+30	1	0.0	2	0 0 1
+31	3	0.0	2	3
+33	3	0.0	2	3
+34	4	0.0	2	0 0 4
+36	5	0.0	2	5
+38	2	0.0	2	2
+40	1	0.0	2	1
+41	2	0.0	2	2
+46	1	0.0	2	1
+49	1	0.0	2	1
+51	3	0.0	2	3
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 362557 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+9	1	1.4	0	1
+10	3	0.3	1	0 3
+12	2	0.0	1	1 1
+14	1	0.0	1	1
+18	2	0.0	1	2
+20	1	0.0	2	0 0 1
+21	1	0.0	2	0 0 1
+22	3	0.0	2	1 1 1
+24	7	0.0	2	2 1 4
+25	76	0.0	2	4 17 55
+26	1286	0.0	2	77 1177 32
+27	359301	0.0	2	349226 8856 1219
+28	1838	0.0	2	85 1540 213
+29	6	0.0	2	1 1 4
+31	1	0.0	2	1
+34	4	0.0	2	4
+35	5	0.0	2	4 1
+36	5	0.0	2	5
+37	2	0.0	2	2
+38	1	0.0	2	1
+40	1	0.0	2	1
+41	3	0.0	2	1 2
+42	3	0.0	2	1 2
+47	3	0.0	2	3
+54	1	0.0	2	1
+This is cutadapt 4.9 with Python 3.10.14
+Command line parameters: --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-295_S422_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-295_S422_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-295_S422_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-295_S422_L001_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 1.179 s (13.184 µs/read; 4.55 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:             89,412
+  Read 1 with adapter:                  89,259 (99.8%)
+  Read 2 with adapter:                  88,897 (99.4%)
+
+== Read fate breakdown ==
+Pairs that were too short:                   0 (0.0%)
+Pairs written (passing filters):        89,412 (100.0%)
+
+Total basepairs processed:    35,822,424 bp
+  Read 1:    17,656,980 bp
+  Read 2:    18,165,444 bp
+Quality-trimmed:                       0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+Total written (filtered):     31,551,465 bp (88.1%)
+  Read 1:    15,783,125 bp
+  Read 2:    15,768,340 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: GTCGGTAAAACTCGTGCCAGC; Type: regular 5'; Length: 21; Trimmed: 89259 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+18	1	0.0	1	0 1
+19	15	0.0	1	0 3 12
+20	814	0.0	2	16 777 21
+21	88256	0.0	2	84052 4135 69
+22	168	0.0	2	11 152 5
+30	1	0.0	2	0 0 1
+34	1	0.0	2	1
+45	2	0.0	2	2
+46	1	0.0	2	1
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: CATAGTGGGGTATCTAATCCCAGTTTG; Type: regular 5'; Length: 27; Trimmed: 88897 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+23	2	0.0	2	0 0 2
+24	1	0.0	2	1
+25	27	0.0	2	1 9 17
+26	3487	0.0	2	18 2857 612
+27	84969	0.0	2	82755 1959 255
+28	410	0.0	2	15 355 40
+54	1	0.0	2	1
+cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-292_S419_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-292_S419_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-292_S419_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-292_S419_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-293_S420_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-293_S420_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-293_S420_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-293_S420_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-294_S421_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-294_S421_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-294_S421_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-294_S421_L001_R2_001.fastq.gz
+
+
+Command: cutadapt --cores 1 --error-rate 0.1 --times 1 --overlap 3 --minimum-length 1 -q 0,0 --quality-base 33 -o /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-295_S422_L001_R1_001.fastq.gz -p /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/processes/40433-1755797432.030818@gc547/tmp/q2-OutPath-o3hks0ux/TUPU-MID-CH-2024-295_S422_L001_R2_001.fastq.gz --front GTCGGTAAAACTCGTGCCAGC -G CATAGTGGGGTATCTAATCCCAGTTTG /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-295_S422_L001_R1_001.fastq.gz /var/folders/3b/9268n4gd14q1jk4dbgljk0pc0000gr/T/qiime2/gc547/data/064e2313-9f40-42d6-804c-2846081ca179/data/TUPU-MID-CH-2024-295_S422_L001_R2_001.fastq.gz
+
+Saved SampleData[PairedEndSequencesWithQuality] to: trimd2_Plate102.qza
