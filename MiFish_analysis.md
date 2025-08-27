@@ -515,11 +515,11 @@ for(plate in names(plate_results)) {
     ## 
     ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
     ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
-    ## |MOCK     |99    |   66816.00|      66816.0|       NA|  1|            139.90|
+    ## |MOCK     |99    |   66816.00|      66816.0|       NA|  1|            135.75|
     ## |PCRBLANK |99    |       0.00|          0.0|     0.00|  3|              0.00|
-    ## |SAMPLE   |99    |   47760.89|       8114.0| 86205.39| 75|            100.00|
+    ## |SAMPLE   |99    |   49220.06|       8918.5| 87641.52| 72|            100.00|
     ## |EXTBLANK |99    |       0.00|          0.0|     0.00|  6|              0.00|
-    ## |FLDBLANK |99    |    2143.00|       3214.5|  2345.47|  3|              4.49|
+    ## |FLDBLANK |99    |    2143.00|       3214.5|  2345.47|  3|              4.35|
     ## 
     ## 
     ## ### Read Depth Summary - Plate 100
@@ -529,11 +529,11 @@ for(plate in names(plate_results)) {
     ## 
     ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
     ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
-    ## |MOCK     |100   |   130655.0|     130655.0|       NA|  1|            109.28|
-    ## |PCRBLANK |100   |        0.0|          0.0|      0.0|  2|              0.00|
-    ## |SAMPLE   |100   |   119556.9|     108758.5| 100188.9| 74|            100.00|
-    ## |EXTBLANK |100   |        0.0|          0.0|      0.0|  6|              0.00|
-    ## |FLDBLANK |100   |     1092.5|       2185.0|       NA|  2|              0.91|
+    ## |MOCK     |100   |   130655.0|       130655|       NA|  1|            109.26|
+    ## |PCRBLANK |100   |        0.0|            0|      0.0|  2|              0.00|
+    ## |SAMPLE   |100   |   119578.2|       106767| 100882.1| 73|            100.00|
+    ## |EXTBLANK |100   |        0.0|            0|      0.0|  6|              0.00|
+    ## |FLDBLANK |100   |     1092.5|         2185|       NA|  2|              0.91|
     ## 
     ## 
     ## ### Read Depth Summary - Plate 102
@@ -556,10 +556,10 @@ for(plate in names(plate_results)) {
     ## 
     ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
     ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
-    ## |MOCK     |76    |   190818.0|       190818|       NA|  1|            135.48|
-    ## |PCRBLANK |76    |        0.0|            0|      0.0|  2|              0.00|
-    ## |SAMPLE   |76    |   140849.9|       140502| 104175.3| 29|            100.00|
-    ## |EXTBLANK |76    |        0.0|            0|      0.0|  2|              0.00|
+    ## |MOCK     |76    |   190818.0|     190818.0|       NA|  1|            130.94|
+    ## |PCRBLANK |76    |        0.0|          0.0|      0.0|  2|              0.00|
+    ## |SAMPLE   |76    |   145724.5|     143198.5| 102663.7| 28|            100.00|
+    ## |EXTBLANK |76    |        0.0|          0.0|      0.0|  2|              0.00|
     ## 
     ## 
     ## ### Read Depth Summary - Plate 109
@@ -592,11 +592,11 @@ print(knitr::kable(all_plates_comparison,
     ## 
     ## |Type     | Mean Reads| Median Reads|  SD Reads|   n| % of Sample Reads|
     ## |:--------|----------:|------------:|---------:|---:|-----------------:|
-    ## |MOCK     |  205757.00|     160736.5| 128727.69|   6|            190.36|
+    ## |MOCK     |  205757.00|     160736.5| 128727.69|   6|            188.58|
     ## |PCRBLANK |       0.00|          0.0|      0.00|  12|              0.00|
-    ## |SAMPLE   |  108087.42|      84091.0| 108251.70| 378|            100.00|
+    ## |SAMPLE   |  109105.79|      84203.0| 108491.56| 373|            100.00|
     ## |EXTBLANK |      21.03|         20.5|    286.99|  30|              0.02|
-    ## |FLDBLANK |    5018.67|       2185.0|  10843.06|   9|              4.64|
+    ## |FLDBLANK |    5018.67|       2185.0|  10843.06|   9|              4.60|
 
 ``` r
 # Save all results if requested
@@ -615,18 +615,258 @@ if(knitr::opts_chunk$get("save_output")) {
 The field blank on plate 101 has quite a few reads, but overall the
 field blank depth is 4.6% so it’s fine.
 
-**Before I run the taxonomy edits section, I think I should drop my
-blanks and mock and any samples with fewer than 100 reads. Maybe also do
-alpha rarefaction plots at this point.**
+## 13. Calculate alpha rarefaction curves
 
-## 12. Taxonomy edits
+Must be done on collapsed table (because we don’t care about ASV
+diversity, just species diversity).
 
-Make a table with sequences and taxonomy strings:
+    qiime taxa collapse \
+      --i-table merged_table_noBirdsMammalsUnassigned.qza \
+      --i-taxonomy superblast_taxonomy.qza \
+      --p-level 7 \
+      --o-collapsed-table merged_table_noBirdsMammalsUnassigned_collapsed.qza
+
+    qiime diversity alpha-rarefaction \
+      --i-table merged_table_noBirdsMammalsUnassigned_collapsed.qza \
+      --m-metadata-file metadata.txt \
+      --p-min-depth 100 \
+      --p-max-depth 5000 \
+      --o-visualization alpha-rarefaction-100-5000
+
+Repeat up to 1000
+
+    qiime diversity alpha-rarefaction \
+      --i-table merged_table_noBirdsMammalsUnassigned_collapsed.qza \
+      --m-metadata-file metadata.txt \
+      --p-min-depth 100 \
+      --p-max-depth 1000 \
+      --o-visualization alpha-rarefaction-100-1000
+
+Species richness plateaus at 300 reads, so we should drop samples with
+fewer than 300.
+
+## 14. Sample filtering
+
+#### Drop mock community and blanks and samples with fewer than 300 reads
+
+    qiime feature-table filter-samples \
+      --i-table merged_table_noBirdsMammalsUnassigned.qza \
+      --p-min-frequency 300 \
+      --m-metadata-file metadata.txt \
+      --p-where "Type='SAMPLE'" \
+      --o-filtered-table merged_table_noBirdsMammalsUnassigned_minfreq300
+      
+    qiime taxa barplot \
+      --i-table merged_table_noBirdsMammalsUnassigned_minfreq300.qza  \
+      --m-metadata-file metadata.txt \
+      --i-taxonomy superblast_taxonomy.qza \
+      --o-visualization barplot_noBirdsMammalsUnassigned_minfreq300
+
+## 16. Abundance filtering
+
+``` r
+library(qiime2R)
+library(tidyverse)
+library(biomformat)
+
+# Read in the QIIME 2 artifacts and metadata
+feature_table <- read_qza("MiFish/merged_table_noBirdsMammalsUnassigned_minfreq300.qza")
+taxonomy_data <- read_qza("MiFish/superblast_taxonomy.qza")
+metadata <- read_q2metadata("MiFish/metadata.txt")
+
+# Convert feature table to data frame
+feature_table_df <- as.data.frame(feature_table$data) %>%
+  rownames_to_column("FeatureID")
+
+# Extract taxonomy information
+taxonomy_df <- data.frame(
+  FeatureID = taxonomy_data$data[,1],
+  Taxonomy = taxonomy_data$data[,2],
+  stringsAsFactors = FALSE
+)
+
+
+# Reshape feature table to long format
+feature_long <- feature_table_df %>%
+  gather(key = "SampleID", value = "Abundance", -FeatureID) %>%
+  # Join with taxonomy
+  left_join(taxonomy_df, by = "FeatureID")
+
+# Aggregate abundances by taxonomy and sample
+species_level_abundances <- feature_long %>%
+  group_by(SampleID, Taxonomy) %>%
+  summarise(Abundance = sum(Abundance)) %>%
+  ungroup()
+```
+
+    ## `summarise()` has grouped output by 'SampleID'. You can override using the
+    ## `.groups` argument.
+
+``` r
+# Apply 1% filter per sample at species level
+filtered_species <- species_level_abundances %>%
+  group_by(SampleID) %>%
+  mutate(
+    TotalReads = sum(Abundance),
+    RelativeAbundance = Abundance / TotalReads,
+    # Set abundance to 0 if relative abundance is < 1%
+    Abundance = if_else(RelativeAbundance < 0.01, 0, Abundance)
+  ) %>%
+  ungroup()
+
+# Get the list of taxonomy strings that passed the filter in any sample
+retained_taxa <- filtered_species %>%
+  filter(Abundance > 0) %>%
+  pull(Taxonomy) %>%
+  unique()
+
+# Filter the original feature-level data based on taxonomy
+filtered_features <- feature_long %>%
+  filter(Taxonomy %in% retained_taxa) %>%
+  select(FeatureID, SampleID, Abundance, Taxonomy)
+
+# Convert back to wide format for QIIME2
+filtered_feature_table <- filtered_features %>%
+  select(FeatureID, SampleID, Abundance) %>%
+  pivot_wider(
+    names_from = SampleID,
+    values_from = Abundance,
+    values_fill = 0
+  )
+
+# Create output files for QIIME2
+if(knitr::opts_chunk$get("save_output")) {
+  # Create feature table in BIOM format
+  filtered_feature_matrix <- as.matrix(filtered_feature_table[,-1])
+  rownames(filtered_feature_matrix) <- filtered_feature_table$FeatureID
+  
+  # Create BIOM object
+  biom_obj <- make_biom(data = filtered_feature_matrix)
+  
+  # Write BIOM file
+  write_biom(biom_obj, "MiFish/filtered_feature_table.biom")
+  
+  # Write taxonomy file with correct header
+  filtered_taxonomy <- taxonomy_df %>%
+    filter(FeatureID %in% filtered_feature_table$FeatureID)
+  
+  # Create the data without headers first
+  filtered_taxonomy_output <- data.frame(
+    FeatureID = filtered_taxonomy$FeatureID,
+    Taxonomy = filtered_taxonomy$Taxonomy
+  )
+  
+  # Write to file with explicit column names
+  write.table(filtered_taxonomy_output, 
+              "MiFish/filtered_taxonomy.tsv", 
+              sep="\t", 
+              quote=FALSE, 
+              row.names=FALSE,
+              col.names = c("Feature ID", "Taxon"))
+}
+
+# Print summary statistics
+cat("Original number of features:", nrow(feature_table_df), "\n")
+```
+
+    ## Original number of features: 2248
+
+``` r
+cat("Number of features after filtering:", nrow(filtered_feature_table), "\n")
+```
+
+    ## Number of features after filtering: 2134
+
+``` r
+cat("Number of features removed:", nrow(feature_table_df) - nrow(filtered_feature_table), "\n")
+```
+
+    ## Number of features removed: 114
+
+``` r
+# Calculate and print the number of unique taxa before and after filtering
+n_taxa_before <- length(unique(taxonomy_df$Taxonomy))
+n_taxa_after <- length(retained_taxa)
+cat("\nNumber of unique taxa before filtering:", n_taxa_before, "\n")
+```
+
+    ## 
+    ## Number of unique taxa before filtering: 140
+
+``` r
+cat("Number of unique taxa after filtering:", n_taxa_after, "\n")
+```
+
+    ## Number of unique taxa after filtering: 48
+
+``` r
+cat("Number of taxa removed:", n_taxa_before - n_taxa_after, "\n")
+```
+
+    ## Number of taxa removed: 92
+
+``` r
+# Calculate and print the number of reads before and after filtering
+total_reads_before <- sum(feature_long$Abundance)
+total_reads_after <- sum(filtered_features$Abundance)
+cat("\nTotal reads before filtering:", total_reads_before, "\n")
+```
+
+    ## 
+    ## Total reads before filtering: 40694710
+
+``` r
+cat("Total reads after filtering:", total_reads_after, "\n")
+```
+
+    ## Total reads after filtering: 40675573
+
+``` r
+cat("Percentage of reads retained:", round(total_reads_after/total_reads_before * 100, 2), "%\n")
+```
+
+    ## Percentage of reads retained: 99.95 %
+
+### Import back into qiime
+
+    # Import feature table
+    qiime tools import \
+      --input-path filtered_feature_table.biom \
+      --type 'FeatureTable[Frequency]' \
+      --input-format BIOMV100Format \
+      --output-path filtered_table_minfreq300_minabund1.qza
+
+    # Import taxonomy
+    qiime tools import \
+      --input-path filtered_taxonomy.tsv \
+      --type 'FeatureData[Taxonomy]' \
+      --input-format TSVTaxonomyFormat \
+      --output-path filtered_taxonomy_minfreq300_minabund1.qza
+
+Make a barplot to see how it looks now
+
+    qiime taxa barplot \
+      --i-table filtered_table_minfreq300_minabund1.qza \
+      --i-taxonomy filtered_taxonomy_minfreq300_minabund1.qza \
+      --m-metadata-file metadata.txt \
+      --o-visualization barplot_minfreq300_minabund1.qzv
+
+## 15. Taxonomy edits
+
+First, filter down the rep-seqs to just those that are found in our
+remaining samples after abundance filtering.
+
+    qiime feature-table filter-seqs \
+      --i-data merged_rep-seqs.qza \
+      --i-table filtered_table_minfreq300_minabund1.qza \
+      --o-filtered-data filtered_rep-seqs_minfreq300_minabund1.qza
+
+Next make a table with sequences and taxonomy strings:
 
     qiime metadata tabulate \
-      --m-input-file merged_rep-seqs.qza \
-      --m-input-file superblast_taxonomy.qza \
-      --o-visualization sequence_taxonomy.qzv
+      --m-input-file filtered_rep-seqs_minfreq300_minabund1.qza \
+      --m-input-file filtered_taxonomy_minfreq300_minabund1.qza \
+      --o-visualization sequence_taxonomy_minfreq300_minabund1.qzv
 
 Make the edits needed after reading the taxonomy artifact into R.
 
@@ -634,8 +874,8 @@ Make the edits needed after reading the taxonomy artifact into R.
 tax <- read_qza("MiFish/superblast_taxonomy.qza")
 ```
 
-Changes I am making:  
-\* Clupea harengus to Clupea pallasii.  
+Changes that I made for the first set of samples: \* Clupea harengus to
+Clupea pallasii.  
 \* Sprattus sprattus to Clupea pallasii.  
 \* Gadus chalcogrammus to Gadus sp. (but most likely walleye pollock).  
 \* Microgradus proximus to Gadidae sp. (but most likely Pacific

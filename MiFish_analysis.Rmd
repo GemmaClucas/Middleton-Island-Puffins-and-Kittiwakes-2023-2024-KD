@@ -508,25 +508,222 @@ if(knitr::opts_chunk$get("save_output")) {
 
 The field blank on plate 101 has quite a few reads, but overall the field blank depth is 4.6% so it's fine.
 
+## 13. Calculate alpha rarefaction curves 
 
-**Before I run the taxonomy edits section, I think I should drop my blanks and mock and any samples with fewer than 100 reads. Maybe also do alpha rarefaction plots at this point.**
+Must be done on collapsed table (because we don't care about ASV diversity, just species diversity).
+```
+qiime taxa collapse \
+  --i-table merged_table_noBirdsMammalsUnassigned.qza \
+  --i-taxonomy superblast_taxonomy.qza \
+  --p-level 7 \
+  --o-collapsed-table merged_table_noBirdsMammalsUnassigned_collapsed.qza
+
+qiime diversity alpha-rarefaction \
+  --i-table merged_table_noBirdsMammalsUnassigned_collapsed.qza \
+  --m-metadata-file metadata.txt \
+  --p-min-depth 100 \
+  --p-max-depth 5000 \
+  --o-visualization alpha-rarefaction-100-5000
+```
+Repeat up to 1000
+```
+qiime diversity alpha-rarefaction \
+  --i-table merged_table_noBirdsMammalsUnassigned_collapsed.qza \
+  --m-metadata-file metadata.txt \
+  --p-min-depth 100 \
+  --p-max-depth 1000 \
+  --o-visualization alpha-rarefaction-100-1000
+```
+Species richness plateaus at 300 reads, so we should drop samples with fewer than 300.
+
+## 14. Sample filtering
+
+#### Drop mock community and blanks and samples with fewer than 300 reads
+
+```
+qiime feature-table filter-samples \
+  --i-table merged_table_noBirdsMammalsUnassigned.qza \
+  --p-min-frequency 300 \
+  --m-metadata-file metadata.txt \
+  --p-where "Type='SAMPLE'" \
+  --o-filtered-table merged_table_noBirdsMammalsUnassigned_minfreq300
+  
+qiime taxa barplot \
+  --i-table merged_table_noBirdsMammalsUnassigned_minfreq300.qza  \
+  --m-metadata-file metadata.txt \
+  --i-taxonomy superblast_taxonomy.qza \
+  --o-visualization barplot_noBirdsMammalsUnassigned_minfreq300
+```
+
+## 16. Abundance filtering
+
+```{r}
+library(qiime2R)
+library(tidyverse)
+library(biomformat)
+
+# Read in the QIIME 2 artifacts and metadata
+feature_table <- read_qza("MiFish/merged_table_noBirdsMammalsUnassigned_minfreq300.qza")
+taxonomy_data <- read_qza("MiFish/superblast_taxonomy.qza")
+metadata <- read_q2metadata("MiFish/metadata.txt")
+
+# Convert feature table to data frame
+feature_table_df <- as.data.frame(feature_table$data) %>%
+  rownames_to_column("FeatureID")
+
+# Extract taxonomy information
+taxonomy_df <- data.frame(
+  FeatureID = taxonomy_data$data[,1],
+  Taxonomy = taxonomy_data$data[,2],
+  stringsAsFactors = FALSE
+)
 
 
-## 12. Taxonomy edits
+# Reshape feature table to long format
+feature_long <- feature_table_df %>%
+  gather(key = "SampleID", value = "Abundance", -FeatureID) %>%
+  # Join with taxonomy
+  left_join(taxonomy_df, by = "FeatureID")
 
-Make a table with sequences and taxonomy strings:
+# Aggregate abundances by taxonomy and sample
+species_level_abundances <- feature_long %>%
+  group_by(SampleID, Taxonomy) %>%
+  summarise(Abundance = sum(Abundance)) %>%
+  ungroup()
+
+# Apply 1% filter per sample at species level
+filtered_species <- species_level_abundances %>%
+  group_by(SampleID) %>%
+  mutate(
+    TotalReads = sum(Abundance),
+    RelativeAbundance = Abundance / TotalReads,
+    # Set abundance to 0 if relative abundance is < 1%
+    Abundance = if_else(RelativeAbundance < 0.01, 0, Abundance)
+  ) %>%
+  ungroup()
+
+# Get the list of taxonomy strings that passed the filter in any sample
+retained_taxa <- filtered_species %>%
+  filter(Abundance > 0) %>%
+  pull(Taxonomy) %>%
+  unique()
+
+# Filter the original feature-level data based on taxonomy
+filtered_features <- feature_long %>%
+  filter(Taxonomy %in% retained_taxa) %>%
+  select(FeatureID, SampleID, Abundance, Taxonomy)
+
+# Convert back to wide format for QIIME2
+filtered_feature_table <- filtered_features %>%
+  select(FeatureID, SampleID, Abundance) %>%
+  pivot_wider(
+    names_from = SampleID,
+    values_from = Abundance,
+    values_fill = 0
+  )
+
+# Create output files for QIIME2
+if(knitr::opts_chunk$get("save_output")) {
+  # Create feature table in BIOM format
+  filtered_feature_matrix <- as.matrix(filtered_feature_table[,-1])
+  rownames(filtered_feature_matrix) <- filtered_feature_table$FeatureID
+  
+  # Create BIOM object
+  biom_obj <- make_biom(data = filtered_feature_matrix)
+  
+  # Write BIOM file
+  write_biom(biom_obj, "MiFish/filtered_feature_table.biom")
+  
+  # Write taxonomy file with correct header
+  filtered_taxonomy <- taxonomy_df %>%
+    filter(FeatureID %in% filtered_feature_table$FeatureID)
+  
+  # Create the data without headers first
+  filtered_taxonomy_output <- data.frame(
+    FeatureID = filtered_taxonomy$FeatureID,
+    Taxonomy = filtered_taxonomy$Taxonomy
+  )
+  
+  # Write to file with explicit column names
+  write.table(filtered_taxonomy_output, 
+              "MiFish/filtered_taxonomy.tsv", 
+              sep="\t", 
+              quote=FALSE, 
+              row.names=FALSE,
+              col.names = c("Feature ID", "Taxon"))
+}
+
+# Print summary statistics
+cat("Original number of features:", nrow(feature_table_df), "\n")
+cat("Number of features after filtering:", nrow(filtered_feature_table), "\n")
+cat("Number of features removed:", nrow(feature_table_df) - nrow(filtered_feature_table), "\n")
+
+# Calculate and print the number of unique taxa before and after filtering
+n_taxa_before <- length(unique(taxonomy_df$Taxonomy))
+n_taxa_after <- length(retained_taxa)
+cat("\nNumber of unique taxa before filtering:", n_taxa_before, "\n")
+cat("Number of unique taxa after filtering:", n_taxa_after, "\n")
+cat("Number of taxa removed:", n_taxa_before - n_taxa_after, "\n")
+
+# Calculate and print the number of reads before and after filtering
+total_reads_before <- sum(feature_long$Abundance)
+total_reads_after <- sum(filtered_features$Abundance)
+cat("\nTotal reads before filtering:", total_reads_before, "\n")
+cat("Total reads after filtering:", total_reads_after, "\n")
+cat("Percentage of reads retained:", round(total_reads_after/total_reads_before * 100, 2), "%\n")
+```
+
+### Import back into qiime
+```
+# Import feature table
+qiime tools import \
+  --input-path filtered_feature_table.biom \
+  --type 'FeatureTable[Frequency]' \
+  --input-format BIOMV100Format \
+  --output-path filtered_table_minfreq300_minabund1.qza
+
+# Import taxonomy
+qiime tools import \
+  --input-path filtered_taxonomy.tsv \
+  --type 'FeatureData[Taxonomy]' \
+  --input-format TSVTaxonomyFormat \
+  --output-path filtered_taxonomy_minfreq300_minabund1.qza
+```
+
+Make a barplot to see how it looks now
+```
+qiime taxa barplot \
+  --i-table filtered_table_minfreq300_minabund1.qza \
+  --i-taxonomy filtered_taxonomy_minfreq300_minabund1.qza \
+  --m-metadata-file metadata.txt \
+  --o-visualization barplot_minfreq300_minabund1.qzv
+```  
+
+
+## 15. Taxonomy edits
+
+First, filter down the rep-seqs to just those that are found in our remaining samples after abundance filtering.
+```
+qiime feature-table filter-seqs \
+  --i-data merged_rep-seqs.qza \
+  --i-table filtered_table_minfreq300_minabund1.qza \
+  --o-filtered-data filtered_rep-seqs_minfreq300_minabund1.qza
+```
+
+Next make a table with sequences and taxonomy strings:
 ```
 qiime metadata tabulate \
-  --m-input-file merged_rep-seqs.qza \
-  --m-input-file superblast_taxonomy.qza \
-  --o-visualization sequence_taxonomy.qzv
+  --m-input-file filtered_rep-seqs_minfreq300_minabund1.qza \
+  --m-input-file filtered_taxonomy_minfreq300_minabund1.qza \
+  --o-visualization sequence_taxonomy_minfreq300_minabund1.qzv
 ```
 
 Make the edits needed after reading the taxonomy artifact into R.
 ```{r}
 tax <- read_qza("MiFish/superblast_taxonomy.qza")
 ```
-Changes I am making:    
+
+Changes that I made for the first set of samples:
 * Clupea harengus to Clupea pallasii.  
 * Sprattus sprattus to Clupea pallasii.  
 * Gadus chalcogrammus to Gadus sp. (but most likely walleye pollock).  
