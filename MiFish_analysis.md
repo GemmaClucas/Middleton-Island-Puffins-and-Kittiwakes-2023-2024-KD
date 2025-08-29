@@ -907,81 +907,80 @@ macrocephalus to Gadus sp.
 changes). \* Nannobrachium regale to Lampanyctus sp. (recent genus name
 changes). \* Ruscarius creaseri to Cottidae (no close match). \*
 Cryptacanthodes aleutensis to Cryptacanthodes sp.  
-\* Polypera greeni to Liparis greeni (name change). \* Sebastes miniatus
-to Sebeastes sp.
+\* Polypera greeni to Liparis greeni (name change).  
+\* Sebastes miniatus to Sebeastes sp.
+
+Katelyn finished checking these and removed those that we don’t need
+anymore (after applying the 1% filter first this time around).
 
 ``` r
-tax$data$Taxon <- tax$data$Taxon %>% 
-  str_replace_all("g__Clupea; s__harengus", "g__Clupea; s__pallasii") %>%   # Pacific herring
-  str_replace_all("g__Sprattus; s__sprattus", "g__Clupea; s__pallasii") %>%   # Barracudina sp.
-  str_replace_all("g__Gadus; s__chalcogrammus", "g__Gadus; s__") %>%   # walleye pollock
-  str_replace_all("g__Gadus; s__macrocephalus", "g__Gadus; s__") %>%   # Pacific cod
-  str_replace_all("g__Gadus; s__ogac", "g__Gadus; s__") %>%   # greenland cod
-  str_replace_all("g__Microgadus; s__proximus", "g__; s__") %>%   # Pacific tomcod
-  str_replace_all("g__Stenobrachius; s__leucopsarus", "g__Stenobrachius; s__") %>%   # lampfish
-  str_replace_all("g__Stenobrachius; s__nannochir", "g__Stenobrachius; s__") %>%   # lampfish
-  str_replace_all("g__Spirinchus; s__lanceolatus", "g__Thaleichthys; s__pacificus") %>%   # Eulachon
-  str_replace_all("g__Hexagrammos; s__agrammus", "g__Hexagrammos; s__") %>%   # greenlings
-  str_replace_all("g__Hexagrammos; s__octogrammus", "g__Hexagrammos; s__") %>%   # greenlings
-  str_replace_all("g__Sebastes; s__babcocki", "g__Sebastes; s__") %>%   # Redfish
-  str_replace_all("g__Sebastes; s__crameri", "g__Sebastes; s__") %>%   # Redfish
-  str_replace_all("g__Sebastes; s__mentella", "g__Sebastes; s__") %>%   # Redfish
-  str_replace_all("g__Sebastes; s__miniatus", "g__Sebastes; s__") %>%   # Redfish
-  str_replace_all("g__Anoplarchus; s__insignis", "g__Anoplarchus; s__") %>%   # Cockscomb sp.
-  str_replace_all("g__Xiphister; s__mucosus", "g__ ; s__") %>%   # Stichidae sp.
-  str_replace_all("g__Lycodapus; s__mandibularis", "g__Lycodapus; s__") %>%   # Eelpouts
-  str_replace_all("g__Lycodapus; s__microchir", "g__Lycodapus; s__") %>%   # Eelpouts
-  str_replace_all("g__Oncorhynchus; s__gorbuscha", "g__Oncorhynchus; s__") %>%  # Salmons
-  str_replace_all("g__Oncorhynchus; s__keta", "g__Oncorhynchus; s__") %>%  # Salmons
-  str_replace_all("g__Oncorhynchus; s__kisutch", "g__Oncorhynchus; s__") %>%  # Salmons
-  str_replace_all("g__Oncorhynchus; s__mykiss", "g__Oncorhynchus; s__") %>%  # Salmons
-  str_replace_all("g__Oncorhynchus; s__nerka", "g__Oncorhynchus; s__") %>%  # Salmons
-  str_replace_all("g__Ammodytes; s__dubius", "g__Ammodytes; s__personatus")  %>% # Pacific sandlance
-  str_replace_all("g__Poromitra; s__cristiceps", "g__Poromitra; s__crassiceps")  %>% # Crested bigscale
-  str_replace_all("g__Lampanyctus; s__tenuiformis", "g__Lampanyctus; s__") %>%  # Lanternfish
-  str_replace_all("g__Nannobrachium; s__regale", "g__Lampanyctus; s__") %>%  # Lanternfish
-  str_replace_all("g__Ruscarius; s__creaseri", "g__; s__") %>%  # Sculpin
-  str_replace_all("g__Cryptacanthodes; s__aleutensis", "g__Cryptacanthodes; s__") %>%  # Sculpin
-  str_replace_all("g__Polypera; s__greeni", "g__Liparis; s__greeni")  # Snailfish
+tax$data$Taxon <- tax$data$Taxon %>%
+  str_replace_all("g__Poromitra;s__cristiceps", "g__Poromitra;s__crassiceps") %>%
+  str_replace_all("g__Clupea;s__harengus", "g__Clupea;s__pallasii") %>%
+  str_replace_all("g__Sprattus;s__sprattus", "g__Clupea;s__pallasii") %>%
+  str_replace_all("g__Gadus;s__chalcogrammus", "g__Gadus;s__") %>%
+  str_replace_all("g__Gadus;s__macrocephalus", "g__Gadus;s__") %>%
+  str_replace_all("g__Gadus;s__ogac", "g__Gadus;s__") %>%
+  str_replace_all("g__Microgadus;s__proximus", "g__;s__") %>%
+  str_replace_all("g__Lampanyctus;s__tenuiformis", "g__Lampanyctus;s__") %>%
+  str_replace_all("g__Nannobrachium;s__regale", "g__Lampanyctus;s__") %>%
+  str_replace_all("g__Stenobrachius;s__leucopsarus", "g__Stenobrachius;s__") %>%
+  str_replace_all("g__Stenobrachius;s__nannochir", "g__Stenobrachius;s__") %>%
+  str_replace_all("g__Ruscarius;s__creaseri", "g__;s__") %>%
+  str_replace_all("g__Cryptacanthodes;s__aleutensis", "g__Cryptacanthodes;s__") %>%
+  str_replace_all("g__Hexagrammos;s__agrammus", "g__Hexagrammos;s__") %>%
+  str_replace_all("g__Hexagrammos;s__decagrammus", "g__Hexagrammos;s__") %>%
+  str_replace_all("g__Polypera;s__greeni", "g__Liparis;s__greeni") %>%
+  str_replace_all("g__Sebastes;s__miniatus", "g__Sebastes;s__") %>%
+  str_replace_all("g__Anoplarchus;s__insignis", "g__Anoplarchus;s__") %>%
+  str_replace_all("g__Lycodapus;s__mandibularis", "g__Lycodapus;s__") %>%
+  str_replace_all("g__Lycodapus;s__microchir", "g__Lycodapus;s__") %>%
+  str_replace_all("g__Atheresthes;s__evermanni", "g__Atheresthes;s__stomias") %>%
+  str_replace_all("g__Glyptocephalus;s__stelleri", "g__;s__") %>%
+  str_replace_all("g__Oncorhynchus;s__gorbuscha", "g__Oncorhynchus;s__") %>%
+  str_replace_all("g__Oncorhynchus;s__kisutch", "g__Oncorhynchus;s__") %>%
+  str_replace_all("g__Oncorhynchus;s__nerka", "g__Oncorhynchus;s__") %>%
+  str_replace_all("g__Ammodytes;s__japonicus", "g__Ammodytes;s__personatus") %>%
+  str_replace_all("g__Hyperoplus;s__immaculatus", "g__Ammodytes;s__personatus")
 ```
 
 To check that it worked, you can search for the old or new names using
 grepl:
 
 ``` r
-tax$data %>% filter(grepl("Ammodytes; s__dubius", Taxon)) %>% count()
+tax$data %>% filter(grepl("Ammodytes;s__dubius", Taxon)) %>% count()
+```
+
+    ##   n
+    ## 1 1
+
+``` r
+tax$data %>% filter(grepl("Ammodytes;s__personatus", Taxon)) %>% count()
+```
+
+    ##    n
+    ## 1 72
+
+``` r
+tax$data %>% filter(grepl("g__Oncorhynchus;s__gorbuscha|g__Oncorhynchus; s__keta|g__Oncorhynchus; s__kisutch", Taxon)) %>% count()
 ```
 
     ##   n
     ## 1 0
 
 ``` r
-tax$data %>% filter(grepl("Ammodytes; s__personatus", Taxon)) %>% count()
+tax$data %>% filter(grepl("g__Oncorhynchus;s__", Taxon)) %>%  count()
 ```
 
-    ##   n
-    ## 1 0
+    ##    n
+    ## 1 24
 
 ``` r
-tax$data %>% filter(grepl("g__Oncorhynchus; s__gorbuscha|g__Oncorhynchus; s__keta|g__Oncorhynchus; s__kisutch", Taxon)) %>% count()
+tax$data %>% filter(grepl("g__Clupea;s__pallasii", Taxon)) %>%  count()
 ```
 
-    ##   n
-    ## 1 0
-
-``` r
-tax$data %>% filter(grepl("g__Oncorhynchus; s__", Taxon)) %>%  count()
-```
-
-    ##   n
-    ## 1 0
-
-``` r
-tax$data %>% filter(grepl("g__Clupea; s__pallasii", Taxon)) %>%  count()
-```
-
-    ##   n
-    ## 1 0
+    ##     n
+    ## 1 557
 
 Export to check (commented out for knitting).
 
@@ -1007,3 +1006,11 @@ Remove the period and reload into qiime (run in terminal):
     qiime metadata tabulate \
       --m-input-file superblast_taxonomy_edited.qza \
       --o-visualization superblast_taxonomy_edited
+
+## Final barplot
+
+    qiime taxa barplot \
+      --i-table filtered_table_minfreq300_minabund1.qza \
+      --i-taxonomy superblast_taxonomy_edited.qza \
+      --m-metadata-file metadata.txt \
+      --o-visualization barplot_minfreq300_minabund1_taxedited.qzv
