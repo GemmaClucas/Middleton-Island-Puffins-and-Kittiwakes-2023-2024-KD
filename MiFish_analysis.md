@@ -131,7 +131,6 @@ Note, this step can be a little slow to run.
 Create visualizations for the denoising stats.
 
     for K in 75_2 76 99 100 101 102 109; do  
-    for K in 109; do  
       qiime metadata tabulate\
         --m-input-file denoise_Plate$K.qza\
         --o-visualization denoise_Plate$K.qzv
@@ -1014,3 +1013,6 @@ Remove the period and reload into qiime (run in terminal):
       --i-taxonomy superblast_taxonomy_edited.qza \
       --m-metadata-file metadata.txt \
       --o-visualization barplot_minfreq300_minabund1_taxedited.qzv
+
+Downloaded this final dataset as a csv from the qiime viewer and this is
+what Katelyn is working with.
