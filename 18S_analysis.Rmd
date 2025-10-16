@@ -11,20 +11,25 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 1. Import the data
 
-Just plate 75 for now. Will need to update to include all plates.
+Data is spread across plate 75, 76, 99, 100, 101, and 102. Plate 76 and 102 I combined into one plate for PCR and sequencing, as they were both partial extraction plates.
+
+For some reason, there were hidden copies of all files in the folders for plate 100 and 101, which I had to get rid of (viewed them with `ls -a` and delete with `rm .*`) before I could import into qiime.
+
+There were also five LESP samples from Mat Rock on plate 76, so I moved them out to their own folder
 
 ```
 cd /Users/gc547/Dropbox/GitHub_copied/Fecal_metabarcoding/Middleton-Island_2023-2024_KD/18S
 conda activate qiime2-amplicon-2024.10 
 
-for K in 75 76 99 100 101; do
+for K in 75 76-102 99 100 101; do
 qiime tools import\
   --type 'SampleData[PairedEndSequencesWithQuality]'\
   --input-path /Volumes/Data_SS1/18S/Plate$K/reads/ \
   --input-format CasavaOneEightSingleLanePerSampleDirFmt\
   --output-path demux_Plate$K.qza
-  
-for K in 75 76 99 100 101; do
+done
+
+for K in 75 76-102 99 100 101; do
   qiime demux summarize \
     --i-data demux_Plate$K.qza \
     --o-visualization demux_Plate$K.qzv
@@ -45,7 +50,7 @@ At the 3’ end of the read, the primer will have been read through after readin
 F primer reverse complement: CATCTAAGGGCATCACAGACC   
 R primer reverse complement: CCCTGCCCTTTGTACACACC
 ```
-for K in 75 76 99 100 101; do
+for K in 75 76-102 99 100 101; do
   qiime cutadapt trim-paired \
     --i-demultiplexed-sequences demux_Plate$K.qza \
     --p-adapter-f CCCTGCCCTTTGTACACACC \
@@ -57,7 +62,7 @@ done
 
 To see how much passed the filters:
 ```
-for K in 75 76 99 100 101; do
+for K in 75 76-102 99 100 101; do
   grep "Total written (filtered):" cutadapt_out_Plate$K.txt 
 done
 ```
@@ -68,7 +73,7 @@ All R1 should begin with the forward primer: GGTCTGTGATGCCCTTAGATG (21 bases). A
 
 Trim these with the following commands:
 ```
-for K in 75 76 99 100 101; do
+for K in 75 76-102 99 100 101; do
   qiime cutadapt trim-paired \
     --i-demultiplexed-sequences trimd_Plate$K.qza \
     --p-front-f GGTCTGTGATGCCCTTAGATG \
@@ -79,7 +84,7 @@ done
 ```
 To see how much passed the filters:
 ```
-for K in 75 76 99 100 101; do
+for K in 75 76-102 99 100 101; do
   grep "Total written (filtered):" cutadapt_out2_Plate$K.txt 
 done
 ```
@@ -88,7 +93,7 @@ done
 ## 3. Denoise with Dada2
 
 ```
-for K in 75 76 99 100 101; do
+for K in 75 76-102 99 100 101; do
   qiime dada2 denoise-paired \
     --i-demultiplexed-seqs trimd2_Plate$K.qza \
     --p-trunc-len-f 150 \
@@ -104,9 +109,8 @@ done
 ```
 
 Create visualizations for the denoising stats.
- 76 99 100 101
 ```
-for K in 75; do  
+for K in 75 76-102 99 100 101; do  
   qiime metadata tabulate\
     --m-input-file denoise_Plate$K.qza\
     --o-visualization denoise_Plate$K.qzv
@@ -118,7 +122,7 @@ done
 ```
 qiime feature-table merge \
   --i-tables table_Plate75.qza \
-  --i-tables table_Plate76.qza \
+  --i-tables table_Plate76-102.qza \
   --i-tables table_Plate99.qza \
   --i-tables table_Plate100.qza \
   --i-tables table_Plate101.qza \
@@ -132,7 +136,7 @@ qiime feature-table summarize \
     
 qiime feature-table merge-seqs \
   --i-data rep-seqs_Plate75.qza \
-  --i-data rep-seqs_Plate76.qza \
+  --i-data rep-seqs_Plate76-102.qza \
   --i-data rep-seqs_Plate99.qza \
   --i-data rep-seqs_Plate100.qza \
   --i-data rep-seqs_Plate101.qza \
@@ -153,35 +157,24 @@ I copied the metadata file over from the MiFish folder and changed underscores t
 ```
 qiime feature-classifier classify-sklearn \
   --i-classifier classifier.qza \
-  --i-reads rep-seqs_Plate75.qza \
-  --o-classification sklearn_taxonomy.qza
-  
-qiime taxa barplot\
-   --i-table table_Plate75.qza\
-   --i-taxonomy sklearn_taxonomy.qza\
-   --m-metadata-file metadata.txt\
-   --o-visualization barplot_sklearn-taxa.qzv
-   
-   
-# merged version
-qiime feature-classifier classify-sklearn \
-  --i-classifier classifier.qza \
   --i-reads merged_rep-seqs.qza \
   --o-classification sklearn_taxonomy.qza
   
 qiime taxa barplot\
-   --i-table merged_table.qza\
-   --i-taxonomy sklearn_taxonomy.qza\
-   --m-metadata-file metadata.txt\
-   --o-visualization barplot_sklearn-taxa.qzv
+   --i-table merged-table.qza \
+   --i-taxonomy sklearn_taxonomy.qza \
+   --m-metadata-file metadata.txt \
+   --o-visualization barplot_before_filtering.qzv
+   
+   
 ```
-The blanks seems to mostly have fungal and a load of other micro-organismal DNA in them, so that's not too bad. One has some fish.
+The blanks seems to mostly have fungal DNA in them, so that we can easily filter out. Lots of fish DNA in the samples.
 
 ## 5. Filter out non-prey sequences
 
 ```
 qiime taxa filter-table \
-  --i-table table_Plate75.qza \
+  --i-table merged-table.qza \
   --i-taxonomy sklearn_taxonomy.qza \
   --p-include Metazoa \
   --o-filtered-table merged-table_onlymetazoa.qza
@@ -193,7 +186,7 @@ qiime taxa barplot\
       --o-visualization barplot_sklearn-taxa_onlymetazoa
 
 ```
-
+THIS IS WHERE I"M UP TO - SENT LEVEL 6 TO KATELYN.
 Need to filter for just prey next with Katelyn. I downloaded the level 6 version for her to work on. This is what we decided to keep:
 
 ```
