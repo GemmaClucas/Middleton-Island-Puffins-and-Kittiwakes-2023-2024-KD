@@ -5,18 +5,19 @@ Gemma Clucas
 
 ## 1. Import the data
 
-Just plate 75 for now.
+Just plate 75 for now. Will need to update to include all plates.
 
-    cd /Users/gc547/Dropbox/GitHub_copied/Fecal_metabarcoding/Middleton-Island-Puffins-and-Kittiwakes/18S_2023
+    cd /Users/gc547/Dropbox/GitHub_copied/Fecal_metabarcoding/Middleton-Island_2023-2024_KD/18S
     conda activate qiime2-amplicon-2024.10 
 
+    for K in 75 76 99 100 101; do
     qiime tools import\
       --type 'SampleData[PairedEndSequencesWithQuality]'\
-      --input-path /Volumes/Data_SS1/18S/Plate75/reads/ \
+      --input-path /Volumes/Data_SS1/18S/Plate$K/reads/ \
       --input-format CasavaOneEightSingleLanePerSampleDirFmt\
-      --output-path demux_plate75.qza
+      --output-path demux_Plate$K.qza
       
-    for K in 75; do
+    for K in 75 76 99 100 101; do
       qiime demux summarize \
         --i-data demux_Plate$K.qza \
         --o-visualization demux_Plate$K.qzv
@@ -39,7 +40,7 @@ complement of the forward primer in R2 (—p-adapter-r).
 F primer reverse complement: CATCTAAGGGCATCACAGACC  
 R primer reverse complement: CCCTGCCCTTTGTACACACC
 
-    for K in 75; do
+    for K in 75 76 99 100 101; do
       qiime cutadapt trim-paired \
         --i-demultiplexed-sequences demux_Plate$K.qza \
         --p-adapter-f CCCTGCCCTTTGTACACACC \
@@ -50,7 +51,7 @@ R primer reverse complement: CCCTGCCCTTTGTACACACC
 
 To see how much passed the filters:
 
-    for K in 75; do
+    for K in 75 76 99 100 101; do
       grep "Total written (filtered):" cutadapt_out_Plate$K.txt 
     done
 
@@ -65,7 +66,7 @@ GGTGTGTACAAAGGGCAGGG (20 bases).
 
 Trim these with the following commands:
 
-    for K in 75; do
+    for K in 75 76 99 100 101; do
       qiime cutadapt trim-paired \
         --i-demultiplexed-sequences trimd_Plate$K.qza \
         --p-front-f GGTCTGTGATGCCCTTAGATG \
@@ -76,7 +77,7 @@ Trim these with the following commands:
 
 To see how much passed the filters:
 
-    for K in 75; do
+    for K in 75 76 99 100 101; do
       grep "Total written (filtered):" cutadapt_out2_Plate$K.txt 
     done
 
@@ -84,7 +85,7 @@ To see how much passed the filters:
 
 ## 3. Denoise with Dada2
 
-    for K in 75; do
+    for K in 75 76 99 100 101; do
       qiime dada2 denoise-paired \
         --i-demultiplexed-seqs trimd2_Plate$K.qza \
         --p-trunc-len-f 150 \
@@ -98,7 +99,7 @@ To see how much passed the filters:
         --o-denoising-stats denoise_Plate$K
     done
 
-Create visualizations for the denoising stats.
+Create visualizations for the denoising stats. 76 99 100 101
 
     for K in 75; do  
       qiime metadata tabulate\
@@ -106,7 +107,35 @@ Create visualizations for the denoising stats.
         --o-visualization denoise_Plate$K.qzv
     done
 
-## 4. Assign taxonomy using Naive Bayes classifier
+## 4. Merge across plates
+
+    qiime feature-table merge \
+      --i-tables table_Plate75.qza \
+      --i-tables table_Plate76.qza \
+      --i-tables table_Plate99.qza \
+      --i-tables table_Plate100.qza \
+      --i-tables table_Plate101.qza \
+      --p-overlap-method sum \
+      --o-merged-table merged-table.qza
+
+    qiime feature-table summarize \
+        --i-table merged-table.qza \
+        --m-sample-metadata-file metadata.txt \
+        --o-visualization merged-table
+        
+    qiime feature-table merge-seqs \
+      --i-data rep-seqs_Plate75.qza \
+      --i-data rep-seqs_Plate76.qza \
+      --i-data rep-seqs_Plate99.qza \
+      --i-data rep-seqs_Plate100.qza \
+      --i-data rep-seqs_Plate101.qza \
+      --o-merged-data merged_rep-seqs.qza
+
+    qiime feature-table tabulate-seqs \
+      --i-data merged_rep-seqs.qza \
+      --o-visualization merged_rep-seqs.qzv
+
+## 5. Assign taxonomy using Naive Bayes classifier
 
 I am going to use the same classifier that I trained for Will’s puffin
 samples. I just copied it from the storm petrel folder into here. Notes
@@ -122,6 +151,19 @@ underscores to hyphens.
       
     qiime taxa barplot\
        --i-table table_Plate75.qza\
+       --i-taxonomy sklearn_taxonomy.qza\
+       --m-metadata-file metadata.txt\
+       --o-visualization barplot_sklearn-taxa.qzv
+       
+       
+    # merged version
+    qiime feature-classifier classify-sklearn \
+      --i-classifier classifier.qza \
+      --i-reads merged_rep-seqs.qza \
+      --o-classification sklearn_taxonomy.qza
+      
+    qiime taxa barplot\
+       --i-table merged_table.qza\
        --i-taxonomy sklearn_taxonomy.qza\
        --m-metadata-file metadata.txt\
        --o-visualization barplot_sklearn-taxa.qzv
