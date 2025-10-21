@@ -618,6 +618,10 @@ making calcs at level 6 and not the species/ASV level.
       --p-level 6 \
       --o-collapsed-table merged_table_onlyprey_minfreq100_collapsed.qza
 
+As currently written, this is removing any instance where a taxon has an
+abundance of \<1% in a sample (its abundance is set to zero for that
+sample).
+
 ``` r
 library(qiime2R)
 library(tidyverse)
@@ -721,7 +725,8 @@ cat("Percentage of reads retained:", round(total_reads_after/total_reads_before 
 
     ## Percentage of reads retained: 99.79 %
 
-    # Import filtered table back into QIIME2
+Import back into qiime
+
     qiime tools import \
       --input-path filtered_level6_table.biom \
       --type 'FeatureTable[Frequency]' \
@@ -730,14 +735,15 @@ cat("Percentage of reads retained:", round(total_reads_after/total_reads_before 
 
     sed -i.bak 's/Feature.ID/Feature ID/g' filtered_level6_taxonomy.tsv
 
-    # Import new taxonomy file
+
     qiime tools import \
       --input-path filtered_level6_taxonomy.tsv \
       --type 'FeatureData[Taxonomy]' \
       --input-format TSVTaxonomyFormat \
       --output-path filtered_level6_taxonomy_minabund1.qza
 
-    # Make a barplot with the new taxonomy file
+Make a barplot with the new taxonomy file
+
     qiime taxa barplot \
       --i-table filtered_level6_table_minabund1.qza \
       --i-taxonomy filtered_level6_taxonomy_minabund1.qza \
@@ -745,3 +751,10 @@ cat("Percentage of reads retained:", round(total_reads_after/total_reads_before 
       --o-visualization barplot_level6_minfreq100_minabund1.qzv
 
 I think this is done? Just need to download and send back to Katelyn.
+
+But wait - should we redo the MiFish analysis to correct the 1%
+abundance filtering? Or should I adjust this to be the same as the
+MiFish filtering?
+
+I think I am leaning towards adjusting this so that it reflects the
+MiFish filtering but I think I should think on it a little longer.
