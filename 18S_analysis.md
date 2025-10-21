@@ -5,19 +5,29 @@ Gemma Clucas
 
 ## 1. Import the data
 
-Just plate 75 for now. Will need to update to include all plates.
+Data is spread across plate 75, 76, 99, 100, 101, and 102. Plate 76 and
+102 I combined into one plate for PCR and sequencing, as they were both
+partial extraction plates.
+
+For some reason, there were hidden copies of all files in the folders
+for plate 100 and 101, which I had to get rid of (viewed them with
+`ls -a` and delete with `rm .*`) before I could import into qiime.
+
+There were also five LESP samples from Mat Rock on plate 76, so I moved
+them out to their own folder
 
     cd /Users/gc547/Dropbox/GitHub_copied/Fecal_metabarcoding/Middleton-Island_2023-2024_KD/18S
     conda activate qiime2-amplicon-2024.10 
 
-    for K in 75 76 99 100 101; do
+    for K in 75 76-102 99 100 101; do
     qiime tools import\
       --type 'SampleData[PairedEndSequencesWithQuality]'\
       --input-path /Volumes/Data_SS1/18S/Plate$K/reads/ \
       --input-format CasavaOneEightSingleLanePerSampleDirFmt\
       --output-path demux_Plate$K.qza
-      
-    for K in 75 76 99 100 101; do
+    done
+
+    for K in 75 76-102 99 100 101; do
       qiime demux summarize \
         --i-data demux_Plate$K.qza \
         --o-visualization demux_Plate$K.qzv
@@ -40,7 +50,7 @@ complement of the forward primer in R2 (—p-adapter-r).
 F primer reverse complement: CATCTAAGGGCATCACAGACC  
 R primer reverse complement: CCCTGCCCTTTGTACACACC
 
-    for K in 75 76 99 100 101; do
+    for K in 75 76-102 99 100 101; do
       qiime cutadapt trim-paired \
         --i-demultiplexed-sequences demux_Plate$K.qza \
         --p-adapter-f CCCTGCCCTTTGTACACACC \
@@ -51,7 +61,7 @@ R primer reverse complement: CCCTGCCCTTTGTACACACC
 
 To see how much passed the filters:
 
-    for K in 75 76 99 100 101; do
+    for K in 75 76-102 99 100 101; do
       grep "Total written (filtered):" cutadapt_out_Plate$K.txt 
     done
 
@@ -66,7 +76,7 @@ GGTGTGTACAAAGGGCAGGG (20 bases).
 
 Trim these with the following commands:
 
-    for K in 75 76 99 100 101; do
+    for K in 75 76-102 99 100 101; do
       qiime cutadapt trim-paired \
         --i-demultiplexed-sequences trimd_Plate$K.qza \
         --p-front-f GGTCTGTGATGCCCTTAGATG \
@@ -77,7 +87,7 @@ Trim these with the following commands:
 
 To see how much passed the filters:
 
-    for K in 75 76 99 100 101; do
+    for K in 75 76-102 99 100 101; do
       grep "Total written (filtered):" cutadapt_out2_Plate$K.txt 
     done
 
@@ -85,7 +95,7 @@ To see how much passed the filters:
 
 ## 3. Denoise with Dada2
 
-    for K in 75 76 99 100 101; do
+    for K in 75 76-102 99 100 101; do
       qiime dada2 denoise-paired \
         --i-demultiplexed-seqs trimd2_Plate$K.qza \
         --p-trunc-len-f 150 \
@@ -99,9 +109,9 @@ To see how much passed the filters:
         --o-denoising-stats denoise_Plate$K
     done
 
-Create visualizations for the denoising stats. 76 99 100 101
+Create visualizations for the denoising stats.
 
-    for K in 75; do  
+    for K in 75 76-102 99 100 101; do  
       qiime metadata tabulate\
         --m-input-file denoise_Plate$K.qza\
         --o-visualization denoise_Plate$K.qzv
@@ -111,7 +121,7 @@ Create visualizations for the denoising stats. 76 99 100 101
 
     qiime feature-table merge \
       --i-tables table_Plate75.qza \
-      --i-tables table_Plate76.qza \
+      --i-tables table_Plate76-102.qza \
       --i-tables table_Plate99.qza \
       --i-tables table_Plate100.qza \
       --i-tables table_Plate101.qza \
@@ -125,7 +135,7 @@ Create visualizations for the denoising stats. 76 99 100 101
         
     qiime feature-table merge-seqs \
       --i-data rep-seqs_Plate75.qza \
-      --i-data rep-seqs_Plate76.qza \
+      --i-data rep-seqs_Plate76-102.qza \
       --i-data rep-seqs_Plate99.qza \
       --i-data rep-seqs_Plate100.qza \
       --i-data rep-seqs_Plate101.qza \
@@ -146,35 +156,24 @@ underscores to hyphens.
 
     qiime feature-classifier classify-sklearn \
       --i-classifier classifier.qza \
-      --i-reads rep-seqs_Plate75.qza \
-      --o-classification sklearn_taxonomy.qza
-      
-    qiime taxa barplot\
-       --i-table table_Plate75.qza\
-       --i-taxonomy sklearn_taxonomy.qza\
-       --m-metadata-file metadata.txt\
-       --o-visualization barplot_sklearn-taxa.qzv
-       
-       
-    # merged version
-    qiime feature-classifier classify-sklearn \
-      --i-classifier classifier.qza \
       --i-reads merged_rep-seqs.qza \
       --o-classification sklearn_taxonomy.qza
       
     qiime taxa barplot\
-       --i-table merged_table.qza\
-       --i-taxonomy sklearn_taxonomy.qza\
-       --m-metadata-file metadata.txt\
-       --o-visualization barplot_sklearn-taxa.qzv
+       --i-table merged-table.qza \
+       --i-taxonomy sklearn_taxonomy.qza \
+       --m-metadata-file metadata.txt \
+       --o-visualization barplot_before_filtering.qzv
+       
+       
 
-The blanks seems to mostly have fungal and a load of other
-micro-organismal DNA in them, so that’s not too bad. One has some fish.
+The blanks seems to mostly have fungal DNA in them, so that we can
+easily filter out. Lots of fish DNA in the samples.
 
-## 5. Filter out non-prey sequences
+## 6. Filter out non-prey sequences
 
     qiime taxa filter-table \
-      --i-table table_Plate75.qza \
+      --i-table merged-table.qza \
       --i-taxonomy sklearn_taxonomy.qza \
       --p-include Metazoa \
       --o-filtered-table merged-table_onlymetazoa.qza
@@ -191,7 +190,7 @@ version for her to work on. This is what we decided to keep:
     qiime taxa filter-table \
       --i-table merged-table_onlymetazoa.qza \
       --i-taxonomy sklearn_taxonomy.qza \
-      --p-include Neopterygii,Hydroidolina,Phyllodocida,Copepoda,Decapodiformes,Eumalacostraca,Thecostraca,Gastropoda \
+      --p-include Teleostei,Batoidea,Scyphozoa,Semaeostomeae,Tentaculata,Hydroidolina,Phyllodocida,Calanoida,Teuthida,Eumalacostraca,Pedunculata \
       --o-filtered-table merged-table_onlyprey.qza
       
     qiime taxa barplot\
@@ -200,14 +199,378 @@ version for her to work on. This is what we decided to keep:
           --m-metadata-file metadata.txt\
           --o-visualization barplot_onlyprey 
 
-Need to download and check before sending to Katelyn.
+## 7. Read into R to calculate depth of samples and blanks
 
-Out of all 11 blanks on plate 75 (8 lab blanks, 3 field) there were 4678
-reads (found in 2 lab and 1 field blanks). Average depth of blanks was
-425 reads. The average depth of the samples was 26,214 reads. Therefore
-the depths of the blanks was 1.62% the depth of the samples.
+### Read in feature table, taxonomy, and metadata
 
-## 6. Alpha rarefaction
+Make sure that file paths do not overwrite the MiFish ones.
+
+``` r
+# Read in the QIIME 2 artifacts and metadata
+# Replace file paths with your actual file paths
+feature_table <- read_qza("18S/merged-table_onlyprey.qza")
+taxonomy_data <- read_qza("18S/sklearn_taxonomy.qza")
+metadata <- read_q2metadata("18S/metadata.txt")
+
+# Convert feature table to data frame
+feature_table_df <- as.data.frame(feature_table$data) %>%
+  rownames_to_column("FeatureID")
+
+# Clean up taxonomy data
+taxonomy_clean <- taxonomy_data$data %>%
+  parse_taxonomy() %>%  # This splits the taxonomy string into columns
+  rownames_to_column("FeatureID")
+
+# Reshape feature table to long format
+feature_long <- feature_table_df %>%
+  gather(key = "SampleID", value = "Abundance", -FeatureID)
+
+# Merge all data together
+complete_data <- feature_long %>%
+  left_join(taxonomy_clean, by = "FeatureID") %>%
+  left_join(metadata, by = "SampleID")
+```
+
+### Calculate read depth of samples vs blanks
+
+``` r
+# Calculate average read depths by Type and Plate
+read_depth_comparison <- complete_data %>%
+  group_by(SampleID, Type, Plate) %>%
+  summarise(TotalReads = sum(Abundance)) %>%
+  group_by(Type, Plate) %>%
+  summarise(
+    MeanReads = round(mean(TotalReads), 2),
+    MedianReads = round(median(TotalReads), 2),
+    SDReads = round(sd(TotalReads), 2),
+    n = n()
+  )
+```
+
+    ## `summarise()` has grouped output by 'SampleID', 'Type'. You can override using
+    ## the `.groups` argument.
+    ## `summarise()` has grouped output by 'Type'. You can override using the
+    ## `.groups` argument.
+
+``` r
+# Create empty list to store results for each plate
+plate_results <- list()
+
+# Process each plate separately
+for(current_plate in unique(complete_data$Plate)) {
+  # Get all expected types from metadata for this plate
+  expected_types <- metadata %>%
+    filter(Plate == current_plate) %>%
+    pull(Type) %>%
+    unique()
+  
+  # Get actual total reads for blanks and mock (this only sums real data)
+  ext_blank_total_reads <- complete_data %>%
+    filter(Plate == current_plate, Type == "EXTBLANK") %>%
+    group_by(SampleID) %>%
+    summarise(TotalReads = sum(Abundance)) %>%
+    pull(TotalReads) %>%
+    sum()
+    
+  fld_blank_total_reads <- complete_data %>%
+    filter(Plate == current_plate, Type == "FLDBLANK") %>%
+    group_by(SampleID) %>%
+    summarise(TotalReads = sum(Abundance)) %>%
+    pull(TotalReads) %>%
+    sum()
+    
+  pcr_blank_total_reads <- complete_data %>%
+    filter(Plate == current_plate, Type == "PCRBLANK") %>%
+    group_by(SampleID) %>%
+    summarise(TotalReads = sum(Abundance)) %>%
+    pull(TotalReads) %>%
+    sum()
+    
+  # Get true numbers from metadata
+  true_ext_blank_number <- metadata %>% 
+    filter(Plate == current_plate, Type == "EXTBLANK") %>% 
+    nrow()
+    
+  true_fld_blank_number <- metadata %>% 
+    filter(Plate == current_plate, Type == "FLDBLANK") %>% 
+    nrow()
+    
+  true_pcr_blank_number <- metadata %>% 
+    filter(Plate == current_plate, Type == "PCRBLANK") %>% 
+    nrow()
+  
+  # Filter data for current plate
+  plate_data <- read_depth_comparison %>% filter(Plate == current_plate)
+  
+  # Calculate adjusted averages using true totals and true numbers
+  adjusted_ext_blank_avg <- ext_blank_total_reads / true_ext_blank_number
+  adjusted_fld_blank_avg <- fld_blank_total_reads / true_fld_blank_number
+  adjusted_pcr_blank_avg <- pcr_blank_total_reads / true_pcr_blank_number
+  sample_avg <- plate_data$MeanReads[plate_data$Type == "SAMPLE"]
+  
+  # Create base comparison dataframe with all expected types
+  adjusted_comparison <- data.frame(
+    Type = expected_types,
+    Plate = current_plate,
+    MeanReads = 0,
+    MedianReads = 0,
+    SDReads = 0,
+    n = 0,
+    PercentOfSample = 0
+  )
+  
+  # Update with actual data where available
+  for(type in unique(plate_data$Type)) {
+    idx <- adjusted_comparison$Type == type
+    if(any(idx)) {
+      adjusted_comparison[idx, "MeanReads"] <- plate_data$MeanReads[plate_data$Type == type]
+      adjusted_comparison[idx, "MedianReads"] <- plate_data$MedianReads[plate_data$Type == type]
+      adjusted_comparison[idx, "SDReads"] <- plate_data$SDReads[plate_data$Type == type]
+      adjusted_comparison[idx, "n"] <- plate_data$n[plate_data$Type == type]
+    }
+  }
+  
+  # Update blank rows with adjusted means and true n
+  if("EXTBLANK" %in% expected_types) {
+    adjusted_comparison$MeanReads[adjusted_comparison$Type == "EXTBLANK"] <- round(adjusted_ext_blank_avg, 2)
+    adjusted_comparison$n[adjusted_comparison$Type == "EXTBLANK"] <- true_ext_blank_number
+  }
+  if("FLDBLANK" %in% expected_types) {
+    adjusted_comparison$MeanReads[adjusted_comparison$Type == "FLDBLANK"] <- round(adjusted_fld_blank_avg, 2)
+    adjusted_comparison$n[adjusted_comparison$Type == "FLDBLANK"] <- true_fld_blank_number
+  }
+  if("PCRBLANK" %in% expected_types) {
+    adjusted_comparison$MeanReads[adjusted_comparison$Type == "PCRBLANK"] <- round(adjusted_pcr_blank_avg, 2)
+    adjusted_comparison$n[adjusted_comparison$Type == "PCRBLANK"] <- true_pcr_blank_number
+  }
+  
+  # Calculate percentages for all types
+  adjusted_comparison$PercentOfSample <- round((adjusted_comparison$MeanReads / sample_avg) * 100, 2)
+  adjusted_comparison$PercentOfSample[adjusted_comparison$Type == "SAMPLE"] <- 100
+  
+  # Store results for this plate
+  plate_results[[as.character(current_plate)]] <- adjusted_comparison
+}
+
+
+# Calculate combined statistics across all plates
+all_plates_summary <- complete_data %>%
+  group_by(SampleID, Type) %>%
+  summarise(TotalReads = sum(Abundance)) %>%
+  group_by(Type) %>%
+  summarise(
+    MeanReads = round(mean(TotalReads), 2),
+    MedianReads = round(median(TotalReads), 2),
+    SDReads = round(sd(TotalReads), 2),
+    n = n()
+  )
+```
+
+    ## `summarise()` has grouped output by 'SampleID'. You can override using the
+    ## `.groups` argument.
+
+``` r
+# Get true numbers from metadata across all plates
+true_ext_blank_number <- metadata %>% 
+  filter(Type == "EXTBLANK") %>% 
+  nrow()
+  
+true_fld_blank_number <- metadata %>% 
+  filter(Type == "FLDBLANK") %>% 
+  nrow()
+  
+true_pcr_blank_number <- metadata %>% 
+  filter(Type == "PCRBLANK") %>% 
+  nrow()
+
+# Calculate total reads for each type across all plates
+ext_blank_total_reads <- complete_data %>%
+  filter(Type == "EXTBLANK") %>%
+  group_by(SampleID) %>%
+  summarise(TotalReads = sum(Abundance)) %>%
+  pull(TotalReads) %>%
+  sum()
+  
+fld_blank_total_reads <- complete_data %>%
+  filter(Type == "FLDBLANK") %>%
+  group_by(SampleID) %>%
+  summarise(TotalReads = sum(Abundance)) %>%
+  pull(TotalReads) %>%
+  sum()
+  
+pcr_blank_total_reads <- complete_data %>%
+  filter(Type == "PCRBLANK") %>%
+  group_by(SampleID) %>%
+  summarise(TotalReads = sum(Abundance)) %>%
+  pull(TotalReads) %>%
+  sum()
+
+# Calculate adjusted averages
+adjusted_ext_blank_avg <- ext_blank_total_reads / true_ext_blank_number
+adjusted_fld_blank_avg <- fld_blank_total_reads / true_fld_blank_number
+adjusted_pcr_blank_avg <- pcr_blank_total_reads / true_pcr_blank_number
+sample_avg <- all_plates_summary$MeanReads[all_plates_summary$Type == "SAMPLE"]
+
+# Create base comparison dataframe with all types
+all_plates_comparison <- data.frame(
+  Type = unique(metadata$Type),
+  MeanReads = 0,
+  MedianReads = 0,
+  SDReads = 0,
+  n = 0,
+  PercentOfSample = 0
+)
+
+# Update with actual data where available
+for(type in unique(all_plates_summary$Type)) {
+  idx <- all_plates_comparison$Type == type
+  if(any(idx)) {
+    all_plates_comparison[idx, "MeanReads"] <- all_plates_summary$MeanReads[all_plates_summary$Type == type]
+    all_plates_comparison[idx, "MedianReads"] <- all_plates_summary$MedianReads[all_plates_summary$Type == type]
+    all_plates_comparison[idx, "SDReads"] <- all_plates_summary$SDReads[all_plates_summary$Type == type]
+    all_plates_comparison[idx, "n"] <- all_plates_summary$n[all_plates_summary$Type == type]
+  }
+}
+
+# Update blank rows with adjusted means and true n
+all_plates_comparison$MeanReads[all_plates_comparison$Type == "EXTBLANK"] <- round(adjusted_ext_blank_avg, 2)
+all_plates_comparison$n[all_plates_comparison$Type == "EXTBLANK"] <- true_ext_blank_number
+
+all_plates_comparison$MeanReads[all_plates_comparison$Type == "FLDBLANK"] <- round(adjusted_fld_blank_avg, 2)
+all_plates_comparison$n[all_plates_comparison$Type == "FLDBLANK"] <- true_fld_blank_number
+
+all_plates_comparison$MeanReads[all_plates_comparison$Type == "PCRBLANK"] <- round(adjusted_pcr_blank_avg, 2)
+all_plates_comparison$n[all_plates_comparison$Type == "PCRBLANK"] <- true_pcr_blank_number
+
+# Calculate percentages for all types
+all_plates_comparison$PercentOfSample <- round((all_plates_comparison$MeanReads / sample_avg) * 100, 2)
+all_plates_comparison$PercentOfSample[all_plates_comparison$Type == "SAMPLE"] <- 100
+
+# Display plate-specific results first
+for(plate in names(plate_results)) {
+  cat(sprintf("\n### Read Depth Summary - Plate %s\n", plate))
+  print(knitr::kable(plate_results[[plate]], 
+                     caption = sprintf("Summary of read depths by sample type - Plate %s", plate),
+                     col.names = c("Type", "Plate", "Mean Reads", "Median Reads", "SD Reads", "n", "% of Sample Reads"),
+                     align = c('l', 'l', 'r', 'r', 'r', 'r', 'r')))
+  cat("\n")
+}
+```
+
+    ## 
+    ## ### Read Depth Summary - Plate 75
+    ## 
+    ## 
+    ## Table: Summary of read depths by sample type - Plate 75
+    ## 
+    ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
+    ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
+    ## |MOCK     |75    |  115409.00|       115409|       NA|  1|            435.18|
+    ## |PCRBLANK |75    |       0.00|            0|     0.00|  2|              0.00|
+    ## |SAMPLE   |75    |   26520.03|        11606| 34443.96| 75|            100.00|
+    ## |EXTBLANK |75    |     668.29|         2339|  3290.87|  7|              2.52|
+    ## |FLDBLANK |75    |     730.33|         2191|       NA|  3|              2.75|
+    ## 
+    ## 
+    ## ### Read Depth Summary - Plate 100
+    ## 
+    ## 
+    ## Table: Summary of read depths by sample type - Plate 100
+    ## 
+    ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
+    ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
+    ## |MOCK     |100   |  118959.00|       118959|       NA|  1|            261.80|
+    ## |PCRBLANK |100   |       0.00|            0|     0.00|  2|              0.00|
+    ## |SAMPLE   |100   |   45439.12|        31232| 43084.27| 78|            100.00|
+    ## |EXTBLANK |100   |       0.00|            0|     0.00|  6|              0.00|
+    ## |FLDBLANK |100   |     425.00|          425|   301.23|  2|              0.94|
+    ## 
+    ## 
+    ## ### Read Depth Summary - Plate 101
+    ## 
+    ## 
+    ## Table: Summary of read depths by sample type - Plate 101
+    ## 
+    ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
+    ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
+    ## |MOCK     |101   |   19109.00|        19109|       NA|  1|             75.34|
+    ## |PCRBLANK |101   |       0.00|            0|     0.00|  2|              0.00|
+    ## |SAMPLE   |101   |   25365.13|        14025| 28661.59| 83|            100.00|
+    ## |EXTBLANK |101   |       0.00|            0|     0.00|  6|              0.00|
+    ## |FLDBLANK |101   |     530.00|          530|       NA|  1|              2.09|
+    ## 
+    ## 
+    ## ### Read Depth Summary - Plate 99
+    ## 
+    ## 
+    ## Table: Summary of read depths by sample type - Plate 99
+    ## 
+    ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
+    ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
+    ## |MOCK     |99    |  153056.00|       153056|       NA|  1|           1580.27|
+    ## |PCRBLANK |99    |       0.00|            0|     0.00|  3|              0.00|
+    ## |SAMPLE   |99    |    9685.41|          461| 23294.72| 73|            100.00|
+    ## |EXTBLANK |99    |       0.00|            0|     0.00|  6|              0.00|
+    ## |FLDBLANK |99    |       1.33|            4|       NA|  3|              0.01|
+    ## 
+    ## 
+    ## ### Read Depth Summary - Plate 76-102
+    ## 
+    ## 
+    ## Table: Summary of read depths by sample type - Plate 76-102
+    ## 
+    ## |Type     |Plate  | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
+    ## |:--------|:------|----------:|------------:|--------:|--:|-----------------:|
+    ## |MOCK     |76-102 |  155404.00|       155404|       NA|  1|             995.4|
+    ## |PCRBLANK |76-102 |       0.00|            0|      0.0|  2|               0.0|
+    ## |SAMPLE   |76-102 |   15612.18|         4195|  24535.1| 66|             100.0|
+    ## |EXTBLANK |76-102 |       0.00|            0|      0.0|  4|               0.0|
+
+``` r
+# Display combined results
+cat("\n### Read Depth Summary - All Plates Combined\n")
+```
+
+    ## 
+    ## ### Read Depth Summary - All Plates Combined
+
+``` r
+print(knitr::kable(all_plates_comparison,
+                   caption = "Summary of read depths by sample type - All Plates Combined",
+                   col.names = c("Type", "Mean Reads", "Median Reads", "SD Reads", "n", "% of Sample Reads"),
+                   align = c('l', 'r', 'r', 'r', 'r', 'r')))
+```
+
+    ## 
+    ## 
+    ## Table: Summary of read depths by sample type - All Plates Combined
+    ## 
+    ## |Type     | Mean Reads| Median Reads| SD Reads|   n| % of Sample Reads|
+    ## |:--------|----------:|------------:|--------:|---:|-----------------:|
+    ## |MOCK     |  112387.40|       118959| 55356.88|   5|            449.50|
+    ## |PCRBLANK |       0.00|            0|     0.00|  12|              0.00|
+    ## |SAMPLE   |   25002.66|         9165| 33986.15| 375|            100.00|
+    ## |EXTBLANK |     161.31|         2339|  3290.87|  29|              0.65|
+    ## |FLDBLANK |     397.22|          530|   862.74|   9|              1.59|
+
+``` r
+# Save all results if requested
+if(knitr::opts_chunk$get("save_output")) {
+  for(plate in names(plate_results)) {
+    write.csv(plate_results[[plate]],
+              sprintf("18S/adjusted_read_depth_comparison_plate_%s.csv", plate),
+              row.names = FALSE)
+  }
+  write.csv(all_plates_comparison,
+            "18S/adjusted_read_depth_comparison_all_plates.csv",
+            row.names = FALSE)
+}
+```
+
+Field blanks have a depth of 1.59% compared to samples. Extraction
+blanks 0.65% and PCR blanks \<0.01% - great!
+
+## 8. Alpha rarefaction
 
     qiime taxa collapse \
       --i-table merged-table_onlyprey.qza \
@@ -227,38 +590,158 @@ the depths of the blanks was 1.62% the depth of the samples.
       --i-table merged-table_onlyprey_collapsed.qza \
       --m-metadata-file metadata.txt \
       --p-min-depth 50 \
-      --p-max-depth 500 \
-      --o-visualization alpha-rarefaction-50-500
+      --p-max-depth 1000 \
+      --o-visualization alpha-rarefaction-50-1000
 
-Even at 50 reads we are capturing the diversity in these samples, so I
-will drop two that had fewer than 50 reads (P53 and P59).
+Species richness does not change between 50 and 1000 reads. Get rid of
+samples with fewer than 100 reads just to be on the safe side.
 
-## 7. Final filtering
+## 9. Final filtering
 
 Drop the mock and blanks.
 
     qiime feature-table filter-samples \
       --i-table merged-table_onlyprey.qza \
+      --p-min-frequency 100 \
       --m-metadata-file metadata.txt \
-      --p-where "Species='BLKI'" \
-      --o-filtered-table BLKI_table_onlyprey.qza 
+      --p-where "Type='SAMPLE'" \
+      --o-filtered-table merged_table_onlyprey_minfreq100.qza 
 
-Retain only features with at least 1% abundance in at least 1 sample (we
-have 92 samples so 1/74 = 0.0135).
+### Abundance filtering
 
-    qiime feature-table filter-features-conditionally \
-      --i-table BLKI_table_onlyprey.qza \
-      --p-abundance 0.01 \
-      --p-prevalence 0.01 \
-      --o-filtered-table BLKI_table_onlyprey_filtered.qza
-      
-    qiime taxa barplot \
-      --i-table BLKI_table_onlyprey_filtered.qza  \
-      --m-metadata-file metadata.txt \
+This is simplest to do on the collapsed version of the table, so it’s
+making calcs at level 6 and not the species/ASV level.
+
+    qiime taxa collapse \
+      --i-table merged_table_onlyprey_minfreq100.qza \
       --i-taxonomy sklearn_taxonomy.qza \
-      --o-visualization barplot_BLKI_onlyprey_filtered
+      --p-level 6 \
+      --o-collapsed-table merged_table_onlyprey_minfreq100_collapsed.qza
 
-So the file I am sending to Katelyn with the final data for 18S is
-called `level6_sklearn-taxa_onlyprey_filtered.csv`. I deleted P53 and
-P59 from this as it was easiest to do this by hand rather than create
-another file in qiime.
+``` r
+library(qiime2R)
+library(tidyverse)
+library(biomformat)
+
+# Read in the QIIME 2 artifacts
+feature_table <- read_qza("18S/merged_table_onlyprey_minfreq100_collapsed.qza")
+
+# Convert feature table to data frame
+feature_table_df <- as.data.frame(feature_table$data) %>%
+  rownames_to_column("TaxonomyID")
+
+# Convert to long format
+feature_long <- feature_table_df %>%
+  gather(key = "SampleID", value = "Abundance", -TaxonomyID)
+
+# Apply 1% filter per sample
+filtered_features <- feature_long %>%
+  group_by(SampleID) %>%
+  mutate(
+    TotalReads = sum(Abundance),
+    RelativeAbundance = Abundance / TotalReads,
+    Abundance = if_else(RelativeAbundance < 0.01, 0, Abundance)
+  ) %>%
+  ungroup() %>%
+  # Remove taxa that have zero abundance across all samples
+  group_by(TaxonomyID) %>%
+  filter(sum(Abundance) > 0) %>%
+  ungroup()
+
+# Convert back to wide format
+filtered_feature_table <- filtered_features %>%
+  select(TaxonomyID, SampleID, Abundance) %>%
+  pivot_wider(
+    names_from = SampleID,
+    values_from = Abundance,
+    values_fill = 0
+  )
+
+# Create output files for QIIME2
+# Create feature table in BIOM format
+filtered_feature_matrix <- as.matrix(filtered_feature_table[,-1])
+rownames(filtered_feature_matrix) <- filtered_feature_table$TaxonomyID
+
+# Create BIOM object
+biom_obj <- make_biom(data = filtered_feature_matrix)
+
+# Write BIOM file
+write_biom(biom_obj, "18S/filtered_level6_table.biom")
+
+# Create new taxonomy file where Feature IDs match the collapsed taxonomy strings
+new_taxonomy_df <- data.frame(
+  'Feature ID' = filtered_feature_table$TaxonomyID,
+  'Taxon' = filtered_feature_table$TaxonomyID
+)
+
+# Write taxonomy file
+write.table(new_taxonomy_df,
+            "18S/filtered_level6_taxonomy.tsv",
+            sep = "\t",
+            quote = FALSE,
+            row.names = FALSE)
+
+# Print summary statistics
+cat("Original number of taxa:", nrow(feature_table_df), "\n")
+```
+
+    ## Original number of taxa: 17
+
+``` r
+cat("Number of taxa after filtering:", nrow(filtered_feature_table), "\n")
+```
+
+    ## Number of taxa after filtering: 10
+
+``` r
+cat("Number of taxa removed:", nrow(feature_table_df) - nrow(filtered_feature_table), "\n")
+```
+
+    ## Number of taxa removed: 7
+
+``` r
+# Calculate and print the number of reads before and after filtering
+total_reads_before <- sum(feature_long$Abundance)
+total_reads_after <- sum(filtered_features$Abundance)
+cat("\nTotal reads before filtering:", total_reads_before, "\n")
+```
+
+    ## 
+    ## Total reads before filtering: 9373864
+
+``` r
+cat("Total reads after filtering:", total_reads_after, "\n")
+```
+
+    ## Total reads after filtering: 9354219
+
+``` r
+cat("Percentage of reads retained:", round(total_reads_after/total_reads_before * 100, 2), "%\n")
+```
+
+    ## Percentage of reads retained: 99.79 %
+
+    # Import filtered table back into QIIME2
+    qiime tools import \
+      --input-path filtered_level6_table.biom \
+      --type 'FeatureTable[Frequency]' \
+      --input-format BIOMV100Format \
+      --output-path filtered_level6_table_minabund1.qza
+
+    sed -i.bak 's/Feature.ID/Feature ID/g' filtered_level6_taxonomy.tsv
+
+    # Import new taxonomy file
+    qiime tools import \
+      --input-path filtered_level6_taxonomy.tsv \
+      --type 'FeatureData[Taxonomy]' \
+      --input-format TSVTaxonomyFormat \
+      --output-path filtered_level6_taxonomy_minabund1.qza
+
+    # Make a barplot with the new taxonomy file
+    qiime taxa barplot \
+      --i-table filtered_level6_table_minabund1.qza \
+      --i-taxonomy filtered_level6_taxonomy_minabund1.qza \
+      --m-metadata-file metadata.txt \
+      --o-visualization barplot_level6_minfreq100_minabund1.qzv
+
+I think this is done? Just need to download and send back to Katelyn.
