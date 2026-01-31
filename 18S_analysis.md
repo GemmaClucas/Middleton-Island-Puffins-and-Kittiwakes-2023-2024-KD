@@ -147,12 +147,39 @@ Create visualizations for the denoising stats.
 
 ## 5. Assign taxonomy using Naive Bayes classifier
 
-I am going to use the same classifier that I trained for Will’s puffin
-samples. I just copied it from the storm petrel folder into here. Notes
-on how I trained it are in the repo for his analysis.
+I am going to use the same classifier that I trained for Will
+Kennerley’s puffin samples on the SILVA-132 database. The code I used
+for training it was:
 
-I copied the metadata file over from the MiFish folder and changed
-underscores to hyphens.
+    # import database fasta file
+    qiime tools import \
+      --input-path /Users/gemmaclucas/Dropbox/Diets_from_poop/2019_terns_puffins_fecal_data_analysis/18S/SILVA_132_QIIME_release/rep_set/rep_set_18S_only/99/silva_132_99_18S.fna \
+      --output-path silva_132_99_18S_sequences.qza \
+      --type 'FeatureData[Sequence]'
+
+    # extract region bounded by primers
+    qiime feature-classifier extract-reads \
+      --i-sequences silva_132_99_18S_sequences.qza \
+      --p-f-primer GGTCTGTGATGCCCTTAGATG \
+      --p-r-primer GGTGTGTACAAAGGGCAGGG \
+      --p-min-length 140  \
+      --p-max-length 210  \
+      --o-reads extracted-silva_132_99_18S_sequences.qza 
+
+    # import taxonomy
+    qiime tools import \
+      --input-path /Users/gemmaclucas/Dropbox/Diets_from_poop/2019_terns_puffins_fecal_data_analysis/18S/SILVA_132_QIIME_release/taxonomy/18S_only/99/majority_taxonomy_7_levels.txt \
+      --input-format HeaderlessTSVTaxonomyFormat \
+      --type 'FeatureData[Taxonomy]' \
+      --output-path silva_132_99_18S_taxonomy.qza
+
+    # train classifier  
+    qiime feature-classifier fit-classifier-naive-bayes \
+      --i-reference-reads extracted-silva_132_99_18S_sequences.qza \
+      --i-reference-taxonomy silva_132_99_18S_taxonomy.qza \
+      --o-classifier classifier.qza
+
+Run the classifier on our samples:
 
     qiime feature-classifier classify-sklearn \
       --i-classifier classifier.qza \
@@ -164,13 +191,13 @@ underscores to hyphens.
        --i-taxonomy sklearn_taxonomy.qza \
        --m-metadata-file metadata.txt \
        --o-visualization barplot_before_filtering.qzv
-       
-       
 
 The blanks seems to mostly have fungal DNA in them, so that we can
-easily filter out. Lots of fish DNA in the samples.
+easily filter out. Lots of fish DNA in the samples :)
 
 ## 6. Filter out non-prey sequences
+
+First just filter down to metazoans.
 
     qiime taxa filter-table \
       --i-table merged-table.qza \
@@ -184,8 +211,8 @@ easily filter out. Lots of fish DNA in the samples.
           --m-metadata-file metadata.txt\
           --o-visualization barplot_sklearn-taxa_onlymetazoa
 
-Need to filter for just prey next with Katelyn. I downloaded the level 6
-version for her to work on. This is what we decided to keep:
+Need to filter for just prey using level 6 of the assignments. This is
+what we decided to keep:
 
     qiime taxa filter-table \
       --i-table merged-table_onlymetazoa.qza \
@@ -446,87 +473,7 @@ all_plates_comparison$n[all_plates_comparison$Type == "PCRBLANK"] <- true_pcr_bl
 all_plates_comparison$PercentOfSample <- round((all_plates_comparison$MeanReads / sample_avg) * 100, 2)
 all_plates_comparison$PercentOfSample[all_plates_comparison$Type == "SAMPLE"] <- 100
 
-# Display plate-specific results first
-for(plate in names(plate_results)) {
-  cat(sprintf("\n### Read Depth Summary - Plate %s\n", plate))
-  print(knitr::kable(plate_results[[plate]], 
-                     caption = sprintf("Summary of read depths by sample type - Plate %s", plate),
-                     col.names = c("Type", "Plate", "Mean Reads", "Median Reads", "SD Reads", "n", "% of Sample Reads"),
-                     align = c('l', 'l', 'r', 'r', 'r', 'r', 'r')))
-  cat("\n")
-}
-```
 
-    ## 
-    ## ### Read Depth Summary - Plate 75
-    ## 
-    ## 
-    ## Table: Summary of read depths by sample type - Plate 75
-    ## 
-    ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
-    ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
-    ## |MOCK     |75    |  115409.00|       115409|       NA|  1|            435.18|
-    ## |PCRBLANK |75    |       0.00|            0|     0.00|  2|              0.00|
-    ## |SAMPLE   |75    |   26520.03|        11606| 34443.96| 75|            100.00|
-    ## |EXTBLANK |75    |     668.29|         2339|  3290.87|  7|              2.52|
-    ## |FLDBLANK |75    |     730.33|         2191|       NA|  3|              2.75|
-    ## 
-    ## 
-    ## ### Read Depth Summary - Plate 100
-    ## 
-    ## 
-    ## Table: Summary of read depths by sample type - Plate 100
-    ## 
-    ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
-    ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
-    ## |MOCK     |100   |  118959.00|       118959|       NA|  1|            261.80|
-    ## |PCRBLANK |100   |       0.00|            0|     0.00|  2|              0.00|
-    ## |SAMPLE   |100   |   45439.12|        31232| 43084.27| 78|            100.00|
-    ## |EXTBLANK |100   |       0.00|            0|     0.00|  6|              0.00|
-    ## |FLDBLANK |100   |     425.00|          425|   301.23|  2|              0.94|
-    ## 
-    ## 
-    ## ### Read Depth Summary - Plate 101
-    ## 
-    ## 
-    ## Table: Summary of read depths by sample type - Plate 101
-    ## 
-    ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
-    ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
-    ## |MOCK     |101   |   19109.00|        19109|       NA|  1|             75.34|
-    ## |PCRBLANK |101   |       0.00|            0|     0.00|  2|              0.00|
-    ## |SAMPLE   |101   |   25365.13|        14025| 28661.59| 83|            100.00|
-    ## |EXTBLANK |101   |       0.00|            0|     0.00|  6|              0.00|
-    ## |FLDBLANK |101   |     530.00|          530|       NA|  1|              2.09|
-    ## 
-    ## 
-    ## ### Read Depth Summary - Plate 99
-    ## 
-    ## 
-    ## Table: Summary of read depths by sample type - Plate 99
-    ## 
-    ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
-    ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
-    ## |MOCK     |99    |  153056.00|       153056|       NA|  1|           1580.27|
-    ## |PCRBLANK |99    |       0.00|            0|     0.00|  3|              0.00|
-    ## |SAMPLE   |99    |    9685.41|          461| 23294.72| 73|            100.00|
-    ## |EXTBLANK |99    |       0.00|            0|     0.00|  6|              0.00|
-    ## |FLDBLANK |99    |       1.33|            4|       NA|  3|              0.01|
-    ## 
-    ## 
-    ## ### Read Depth Summary - Plate 76-102
-    ## 
-    ## 
-    ## Table: Summary of read depths by sample type - Plate 76-102
-    ## 
-    ## |Type     |Plate  | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
-    ## |:--------|:------|----------:|------------:|--------:|--:|-----------------:|
-    ## |MOCK     |76-102 |  155404.00|       155404|       NA|  1|             995.4|
-    ## |PCRBLANK |76-102 |       0.00|            0|      0.0|  2|               0.0|
-    ## |SAMPLE   |76-102 |   15612.18|         4195|  24535.1| 66|             100.0|
-    ## |EXTBLANK |76-102 |       0.00|            0|      0.0|  4|               0.0|
-
-``` r
 # Display combined results
 cat("\n### Read Depth Summary - All Plates Combined\n")
 ```
@@ -618,9 +565,8 @@ making calcs at level 6 and not the species/ASV level.
       --p-level 6 \
       --o-collapsed-table merged_table_onlyprey_minfreq100_collapsed.qza
 
-As currently written, this is removing any instance where a taxon has an
-abundance of \<1% in a sample (its abundance is set to zero for that
-sample).
+This will remove any taxa that never reach an abundance of \>1% in any
+sample.
 
 ``` r
 library(qiime2R)
@@ -646,11 +592,23 @@ filtered_features <- feature_long %>%
     RelativeAbundance = Abundance / TotalReads,
     Abundance = if_else(RelativeAbundance < 0.01, 0, Abundance)
   ) %>%
-  ungroup() %>%
-  # Remove taxa that have zero abundance across all samples
-  group_by(TaxonomyID) %>%
-  filter(sum(Abundance) > 0) %>%
   ungroup()
+  # # Remove taxa that have zero abundance across all samples
+  # group_by(TaxonomyID) %>%
+  # filter(sum(Abundance) > 0) %>%
+  # ungroup()
+
+# Get the list of taxonomy strings that passed the filter in any sample
+retained_taxa <- filtered_features %>%
+  filter(Abundance > 0) %>%
+  pull(TaxonomyID) %>%
+  unique()
+
+# Filter the original feature-level data based on taxonomy
+filtered_features <- feature_long %>%
+  filter(TaxonomyID %in% retained_taxa) %>%
+  select(TaxonomyID, SampleID, Abundance)
+
 
 # Convert back to wide format
 filtered_feature_table <- filtered_features %>%
@@ -717,13 +675,13 @@ cat("\nTotal reads before filtering:", total_reads_before, "\n")
 cat("Total reads after filtering:", total_reads_after, "\n")
 ```
 
-    ## Total reads after filtering: 9354219
+    ## Total reads after filtering: 9370352
 
 ``` r
 cat("Percentage of reads retained:", round(total_reads_after/total_reads_before * 100, 2), "%\n")
 ```
 
-    ## Percentage of reads retained: 99.79 %
+    ## Percentage of reads retained: 99.96 %
 
 Import back into qiime
 
@@ -750,11 +708,7 @@ Make a barplot with the new taxonomy file
       --m-metadata-file metadata.txt \
       --o-visualization barplot_level6_minfreq100_minabund1.qzv
 
-I think this is done? Just need to download and send back to Katelyn.
-
-But wait - should we redo the MiFish analysis to correct the 1%
-abundance filtering? Or should I adjust this to be the same as the
-MiFish filtering?
-
-I think I am leaning towards adjusting this so that it reflects the
-MiFish filtering but I think I should think on it a little longer.
+Downloaded the csv as “v2” as the original one had more stringent
+abundance filtering (removing any instance where a taxon had less than
+1% abunance in a sample). This version just removed taxa that never
+reached more than 1% abundance in any sample.

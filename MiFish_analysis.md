@@ -5,21 +5,14 @@ Gemma Clucas
 
 ## 1. Set up
 
-The data is saved on my solid state hard drive.
-
     cd /Users/gc547/Dropbox/GitHub_copied/Fecal_metabarcoding/Middleton-Island_2023-2024_KD/MiFish/
     conda activate qiime2-amplicon-2024.10 
 
 ## 2. Import the data into Qiime2
 
 The data is saved across multiple plates: Plate75_2, Plate76, Plate99,
-Plate100, Plate101, Plate102, and Plate109.
-
-Plate 76 had both Katelyn’s samples and some storm petrel samples on it,
-which are saved in separate folders, so I’ll have to import that one
-separately.
-
-And the same for plate 109, which was also a mixed plate.
+Plate100, Plate101, Plate102, and Plate109 to minimise batch effects and
+because we had 2 year’s of sample collection.
 
     for K in 75_2 99 100 101 102; do
       qiime tools import\
@@ -29,19 +22,21 @@ And the same for plate 109, which was also a mixed plate.
         --output-path demux_Plate$K.qza
     done
 
+    # This plate had some storm petrel samples on it, so I put the Middleton samples in their own folder   
     qiime tools import\
         --type 'SampleData[PairedEndSequencesWithQuality]'\
         --input-path /Volumes/Data_SS1/MiFish/Plate76/MID_reads/ \
         --input-format CasavaOneEightSingleLanePerSampleDirFmt\
         --output-path demux_Plate76.qza
-        
+
+    # This was also a mixed plate  
     qiime tools import\
         --type 'SampleData[PairedEndSequencesWithQuality]'\
         --input-path /Volumes/Data_SS1/MiFish/Plate109/MID_reads/ \
         --input-format CasavaOneEightSingleLanePerSampleDirFmt\
         --output-path demux_Plate109.qza
 
-Make visualisation files:
+Make visualisation files for demultiplexed plates:
 
     for K in 75_2 76 99 100 101 102 109; do
       qiime demux summarize \
@@ -59,7 +54,7 @@ R primer: CATAGTGGGGTATCTAATCCCAGTTTG (27 bp)
 ### Trim 3’ ends first
 
 At the 3’ end of the read, the primer will have been read through after
-reading the MiFish region. I need to be looking for the reverse
+reading the MiFish region. We need to be looking for the reverse
 complement of the reverse primer in read 1 (—p-adapter-f) and the
 reverse complement of the forward primer in R2 (—p-adapter-r).
 
@@ -81,7 +76,7 @@ To see how much data passed the filter for each sample:
       grep "Total written (filtered):" cutadapt_out_Plate$K.txt 
     done
 
-Mostly 77-80%, which is normal.
+Mostly 77-80%, which is normal for the MiFish marker.
 
 ### Trim 5’ ends of reads
 
@@ -110,7 +105,16 @@ To see how much data passed the filter for each sample:
 
 ## 4. Denoise with dada2
 
-Same settings as usual.
+Prior to denoising, sequences are trimmed to a length of 133 and 138 bp
+for forward and reverse reads, respectively, and merged requiring a
+minimum overlap of 50 base pairs to prevent spurious overlaps. We found
+these settings maximized the number of paired-end reads that could be
+merged without losing sequences due to low-quality bases being retained
+at the 3’ ends of reads while also preventing incorrect merging of
+paired-end reads with shorter overlaps. The predicted overlap for the
+MiFish amplicon with 250 bp paired end sequencing and our trimming
+parameters is roughly 80-90 bp in length, so setting a minimum of 50 bp
+should be more than adequate (default is 12 bp).
 
 Note, this step can be a little slow to run.
 
@@ -172,8 +176,47 @@ Look good, blanks have low read numbers.
 
 ## 6. Assign taxonomy
 
-I will use the newest version of the database here. I copied it into
-this folder from the eider and guillemot folder where I made it.
+I will use the newest version of the database, which I copied it into
+this folder from the eider and guillemot project where I made it in June
+2025. The code I used to create it was:
+
+    qiime rescript get-ncbi-data \
+    --p-query '(12s[Title] OR \
+                12S[Title] OR \
+                "small subunit ribosomal RNA gene"[Title] OR \
+                "mitochondrion, complete genome"[Title] AND \
+                ("Chondrichthyes"[Organism] OR \
+                "Dipnomorpha"[Organism] OR \
+                "Actinopterygii"[Organism] OR \
+                "Myxini"[Organism] OR \
+                "Hyperoartia"[Organism] OR \
+                "Coelacanthimorpha"[Organism] OR \
+                fish[All Fields] OR \
+                "Sphenisciformes"[Organism] OR \
+                "Charadriiformes"[Organism] OR \
+                "Procellariiformes"[Organism] OR \
+                "Anseriformes"[Organism]))' \
+      --p-n-jobs 5 \
+      --o-sequences ncbi-refseqs-unfiltered.qza \
+      --o-taxonomy ncbi-taxonomy-unfiltered.qza  
+
+
+    qiime rescript cull-seqs \
+      --i-sequences ncbi-refseqs-unfiltered.qza \
+      --p-num-degenerates 5 \
+      --p-homopolymer-length 8 \
+      --p-n-jobs 4 \
+      --o-clean-sequences ncbi-refseqs-culled
+      
+    qiime rescript dereplicate \
+      --i-sequences ncbi-refseqs-culled.qza \
+      --i-taxa ncbi-taxonomy-unfiltered.qza \
+      --p-mode uniq \
+      --p-threads 4 \
+      --o-dereplicated-sequences ncbi-refseqs-culled-derep \
+      --o-dereplicated-taxa ncbi-taxonomy-culled-derep
+
+Run the taxonomy assignment:
 
     ./mktaxa_singlethreaded.py \
       ncbi-refseqs-withHuman.qza \
@@ -196,7 +239,7 @@ First look at what’s in there.
 
 ## 8. Remove non-food reads
 
-Filter out any sequences from the bird, mammals (human), bacteria,
+Filter out any sequences from the birds, mammals (human), bacteria,
 unnassigned etc. sequences since we’re not interested in these.
 
     qiime taxa filter-table \
@@ -221,10 +264,6 @@ Barplot having removed bird/human/unassigned DNA:
 ## 9. Read into R to calculate depth of samples and blanks
 
 ### Read in feature table, taxonomy, and metadata
-
-Going to do this on the onlymetazoa version of the data as I should
-include birds and mammals as potential contaminants. Make sure that file
-paths do not overwrite the MiFish ones.
 
 ``` r
 # Read in the QIIME 2 artifacts and metadata
@@ -467,110 +506,7 @@ all_plates_comparison$n[all_plates_comparison$Type == "PCRBLANK"] <- true_pcr_bl
 all_plates_comparison$PercentOfSample <- round((all_plates_comparison$MeanReads / sample_avg) * 100, 2)
 all_plates_comparison$PercentOfSample[all_plates_comparison$Type == "SAMPLE"] <- 100
 
-# Display plate-specific results first
-for(plate in names(plate_results)) {
-  cat(sprintf("\n### Read Depth Summary - Plate %s\n", plate))
-  print(knitr::kable(plate_results[[plate]], 
-                     caption = sprintf("Summary of read depths by sample type - Plate %s", plate),
-                     col.names = c("Type", "Plate", "Mean Reads", "Median Reads", "SD Reads", "n", "% of Sample Reads"),
-                     align = c('l', 'l', 'r', 'r', 'r', 'r', 'r')))
-  cat("\n")
-}
-```
 
-    ## 
-    ## ### Read Depth Summary - Plate 101
-    ## 
-    ## 
-    ## Table: Summary of read depths by sample type - Plate 101
-    ## 
-    ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
-    ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
-    ## |MOCK     |101   |  120662.00|       120662|       NA|  1|            119.03|
-    ## |PCRBLANK |101   |       0.00|            0|     0.00|  2|              0.00|
-    ## |SAMPLE   |101   |  101372.71|        89519| 66468.92| 85|            100.00|
-    ## |EXTBLANK |101   |       0.33|            2|       NA|  6|              0.00|
-    ## |FLDBLANK |101   |   30901.00|        30901|       NA|  1|             30.48|
-    ## 
-    ## 
-    ## ### Read Depth Summary - Plate 75
-    ## 
-    ## 
-    ## Table: Summary of read depths by sample type - Plate 75
-    ## 
-    ## |Type     |Plate | Mean Reads| Median Reads|  SD Reads|  n| % of Sample Reads|
-    ## |:--------|:-----|----------:|------------:|---------:|--:|-----------------:|
-    ## |MOCK     |75    |  339103.00|       339103|        NA|  1|            256.68|
-    ## |PCRBLANK |75    |       0.00|            0|      0.00|  2|              0.00|
-    ## |SAMPLE   |75    |  132110.25|       112035| 104761.16| 68|            100.00|
-    ## |EXTBLANK |75    |     104.83|           25|    327.68|  6|              0.08|
-    ## |FLDBLANK |75    |    1884.33|         1713|    455.83|  3|              1.43|
-    ## 
-    ## 
-    ## ### Read Depth Summary - Plate 99
-    ## 
-    ## 
-    ## Table: Summary of read depths by sample type - Plate 99
-    ## 
-    ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
-    ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
-    ## |MOCK     |99    |   66816.00|      66816.0|       NA|  1|            135.75|
-    ## |PCRBLANK |99    |       0.00|          0.0|     0.00|  3|              0.00|
-    ## |SAMPLE   |99    |   49220.06|       8918.5| 87641.52| 72|            100.00|
-    ## |EXTBLANK |99    |       0.00|          0.0|     0.00|  6|              0.00|
-    ## |FLDBLANK |99    |    2143.00|       3214.5|  2345.47|  3|              4.35|
-    ## 
-    ## 
-    ## ### Read Depth Summary - Plate 100
-    ## 
-    ## 
-    ## Table: Summary of read depths by sample type - Plate 100
-    ## 
-    ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
-    ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
-    ## |MOCK     |100   |   130655.0|       130655|       NA|  1|            109.26|
-    ## |PCRBLANK |100   |        0.0|            0|      0.0|  2|              0.00|
-    ## |SAMPLE   |100   |   119578.2|       106767| 100882.1| 73|            100.00|
-    ## |EXTBLANK |100   |        0.0|            0|      0.0|  6|              0.00|
-    ## |FLDBLANK |100   |     1092.5|         2185|       NA|  2|              0.91|
-    ## 
-    ## 
-    ## ### Read Depth Summary - Plate 102
-    ## 
-    ## 
-    ## Table: Summary of read depths by sample type - Plate 102
-    ## 
-    ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
-    ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
-    ## |MOCK     |102   |   386488.0|       386488|       NA|  1|            199.67|
-    ## |PCRBLANK |102   |        0.0|            0|      0.0|  1|              0.00|
-    ## |SAMPLE   |102   |   193564.1|       141453| 174110.9| 34|            100.00|
-    ## |EXTBLANK |102   |        0.0|            0|      0.0|  2|              0.00|
-    ## 
-    ## 
-    ## ### Read Depth Summary - Plate 76
-    ## 
-    ## 
-    ## Table: Summary of read depths by sample type - Plate 76
-    ## 
-    ## |Type     |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
-    ## |:--------|:-----|----------:|------------:|--------:|--:|-----------------:|
-    ## |MOCK     |76    |   190818.0|     190818.0|       NA|  1|            130.94|
-    ## |PCRBLANK |76    |        0.0|          0.0|      0.0|  2|              0.00|
-    ## |SAMPLE   |76    |   145724.5|     143198.5| 102663.7| 28|            100.00|
-    ## |EXTBLANK |76    |        0.0|          0.0|      0.0|  2|              0.00|
-    ## 
-    ## 
-    ## ### Read Depth Summary - Plate 109
-    ## 
-    ## 
-    ## Table: Summary of read depths by sample type - Plate 109
-    ## 
-    ## |Type   |Plate | Mean Reads| Median Reads| SD Reads|  n| % of Sample Reads|
-    ## |:------|:-----|----------:|------------:|--------:|--:|-----------------:|
-    ## |SAMPLE |109   |   12443.38|        13300|  4615.72| 13|               100|
-
-``` r
 # Display combined results
 cat("\n### Read Depth Summary - All Plates Combined\n")
 ```
@@ -611,8 +547,9 @@ if(knitr::opts_chunk$get("save_output")) {
 }
 ```
 
-The field blank on plate 101 has quite a few reads, but overall the
-field blank depth is 4.6% so it’s fine.
+The field blanks do have some reads, but at just 4.6% of the depth of
+the true samples, this is minimal and will not affect the conclusions of
+our paper. The extraction blanks and PCR blanks have virtually no reads.
 
 ## 13. Calculate alpha rarefaction curves
 
@@ -662,6 +599,11 @@ fewer than 300.
       --o-visualization barplot_noBirdsMammalsUnassigned_minfreq300
 
 ## 16. Abundance filtering
+
+Note that this is filtering out taxa that never reach more than 1%
+abundance in any sample. If a taxon has \>1% abundance in any sample,
+then all instances are kept, even if abundance is \<1% in an individual
+sample.
 
 ``` r
 library(qiime2R)
@@ -873,15 +815,15 @@ Make the edits needed after reading the taxonomy artifact into R.
 tax <- read_qza("MiFish/superblast_taxonomy.qza")
 ```
 
-Changes that I made for the first set of samples: \* Clupea harengus to
-Clupea pallasii.  
-\* Sprattus sprattus to Clupea pallasii.  
+Changes that I made for the first set of samples:  
+\* Clupea harengus to Clupea pallasii based on range.  
+\* Sprattus sprattus to Clupea pallasii based on range.  
 \* Gadus chalcogrammus to Gadus sp. (but most likely walleye pollock).  
 \* Microgradus proximus to Gadidae sp. (but most likely Pacific
 tomcod).  
 \* Stenobrachius leucopsarus to Stenobrachius sp.  
 \* Stenobrachius nannochir to Stenobrachius sp.  
-\* Spirinchus lanceolatus to Thaleichthys pacificus.  
+\* Spirinchus lanceolatus to Thaleichthys pacificus based on range.  
 \* Hexagrammos agrammus to Hexagrammos sp.  
 \* Hexagrammos octogrammus to Hexagrammos sp.  
 \* Sebastes babcocki to Sebastes sp.  
@@ -896,16 +838,18 @@ tomcod).
 \* Oncorhynchus nerka to Oncorhynchus sp.  
 \* Lycodapus mandibularis to Lycodapus sp.  
 \* Lycodapus microchir to Lycodapus sp.  
-\* Ammodytes personatus to A. dubius.
+\* Ammodytes personatus to A. dubius based on range.
 
 Additional changes for the second set of samples:  
-\* Poromitra cristiceps to Poromitra crassiceps based on range. \* Gadus
-macrocephalus to Gadus sp.  
+\* Poromitra cristiceps to Poromitra crassiceps based on range.  
+\* Gadus macrocephalus to Gadus sp.  
 \* Gadus ogac to Gadus sp.  
 \* Lampanyctus tenuiformis to Lampanyctus sp. (recent genus name
-changes). \* Nannobrachium regale to Lampanyctus sp. (recent genus name
-changes). \* Ruscarius creaseri to Cottidae (no close match). \*
-Cryptacanthodes aleutensis to Cryptacanthodes sp.  
+changes).  
+\* Nannobrachium regale to Lampanyctus sp. (recent genus name
+changes).  
+\* Ruscarius creaseri to Cottidae (no close match).  
+\* Cryptacanthodes aleutensis to Cryptacanthodes sp.  
 \* Polypera greeni to Liparis greeni (name change).  
 \* Sebastes miniatus to Sebeastes sp.
 
@@ -943,15 +887,8 @@ tax$data$Taxon <- tax$data$Taxon %>%
   str_replace_all("g__Hyperoplus;s__immaculatus", "g__Ammodytes;s__personatus")
 ```
 
-To check that it worked, you can search for the old or new names using
-grepl:
-
-``` r
-tax$data %>% filter(grepl("Ammodytes;s__dubius", Taxon)) %>% count()
-```
-
-    ##   n
-    ## 1 1
+To sanity check that it worked, you can search for the old or new names
+using grepl:
 
 ``` r
 tax$data %>% filter(grepl("Ammodytes;s__personatus", Taxon)) %>% count()
@@ -981,7 +918,7 @@ tax$data %>% filter(grepl("g__Clupea;s__pallasii", Taxon)) %>%  count()
     ##     n
     ## 1 557
 
-Export to check (commented out for knitting).
+Export (commented out for knitting).
 
 ``` r
 # write.table(tax$data,
@@ -1015,4 +952,4 @@ Remove the period and reload into qiime (run in terminal):
       --o-visualization barplot_minfreq300_minabund1_taxedited.qzv
 
 Downloaded this final dataset as a csv from the qiime viewer and this is
-what Katelyn is working with.
+what we used for the rest of the analyses.
