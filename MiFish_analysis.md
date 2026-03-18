@@ -10,9 +10,9 @@ Gemma Clucas
 
 ## 2. Import the data into Qiime2
 
-The data is saved across multiple plates: Plate75_2, Plate76, Plate99,
-Plate100, Plate101, Plate102, and Plate109 to minimise batch effects and
-because we had 2 year’s of sample collection.
+The samples were spread across multiple plates to reduce batch effects.
+Samples we analysed on plates: Plate75_2, Plate76, Plate99, Plate100,
+Plate101, Plate102, and Plate109.
 
     for K in 75_2 99 100 101 102; do
       qiime tools import\
@@ -105,18 +105,16 @@ To see how much data passed the filter for each sample:
 
 ## 4. Denoise with dada2
 
-Prior to denoising, sequences are trimmed to a length of 133 and 138 bp
+Prior to denoising, sequences were trimmed to a length of 133 and 138 bp
 for forward and reverse reads, respectively, and merged requiring a
-minimum overlap of 50 base pairs to prevent spurious overlaps. We found
+minimum overlap of 50 base pairs to prevent spurious overlaps. I found
 these settings maximized the number of paired-end reads that could be
 merged without losing sequences due to low-quality bases being retained
-at the 3’ ends of reads while also preventing incorrect merging of
+at the 3’ ends of reads, while also preventing incorrect merging of
 paired-end reads with shorter overlaps. The predicted overlap for the
 MiFish amplicon with 250 bp paired end sequencing and our trimming
 parameters is roughly 80-90 bp in length, so setting a minimum of 50 bp
 should be more than adequate (default is 12 bp).
-
-Note, this step can be a little slow to run.
 
     for K in 75_2 76 99 100 101 102 109; do
       qiime dada2 denoise-paired \
@@ -140,7 +138,7 @@ Create visualizations for the denoising stats.
         --o-visualization denoise_Plate$K.qzv
     done
 
-Look good, blanks have low read numbers.
+Look good, blanks have very low read numbers compared to samples.
 
 ## 5. Merge across plates
 
@@ -176,9 +174,10 @@ Look good, blanks have low read numbers.
 
 ## 6. Assign taxonomy
 
-I will use the newest version of the database, which I copied it into
-this folder from the eider and guillemot project where I made it in June
-2025. The code I used to create it was:
+I am using use the newest version of the fish 12S database downloaded
+from GenBank, which I copied it into this folder from the eider and
+guillemot project where I made it in June 2025. The code I used to
+create it was:
 
     qiime rescript get-ncbi-data \
     --p-query '(12s[Title] OR \
@@ -216,7 +215,17 @@ this folder from the eider and guillemot project where I made it in June
       --o-dereplicated-sequences ncbi-refseqs-culled-derep \
       --o-dereplicated-taxa ncbi-taxonomy-culled-derep
 
-Run the taxonomy assignment:
+The custom python script uses an iterative BLAST method to take each
+representative sequence from our samples and blast it 80 times against
+the custom database, increasing the percent identity incrementally from
+70 – 100 %, thus circumventing the limitation of the BLAST method, which
+keeps only the first hit that meets the search criteria, rather than the
+best hit.
+
+The script is available
+[here](https://github.com/GemmaClucas/UK-Gannets/blob/main/MiFish_2024/mktaxa_singlethreaded.py).
+
+Usage:
 
     ./mktaxa_singlethreaded.py \
       ncbi-refseqs-withHuman.qza \
@@ -238,9 +247,6 @@ First look at what’s in there.
       --o-visualization barplot_before_filtering.qzv
 
 ## 8. Remove non-food reads
-
-Filter out any sequences from the birds, mammals (human), bacteria,
-unnassigned etc. sequences since we’re not interested in these.
 
     qiime taxa filter-table \
       --i-table merged-table.qza \
@@ -547,14 +553,15 @@ if(knitr::opts_chunk$get("save_output")) {
 }
 ```
 
-The field blanks do have some reads, but at just 4.6% of the depth of
-the true samples, this is minimal and will not affect the conclusions of
-our paper. The extraction blanks and PCR blanks have virtually no reads.
+The field blanks have a read depth of just 4.6% of the depth of the
+samples, which is minimal and should not affect the conclusions of our
+paper. The extraction blanks and PCR blanks have virtually no reads,
+showing that contamination during lab work was essentially non-existent.
 
 ## 13. Calculate alpha rarefaction curves
 
-Must be done on collapsed table (because we don’t care about ASV
-diversity, just species diversity).
+Collapsing to level 7 to calculate species diversity (not ASV
+diversity).
 
     qiime taxa collapse \
       --i-table merged_table_noBirdsMammalsUnassigned.qza \
@@ -815,46 +822,12 @@ Make the edits needed after reading the taxonomy artifact into R.
 tax <- read_qza("MiFish/superblast_taxonomy.qza")
 ```
 
-Changes that I made for the first set of samples:  
-\* Clupea harengus to Clupea pallasii based on range.  
-\* Sprattus sprattus to Clupea pallasii based on range.  
-\* Gadus chalcogrammus to Gadus sp. (but most likely walleye pollock).  
-\* Microgradus proximus to Gadidae sp. (but most likely Pacific
-tomcod).  
-\* Stenobrachius leucopsarus to Stenobrachius sp.  
-\* Stenobrachius nannochir to Stenobrachius sp.  
-\* Spirinchus lanceolatus to Thaleichthys pacificus based on range.  
-\* Hexagrammos agrammus to Hexagrammos sp.  
-\* Hexagrammos octogrammus to Hexagrammos sp.  
-\* Sebastes babcocki to Sebastes sp.  
-\* Sebastes crameri to Sebastes sp.  
-\* Sebastes mentella to Sebastes sp.  
-\* Anoplarchus insignis to Anoplarchus sp.  
-\* Xiphister mucosus to Stichaeidae sp.  
-\* Oncorhynchus gorbuscha to Oncorhynchus sp.  
-\* Oncorhynchus keta to Oncorhynchus sp.  
-\* Oncorhynchus kisutch to Oncorhynchus sp.  
-\* Oncorhynchus mykiss to Oncorhynchus sp.  
-\* Oncorhynchus nerka to Oncorhynchus sp.  
-\* Lycodapus mandibularis to Lycodapus sp.  
-\* Lycodapus microchir to Lycodapus sp.  
-\* Ammodytes personatus to A. dubius based on range.
-
-Additional changes for the second set of samples:  
-\* Poromitra cristiceps to Poromitra crassiceps based on range.  
-\* Gadus macrocephalus to Gadus sp.  
-\* Gadus ogac to Gadus sp.  
-\* Lampanyctus tenuiformis to Lampanyctus sp. (recent genus name
-changes).  
-\* Nannobrachium regale to Lampanyctus sp. (recent genus name
-changes).  
-\* Ruscarius creaseri to Cottidae (no close match).  
-\* Cryptacanthodes aleutensis to Cryptacanthodes sp.  
-\* Polypera greeni to Liparis greeni (name change).  
-\* Sebastes miniatus to Sebeastes sp.
-
-Katelyn finished checking these and removed those that we don’t need
-anymore (after applying the 1% filter first this time around).
+Changes are made based on the following criteria:  
+\* Range of the fish must include Gulf of Alaska. If not, then change to
+the local species.  
+\* If there are multiple species with percent identity \>= 98% in the
+Gulf of Alaska, then the genus or family name is used (depending on
+whether all potential matches are in the same genus or not).
 
 ``` r
 tax$data$Taxon <- tax$data$Taxon %>%
@@ -887,8 +860,8 @@ tax$data$Taxon <- tax$data$Taxon %>%
   str_replace_all("g__Hyperoplus;s__immaculatus", "g__Ammodytes;s__personatus")
 ```
 
-To sanity check that it worked, you can search for the old or new names
-using grepl:
+To sanity check that it worked, search for the old or new names using
+grepl:
 
 ``` r
 tax$data %>% filter(grepl("Ammodytes;s__personatus", Taxon)) %>% count()
