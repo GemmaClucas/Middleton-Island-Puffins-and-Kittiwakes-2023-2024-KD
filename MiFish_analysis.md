@@ -313,10 +313,13 @@ read_depth_comparison <- complete_data %>%
   )
 ```
 
-    ## `summarise()` has grouped output by 'SampleID', 'Type'. You can override using
-    ## the `.groups` argument.
-    ## `summarise()` has grouped output by 'Type'. You can override using the
-    ## `.groups` argument.
+    ## `summarise()` has regrouped the output.
+    ## `summarise()` has regrouped the output.
+    ## ℹ Summaries were computed grouped by SampleID, Type, and Plate.
+    ## ℹ Output is grouped by SampleID and Type.
+    ## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+    ## ℹ Use `summarise(.by = c(SampleID, Type, Plate))` for per-operation grouping
+    ##   (`?dplyr::dplyr_by`) instead.
 
 ``` r
 # Create empty list to store results for each plate
@@ -432,8 +435,12 @@ all_plates_summary <- complete_data %>%
   )
 ```
 
-    ## `summarise()` has grouped output by 'SampleID'. You can override using the
-    ## `.groups` argument.
+    ## `summarise()` has regrouped the output.
+    ## ℹ Summaries were computed grouped by SampleID and Type.
+    ## ℹ Output is grouped by SampleID.
+    ## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+    ## ℹ Use `summarise(.by = c(SampleID, Type))` for per-operation grouping
+    ##   (`?dplyr::dplyr_by`) instead.
 
 ``` r
 # Get true numbers from metadata across all plates
@@ -607,10 +614,14 @@ fewer than 300.
 
 ## 16. Abundance filtering
 
-Note that this is filtering out taxa that never reach more than 1%
-abundance in any sample. If a taxon has \>1% abundance in any sample,
-then all instances are kept, even if abundance is \<1% in an individual
-sample.
+This is filtering out taxa that never reach more than 1% abundance in
+any sample. If a taxon has \>1% abundance in any sample, then all
+instances are kept, since this is likely to be a real occurrence rather
+than a sequencing artefact. Looking at our mock community samples, where
+we can easily distinguish sequencing artefacts from real data,
+sequencing artefacts never reached an abundance greater than 0.08% in
+any of the mock samples, but artefacts could be more common in samples
+with low template availability.
 
 ``` r
 library(qiime2R)
@@ -647,8 +658,12 @@ species_level_abundances <- feature_long %>%
   ungroup()
 ```
 
-    ## `summarise()` has grouped output by 'SampleID'. You can override using the
-    ## `.groups` argument.
+    ## `summarise()` has regrouped the output.
+    ## ℹ Summaries were computed grouped by SampleID and Taxonomy.
+    ## ℹ Output is grouped by SampleID.
+    ## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+    ## ℹ Use `summarise(.by = c(SampleID, Taxonomy))` for per-operation grouping
+    ##   (`?dplyr::dplyr_by`) instead.
 
 ``` r
 # Apply 1% filter per sample at species level
@@ -774,6 +789,8 @@ cat("Percentage of reads retained:", round(total_reads_after/total_reads_before 
 ```
 
     ## Percentage of reads retained: 99.95 %
+
+99.95% of reads are kept after abundance filtering.
 
 ### Import back into qiime
 

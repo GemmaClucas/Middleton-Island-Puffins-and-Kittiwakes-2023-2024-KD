@@ -583,7 +583,8 @@ qiime taxa barplot \
 ```
 
 ## 16. Abundance filtering
-Note that this is filtering out taxa that never reach more than 1% abundance in any sample. If a taxon has >1% abundance in any sample, then all instances are kept, even if abundance is <1% in an individual sample.
+
+This is filtering out taxa that never reach more than 1% abundance in any sample. If a taxon has >1% abundance in any sample, then all instances are kept, since this is likely to be a real occurrence rather than a sequencing artefact. Looking at our mock community samples, where we can easily distinguish sequencing artefacts from real data, sequencing artefacts never reached an abundance greater than 0.08% in any of the mock samples, but artefacts could be more common in samples with low template availability.
 
 ```{r}
 library(qiime2R)
@@ -700,6 +701,8 @@ cat("\nTotal reads before filtering:", total_reads_before, "\n")
 cat("Total reads after filtering:", total_reads_after, "\n")
 cat("Percentage of reads retained:", round(total_reads_after/total_reads_before * 100, 2), "%\n")
 ```
+
+99.95% of reads are kept after abundance filtering.
 
 ### Import back into qiime
 ```
