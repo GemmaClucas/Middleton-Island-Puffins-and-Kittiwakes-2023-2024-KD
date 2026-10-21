@@ -5,16 +5,9 @@ Gemma Clucas
 
 ## 1. Import the data
 
-Data is spread across plate 75, 76, 99, 100, 101, and 102. Plate 76 and
+Data is spread across plates 75, 76, 99, 100, 101, and 102. Plate 76 and
 102 I combined into one plate for PCR and sequencing, as they were both
 partial extraction plates.
-
-For some reason, there were hidden copies of all files in the folders
-for plate 100 and 101, which I had to get rid of (viewed them with
-`ls -a` and delete with `rm .*`) before I could import into qiime.
-
-There were also five LESP samples from Mat Rock on plate 76, so I moved
-them out to their own folder
 
     cd /Users/gc547/Dropbox/GitHub_copied/Fecal_metabarcoding/Middleton-Island_2023-2024_KD/18S
     conda activate qiime2-amplicon-2024.10 
@@ -147,9 +140,8 @@ Create visualizations for the denoising stats.
 
 ## 5. Assign taxonomy using Naive Bayes classifier
 
-I am going to use the same classifier that I trained for Will
-Kennerley’s puffin samples on the SILVA-132 database. The code I used
-for training it was:
+I am going to use the same classifier that I had previously trained on
+the SILVA-132 database. The code I used for training it was:
 
     # import database fasta file
     qiime tools import \
@@ -179,7 +171,7 @@ for training it was:
       --i-reference-taxonomy silva_132_99_18S_taxonomy.qza \
       --o-classifier classifier.qza
 
-Run the classifier on our samples:
+Run the classifier on these samples:
 
     qiime feature-classifier classify-sklearn \
       --i-classifier classifier.qza \
@@ -274,10 +266,13 @@ read_depth_comparison <- complete_data %>%
   )
 ```
 
-    ## `summarise()` has grouped output by 'SampleID', 'Type'. You can override using
-    ## the `.groups` argument.
-    ## `summarise()` has grouped output by 'Type'. You can override using the
-    ## `.groups` argument.
+    ## `summarise()` has regrouped the output.
+    ## `summarise()` has regrouped the output.
+    ## ℹ Summaries were computed grouped by SampleID, Type, and Plate.
+    ## ℹ Output is grouped by SampleID and Type.
+    ## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+    ## ℹ Use `summarise(.by = c(SampleID, Type, Plate))` for per-operation grouping
+    ##   (`?dplyr::dplyr_by`) instead.
 
 ``` r
 # Create empty list to store results for each plate
@@ -393,8 +388,12 @@ all_plates_summary <- complete_data %>%
   )
 ```
 
-    ## `summarise()` has grouped output by 'SampleID'. You can override using the
-    ## `.groups` argument.
+    ## `summarise()` has regrouped the output.
+    ## ℹ Summaries were computed grouped by SampleID and Type.
+    ## ℹ Output is grouped by SampleID.
+    ## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+    ## ℹ Use `summarise(.by = c(SampleID, Type))` for per-operation grouping
+    ##   (`?dplyr::dplyr_by`) instead.
 
 ``` r
 # Get true numbers from metadata across all plates
@@ -556,8 +555,8 @@ Drop the mock and blanks.
 
 ### Abundance filtering
 
-This is simplest to do on the collapsed version of the table, so it’s
-making calcs at level 6 and not the species/ASV level.
+This is done on the collapsed version of the table, so it’s making calcs
+at level 6 and not the species/ASV level.
 
     qiime taxa collapse \
       --i-table merged_table_onlyprey_minfreq100.qza \
@@ -709,6 +708,4 @@ Make a barplot with the new taxonomy file
       --o-visualization barplot_level6_minfreq100_minabund1.qzv
 
 Downloaded the csv as “v2” as the original one had more stringent
-abundance filtering (removing any instance where a taxon had less than
-1% abunance in a sample). This version just removed taxa that never
-reached more than 1% abundance in any sample.
+abundance filtering (which was a mistake in my code).
