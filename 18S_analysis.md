@@ -518,10 +518,10 @@ blanks 0.65% and PCR blanks \<0.01% - great!
 
 ## Decontam testing
 
-Going to run on the TUPU samples and their associated field blanks (n =
-4). These samples and blanks were collected from the ground/vegetation
-and so were not collected from pre-cleaned surfaces, presenting a
-greater risk of contamination from the field affecting results.
+Going to run decontam on the TUPU samples and their associated field
+blanks (n = 4). These samples and blanks were collected from the
+ground/vegetation and so were not collected from pre-cleaned surfaces,
+presenting a greater risk of contamination affecting results.
 
     qiime feature-table filter-samples \
       --i-table merged-table_onlyprey.qza \
@@ -546,8 +546,8 @@ greater risk of contamination from the field affecting results.
       --p-bin-size 0.05 \
       --o-visualization decontam_score_viz.qzv
 
-Decontam does not identify the sequences from the field blanks as
-significant contaminants:
+Decontam does not identify significant contaminants when comparing our
+field blanks and true samples:
 
 ![](18S/decontam_score_histogram.png)
 

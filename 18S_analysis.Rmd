@@ -494,7 +494,7 @@ Field blanks have a depth of 1.59% compared to samples. Extraction blanks 0.65% 
 
 ## Decontam testing
 
-Going to run on the TUPU samples and their associated field blanks (n = 4). These samples and blanks were collected from the ground/vegetation and so were not collected from pre-cleaned surfaces, presenting a greater risk of contamination from the field affecting results.
+Going to run decontam on the TUPU samples and their associated field blanks (n = 4). These samples and blanks were collected from the ground/vegetation and so were not collected from pre-cleaned surfaces, presenting a greater risk of contamination affecting results.
 
 ```
 qiime feature-table filter-samples \
@@ -521,7 +521,7 @@ qiime quality-control decontam-score-viz \
   --o-visualization decontam_score_viz.qzv
 ```
 
-Decontam does not identify the sequences from the field blanks as significant contaminants:
+Decontam does not identify significant contaminants when comparing our field blanks and true samples:
 
 ![](18S/decontam_score_histogram.png)
 
