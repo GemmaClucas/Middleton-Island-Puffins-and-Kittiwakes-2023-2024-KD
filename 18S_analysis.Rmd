@@ -492,6 +492,42 @@ if(knitr::opts_chunk$get("save_output")) {
 
 Field blanks have a depth of 1.59% compared to samples. Extraction blanks 0.65% and PCR blanks <0.01% - great!
 
+## Decontam testing
+
+Going to run on the TUPU samples and their associated field blanks (n = 4). These samples and blanks were collected from the ground/vegetation and so were not collected from pre-cleaned surfaces, presenting a greater risk of contamination from the field affecting results.
+
+```
+qiime feature-table filter-samples \
+  --i-table merged-table_onlyprey.qza \
+  --m-metadata-file metadata.txt \
+  --p-where "Species='TUPU' OR Species='FLDBLANK'" \
+  --o-filtered-table merged_table_onlyprey_TUPU_FLDBLANK.qza 
+
+qiime quality-control decontam-identify \
+  --i-table merged_table_onlyprey_TUPU_FLDBLANK.qza \
+  --m-metadata-file metadata.txt \
+  --p-method prevalence \
+  --p-prev-control-column Type \
+  --p-prev-control-indicator FLDBLANK  \
+  --o-decontam-scores prev_decontam_scores.qza
+  
+qiime quality-control decontam-score-viz \
+  --i-decontam-scores prev_decontam_scores.qza \
+  --i-table merged_table_onlyprey_TUPU_FLDBLANK.qza \
+  --i-rep-seqs merged_rep-seqs.qza \
+  --p-threshold 0.1 \
+  --p-no-weighted \
+  --p-bin-size 0.05 \
+  --o-visualization decontam_score_viz.qzv
+```
+
+Decontam does not identify the sequences from the field blanks as significant contaminants:
+
+![](18S/decontam_score_histogram.png)
+
+
+
+
 ## 8. Alpha rarefaction 
 ```
 qiime taxa collapse \
