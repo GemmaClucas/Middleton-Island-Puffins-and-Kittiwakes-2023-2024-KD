@@ -565,6 +565,46 @@ samples, which is minimal and should not affect the conclusions of our
 paper. The extraction blanks and PCR blanks have virtually no reads,
 showing that contamination during lab work was essentially non-existent.
 
+## Read depth comparison
+
+``` r
+source("/Users/gc547/Dropbox/GitHub_copied/Fecal_metabarcoding/Scripts/read_depth_analysis.R")
+
+results <- analyze_read_depths(
+  feature_table_path = "MiFish/merged_table_noBirdsMammalsUnassigned.qza",
+  taxonomy_path = "MiFish/superblast_taxonomy.qza",
+  metadata_path = "MiFish/metadata.txt",
+  output_folder = "MiFish/",  
+  save_output = TRUE
+)
+```
+
+    ## `summarise()` has regrouped the output.
+    ## `summarise()` has regrouped the output.
+    ## `summarise()` has regrouped the output.
+    ## ℹ Summaries were computed grouped by SampleID, Type, and Plate.
+    ## ℹ Output is grouped by SampleID and Type.
+    ## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+    ## ℹ Use `summarise(.by = c(SampleID, Type, Plate))` for per-operation grouping
+    ##   (`?dplyr::dplyr_by`) instead.
+
+    ## 
+    ## ### Read Depth Summary - All Plates Combined
+    ## 
+    ## 
+    ## Table: Summary of read depths by sample type - All Plates Combined
+    ## 
+    ## |Type     | Mean Reads| Median Reads|  SD Reads|   n| % of Sample Reads|
+    ## |:--------|----------:|------------:|---------:|---:|-----------------:|
+    ## |MOCK     |  205757.00|     160736.5| 128727.69|   6|            188.58|
+    ## |PCRBLANK |       0.00|          0.0|      0.00|  12|              0.00|
+    ## |SAMPLE   |  109105.79|      84203.0| 108491.56| 373|            100.00|
+    ## |EXTBLANK |      21.03|         20.5|    286.99|  30|              0.02|
+    ## |FLDBLANK |    5018.67|       2185.0|  10843.06|   9|              4.60|
+
+The field blanks have a read depth of 4.6% of the depth of the samples.
+The extraction blanks and PCR blanks have virtually no reads.
+
 ## 13. Calculate alpha rarefaction curves
 
 Collapsing to level 7 to calculate species diversity (not ASV

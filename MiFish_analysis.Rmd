@@ -535,6 +535,22 @@ if(knitr::opts_chunk$get("save_output")) {
 
 The field blanks have a read depth of just 4.6% of the depth of the samples, which is minimal and should not affect the conclusions of our paper. The extraction blanks and PCR blanks have virtually no reads, showing that contamination during lab work was essentially non-existent.
 
+## Read depth comparison
+
+```{r}
+source("/Users/gc547/Dropbox/GitHub_copied/Fecal_metabarcoding/Scripts/read_depth_analysis.R")
+
+results <- analyze_read_depths(
+  feature_table_path = "MiFish/merged_table_noBirdsMammalsUnassigned.qza",
+  taxonomy_path = "MiFish/superblast_taxonomy.qza",
+  metadata_path = "MiFish/metadata.txt",
+  output_folder = "MiFish/",  
+  save_output = TRUE
+)
+```
+
+The field blanks have a read depth of 4.6% of the depth of the samples. The extraction blanks and PCR blanks have virtually no reads.
+
 ## 13. Calculate alpha rarefaction curves 
 
 Collapsing to level 7 to calculate species diversity (not ASV diversity).
